@@ -1,10 +1,42 @@
 /* =================================================================== */
+/* Font
+====================================================================== */
+@font-face{
+    font-family: 'bmitra';
+    src: url('../fonts/BMitra.eot');
+    src: url('../fonts/BMitra.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/BMitra.woff') format('woff'),
+         url('../fonts/BMitra.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* =================================================================== */
+/* Font
+====================================================================== */
+.ltr{
+	direction: ltr;
+}
+
+.rtl{
+	direction: rtl;
+}
+
+.latin-font{
+	font-family: Arial, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,a,p,strong,input,span,label,textarea{
+	direction: rtl;
+	font-family: 'bmitra' !important;
+	font-weight: normal !important;
+}
+/* =================================================================== */
 /* Boxed Layout
 ====================================================================== */
 
 	body {
 		background: url(../images/bg.png);
-		font: 12px Arial, sans-serif;
+		font-family: 'bmitra';
 		color: #666;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <!--[if IE 7 ]>
 	<html class="ie ie7" lang="fa">
 <![endif]-->
@@ -11,7 +10,6 @@
 <!--<![endif]-->
 
 <head>
-
 <!-- Basic Page Needs
 ================================================== -->
 <meta charset="utf-8">
@@ -49,108 +47,91 @@
 
 <!-- Wrapper Start -->
 <div id="wrapper">
-
-
 <!-- Header
 ================================================== -->
-
 <!-- 960 Container -->
 <div class="container ie-dropdown-fix">
-
 	<!-- Header -->
 	<div id="header">
-
 		<!-- Logo -->
 		<div class="eight columns">
 			<div id="logo">
 				<a href="#"><img src="themes/images/logo.png" alt="logo"></a>
-				<div id="tagline">It's time to impress your visitors!</div>
 				<div class="clear"></div>
 			</div>
 		</div>
-
 		<!-- Social / Contact -->
-		<div class="eight columns">
-			
+		<div class="eight columns">	
 			<!-- Social Icons -->
 			<ul class="social-icons">
-				<li class="facebook"><a href="#">Facebook</a></li>
-				<li class="twitter"><a href="#">Twitter</a></li>
-				<li class="dribbble"><a href="#">Dribbble</a></li>
-				<li class="linkedin"><a href="#">LinkedIn</a></li>
-				<li class="pintrest"><a href="#">Pintrest</a></li>
-			</ul>
-			
-			<div class="clear"></div>
-			
+				<li class="facebook"><a href="#"></a></li>
+				<li class="twitter"><a href="#"></a></li>
+				<li class="dribbble"><a href="#"></a></li>
+				<li class="linkedin"><a href="#"></a></li>
+				<li class="pintrest"><a href="#"></a></li>
+			</ul>		
+			<div class="clear"></div>		
 			<!-- Contact Details -->
-			<div id="contact-details">
+			<div id="contact-details" class="latin-font">
 				<ul>
-					<li><i class="mini-ico-envelope"></i><a href="#">support@centum.com</a></li>
-					<li><i class="mini-ico-user"></i>+48 880 450 120</li>
+					<li><i class="mini-ico-envelope"></i><script type="text/javascript">
+
+                                        emailE='soushain.co'
+                                        emailE=('info' + '@' + emailE)
+                                        document.write('<a href="mailto:' + emailE + '">' + emailE + '</a>')
+
+                                    </script></li>
+					<li><i class="mini-ico-user"></i>+98 511 609 0609</li>
 				</ul>
 			</div>
-
 		</div>
-
 	</div>
-	<!-- Header / End -->
-	
+	<!-- Header / End -->	
 	<!-- Navigation -->
 	<div class="sixteen columns">
-
 		<div id="navigation">
 			<ul id="nav">
+				<li><a id="current" href="index.html">صفحه اصلی</a></li>
+				<li><a href="#">درباره ما</a>
+					<!-- <ul>
+						<li><a href="full_width.html">Full Width</a></li>
+						<li><a href="about-us.html">About Us</a></li>
+						<li><a href="services.html">Services</a></li>
+						<li><a href="pricing_tables.html">Pricing Tables</a></li>
+						<li><a href="flexslider.html">FlexSlider</a></li>
 
-				<li><a id="current" href="index.html">Home</a></li>
-
-				<li><a href="#">Features</a>
-					<ul>
-					<li><a href="full_width.html">Full Width</a></li>
-					<li><a href="about-us.html">About Us</a></li>
-					<li><a href="services.html">Services</a></li>
-					<li><a href="pricing_tables.html">Pricing Tables</a></li>
-					<li><a href="flexslider.html">FlexSlider</a></li>
-
-					<li><a href="#">Page Templates</a>
-						<ul>
-							<li><a href="sidebar_right.html">Sidebar Right</a></li>
-							<li><a href="sidebar_left.html">Sidebar Left</a></li>
-							<li><a href="blog_post.html">Single Post</a></li>
-							<li><a href="single_project.html">Single Project</a></li>
-						</ul>
-					</li>
-					</ul>
+						<li><a href="#">Page Templates</a>
+							<ul>
+								<li><a href="sidebar_right.html">Sidebar Right</a></li>
+								<li><a href="sidebar_left.html">Sidebar Left</a></li>
+								<li><a href="blog_post.html">Single Post</a></li>
+								<li><a href="single_project.html">Single Project</a></li>
+							</ul>
+						</li>
+					</ul> -->
 				</li>
-
-				<li><a href="shortcodes.html">Shortcodes</a></li>
-
-				<li><a href="#">Portfolio</a>
-					<ul>
+				<li><a href="#">خدمات</a></li>
+				<li><a href="#">پروژه ها</a>
+					<!-- <ul>
 						<li><a href="portfolio_2.html">2 Columns</a></li>
 						<li><a href="portfolio_3.html">3 Columns</a></li>
 						<li><a href="portfolio_4.html">4 Columns</a></li>
 						<li><a href="single_project.html">Single Project</a></li>
-					</ul>
+					</ul> -->
 				</li>
 
-				<li><a href="blog.html">Blog</a></li>
-				<li><a href="contact.html">Contact</a></li>
-
+				<li><a href="#">اخبار</a></li>
+				<li><a href="#">تماس با ما</a></li>
 			</ul>
-
 			<!-- Search Form -->
 			<div class="search-form">
 				<form method="get" action="#">
 					<input type="text" class="search-text-box">
 				</form>
 			</div>
-
 		</div> 
 		<div class="clear"></div>
-		
 	</div>
 	<!-- Navigation / End -->
-
 </div>
 <!-- 960 Container / End -->
