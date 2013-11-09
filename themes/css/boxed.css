@@ -21,6 +21,14 @@
 	direction: rtl;
 }
 
+.right{
+	float: right !important;
+}
+
+.left{
+	float: left !important;
+}
+
 .latin-font{
 	font-family: Arial, sans-serif;
 }
