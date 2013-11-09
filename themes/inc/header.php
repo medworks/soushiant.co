@@ -91,8 +91,8 @@
 	<div class="sixteen columns">
 		<div id="navigation">
 			<ul id="nav">
-				<li><a id="current" href="index.html">صفحه اصلی</a></li>
-				<li><a href="#">درباره ما</a>
+				<li><a href="./">صفحه اصلی</a></li>
+				<li><a href="about-us.html">درباره ما</a>
 					<!-- <ul>
 						<li><a href="full_width.html">Full Width</a></li>
 						<li><a href="about-us.html">About Us</a></li>
