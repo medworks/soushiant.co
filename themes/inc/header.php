@@ -110,7 +110,7 @@
 						</li>
 					</ul> -->
 				</li>
-				<li><a href="#">خدمات</a></li>
+				<li><a href="services.html">خدمات</a></li>
 				<li><a href="#">پروژه ها</a>
 					<!-- <ul>
 						<li><a href="portfolio_2.html">2 Columns</a></li>

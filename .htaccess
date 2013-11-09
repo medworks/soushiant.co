@@ -8,6 +8,7 @@ deny from all
 	RewriteRule ^index.html soushiant.co/index.php [L]
 	RewriteRule ^search.html soushiant.co/index.php?item=search&act=do [L]
 	RewriteRule ^about-us.html soushiant.co/index.php?item=about [L]
+	RewriteRule ^services.html soushiant.co/index.php?item=services [L]
 	RewriteRule ^gallery.html soushiant.co/index.php?item=gallery [L]
 	RewriteRule ^articles.html soushiant.co/index.php?item=articles [L]
 	RewriteRule ^contact.html soushiant.co/index.php?item=contact [L]

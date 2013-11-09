@@ -18,6 +18,10 @@
 				$seo->Site_Describtion = mb_substr(GetSettingValue('About_System',1),0,150,"UTF-8");
                 return "themes/about.php";
 			break;
+			case 'services':
+				$seo->Site_Title = "خدمات";	
+                return "themes/services.php";
+			break;
 			case 'contact':			    			
 				$seo->Site_Title = "تماس با ما";
 				$seo->Site_Describtion = mb_substr(GetSettingValue('Address',1),0,150,"UTF-8");

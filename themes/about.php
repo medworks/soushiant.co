@@ -26,7 +26,6 @@ $html=<<<cd
 			</div>
 			<!-- Standard Structure End -->
 		</div>
-	</div>
 cd;
 	return $html;
 ?>

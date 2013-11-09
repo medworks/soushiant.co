@@ -13,5 +13,3 @@
 		</div>
 	</div>
 	<!-- 960 Container / End -->
-</div>
-<!-- Wrapper / End -->

@@ -33,7 +33,7 @@
 	font-family: Arial, sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6,a,p,strong,input,span,label,textarea{
+h1,h2,h3,h4,h5,h6,a,p,strong,input,span,label,textarea,li{
 	direction: rtl;
 	font-family: 'bmitra' !important;
 	font-weight: normal !important;
