@@ -94,7 +94,7 @@
 				<li><a href="./">صفحه اصلی</a></li>
 				<li><a href="about-us.html">درباره ما</a>
 					<!-- <ul>
-						<li><a href="full_width.html">Full Width</a></li>
+						<li><a href="full_width.html">درباره ما</a></li>
 						<li><a href="about-us.html">About Us</a></li>
 						<li><a href="services.html">Services</a></li>
 						<li><a href="pricing_tables.html">Pricing Tables</a></li>
@@ -102,7 +102,7 @@
 
 						<li><a href="#">Page Templates</a>
 							<ul>
-								<li><a href="sidebar_right.html">Sidebar Right</a></li>
+								<li><a href="sidebar_right.html">درباره ما</a></li>
 								<li><a href="sidebar_left.html">Sidebar Left</a></li>
 								<li><a href="blog_post.html">Single Post</a></li>
 								<li><a href="single_project.html">Single Project</a></li>
