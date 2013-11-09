@@ -72,16 +72,16 @@
 			</ul>		
 			<div class="clear"></div>		
 			<!-- Contact Details -->
-			<div id="contact-details" class="latin-font">
+			<div id="contact-details">
 				<ul>
-					<li><i class="mini-ico-envelope"></i><script type="text/javascript">
+					<li class="latin-font"><i class="mini-ico-envelope"></i><script type="text/javascript">
 
                                         emailE='soushain.co'
                                         emailE=('info' + '@' + emailE)
                                         document.write('<a href="mailto:' + emailE + '">' + emailE + '</a>')
 
                                     </script></li>
-					<li><i class="mini-ico-user"></i>+98 511 609 0609</li>
+					<li class="latin-font"><i class="mini-ico-user"></i>+98 511 609 0609</li>
 				</ul>
 			</div>
 		</div>
