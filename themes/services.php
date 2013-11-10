@@ -21,7 +21,7 @@ $html=<<<cd
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-cogwheel" style="margin-left: -12px;"></i>
-						<h3><a href="#service1" class="service">خدمت اول</a></h3>
+						<h3><a href="#service1">خدمت اول</a></h3>
 						<p>شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... </p>
 					</div>
 				</div>
@@ -30,7 +30,7 @@ $html=<<<cd
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-cogwheel"></i>
-						<h3><a href="#service2" class="service">Social Marketing</a></h3>
+						<h3><a href="#service2">Social Marketing</a></h3>
 						<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Mauris ut ligula tortorea lorem ipsum dolor sit amet gorbi vel nulla eget quam porttitor gravida.</p>
 					</div>
 				</div>

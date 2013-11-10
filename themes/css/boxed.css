@@ -33,6 +33,10 @@
 	font-family: Arial, sans-serif !important;
 }
 
+.price-table{
+	cursor: pointer;
+}
+
 h1,h2,h3,h4,h5,h6,a,p,strong,input,span,label,textarea,li{
 	direction: rtl;
 	font-family: 'bmitra' !important;
