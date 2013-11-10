@@ -37,7 +37,7 @@
 	cursor: pointer;
 }
 
-h1,h2,h3,h4,h5,h6,a,p,strong,input,span,label,textarea,li{
+h1,h2,h3,h4,h5,h6,a,p,strong,input,span,label,textarea,li,strong{
 	direction: rtl;
 	font-family: 'bmitra' !important;
 	font-weight: normal !important;

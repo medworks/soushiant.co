@@ -120,6 +120,7 @@
 	h4 { font-size: 20px; line-height: 30px; }
 	h5 { font-size: 15px; line-height: 24px; }
 	h6 { font-size: 12px; line-height: 21px; }
+	strong { font-size: 19px; }
 
 	p { margin: 0 0 15px 0; line-height: 25px;}
 	p img { margin: 0; }

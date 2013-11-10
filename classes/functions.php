@@ -42,8 +42,8 @@
 				$seo->Site_Title = "پروژه ها";
                 if ($act=="do") return "themes/projects.php";
             break;
-            case 'fullworks':
-                if ($act=="do") return "themes/single-works.php";
+            case 'fullproject':
+                if ($act=="do") return "themes/single-project.php";
             break;			          
             case 'news':
 				$seo->Site_Title = "اخبار";

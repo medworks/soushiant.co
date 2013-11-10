@@ -25,7 +25,7 @@ $html=<<<cd
 			<div id="portfolio-wrapper">
 				<!-- 1/4 Column -->
 				<div class="four columns portfolio-item 1">
-					<div class="picture"><a href="#"><img src="themes/images/demo/portoflio-02.jpg" alt=""><div class="image-overlay-link"></div></a></div>
+					<div class="picture"><a href="project-fullpage1.html"><img src="themes/images/demo/portoflio-02.jpg" alt=""><div class="image-overlay-link"></div></a></div>
 					<div class="item-description alt">
 						<h5><a href="#">سربرگ یک</a></h5>
 						<p>توضیح سربرگ اول.. توضیح سربرگ اول.. توضیح سربرگ اول.. توضیح سربرگ اول.. توضیح سربرگ اول.. توضیح سربرگ اول.. </p>
@@ -124,6 +124,5 @@ $html=<<<cd
 		</div>
 cd;
 	return $html;
-	include_once('inc/partner.php');
 
 ?>
