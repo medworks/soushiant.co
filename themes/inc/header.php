@@ -120,7 +120,7 @@
 					</ul> -->
 				</li>
 				<li><a href="projects.html">پروژه ها</a></li>
-				<li><a href="#">اخبار</a></li>
+				<li><a href="news.html">اخبار</a></li>
 				<li><a href="#">تماس با ما</a></li>
 			</ul>
 			<!-- Search Form -->

@@ -47,7 +47,7 @@
             break;			          
             case 'news':
 				$seo->Site_Title = "اخبار";
-                if ($act=="do") return "themes/default/news.php";
+                if ($act=="do") return "themes/news.php";
 			break;
 			case 'fullnews':
                 if ($act=="do") return "themes/single-news.php";

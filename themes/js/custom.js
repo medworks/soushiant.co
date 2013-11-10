@@ -410,8 +410,8 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 	    }else if(url.match(/page/i)){
 	        var href= window.location.href.substr(url.indexOf("/"));
 	        href= href.split('-');
-	        href= href[0].split('/');           
-	        $('#navigation a[href*="'+href[3]+'"]').parent().addClass('current');
+	        href= href[0].split('/');
+	        $('#navigation > ul > li > a[href*="'+href[3]+'"]').addClass('current');
 	    }
 	});
 	
