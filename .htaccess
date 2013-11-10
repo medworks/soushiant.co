@@ -14,7 +14,7 @@ deny from all
 	RewriteRule ^articles.html soushiant.co/index.php?item=articles [L]
 	RewriteRule ^contact.html soushiant.co/index.php?item=contact [L]
 	RewriteRule ^news.html soushiant.co/index.php?item=news&act=do [L]
-	RewriteRule ^works.html soushiant.co/index.php?item=works&act=do [L]
+	RewriteRule ^projects.html soushiant.co/index.php?item=projects&act=do [L]
 	RewriteRule ^news-fullpage([0-9]+).html soushiant.co/index.php?item=fullnews&act=do&wid=$1 [L]
 	RewriteRule ^work-fullpage([0-9]+).html soushiant.co/index.php?item=fullworks&act=do&wid=$1 [L]
 	RewriteRule ^article-fullpage([0-9]+).html soushiant.co/index.php?item=fullarticles&act=do&wid=$1 [L]		

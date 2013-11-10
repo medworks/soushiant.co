@@ -345,9 +345,13 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 /*	Isotope Portfolio Filter
 /*----------------------------------------------------*/
 	$(window).load(function(){
+		$.Isotope.prototype._positionAbs = function( x, y ) {
+		  return { right: x, top: y };
+		};
 		$('#portfolio-wrapper').isotope({
 			  itemSelector : '.portfolio-item',
-				layoutMode : 'fitRows'
+				layoutMode : 'fitRows',
+				transformsEnabled: false,
 		});
 		$('#filters a.selected').trigger("click");
 	});

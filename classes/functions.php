@@ -38,9 +38,9 @@
 			case 'dashboard':
 				if ($act=="do") return "dashboard.php";
 			break;	
-            case 'works':
-				$seo->Site_Title = "کارهای ما";
-                if ($act=="do") return "themes/works.php";
+            case 'projects':
+				$seo->Site_Title = "پروژه ها";
+                if ($act=="do") return "themes/projects.php";
             break;
             case 'fullworks':
                 if ($act=="do") return "themes/single-works.php";
