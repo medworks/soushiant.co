@@ -11,7 +11,21 @@
         include_once("./lib/persiandate.php");
         $db = database::GetDatabase();
 //------------------------------- header slides part -------------------------
-		$slides = $db->SelectAll("slides","*");				
+		$slides = $db->SelectAll("slides","*");	
+//------------------------------- news part -------------------------	
+        $news = $db->SelectAll("news","*",null,"ndate DESC","0","3");
+		$news[0]["body"] =(mb_strlen($articles[0]["body"])>150)?
+                mb_substr(html_entity_decode(strip_tags($news[0]["body"]), ENT_QUOTES, "UTF-8"), 0, 150,"UTF-8") . "..." :
+                html_entity_decode(strip_tags($news[0]["body"]), ENT_QUOTES, "UTF-8");		
+		$news[1]["body"] =(mb_strlen($news[1]["body"])>60)?
+                mb_substr(html_entity_decode(strip_tags($news[1]["body"]), ENT_QUOTES, "UTF-8"), 0, 60,"UTF-8") . "..." :
+                html_entity_decode(strip_tags($news[1]["body"]), ENT_QUOTES, "UTF-8");
+        $news[2]["body"] =(mb_strlen($news[2]["body"])>60)?
+                mb_substr(html_entity_decode(strip_tags($news[2]["body"]), ENT_QUOTES, "UTF-8"), 0, 60,"UTF-8") . "..." :
+                html_entity_decode(strip_tags($news[2]["body"]), ENT_QUOTES, "UTF-8");				
+		$news[0]["ndate"] = ToJalali($news[0]["ndate"]," l d F  Y");
+		$news[1]["ndate"] = ToJalali($news[1]["ndate"]," l d F  Y");
+		$news[2]["ndate"] = ToJalali($news[2]["ndate"]," l d F  Y");
 		
 $html=<<<cd
 	<!-- Content  ========================================= -->
@@ -43,15 +57,22 @@ $html.=<<<cd
 	<div class="container">
 		<!-- Icon Boxes -->
 		<div class="icon-box-container">
+cd;
+foreach($news as $key=>$val)
+{
+$html.=<<<cd
 			<!-- Icon Box Start -->
 			<div class="one-third column">
 				<div class="icon-box">
 					<i class="ico-bookmark" style="margin-left: -10px;"></i>
-					<h3>سربرگ</h3>
-					<p>توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... </p>
+					<h3>{$val["subject"]}</h3>
+					<p>{$val["body"]}</p>
 				</div>
 			</div>
 			<!-- Icon Box End -->
+cd;
+}
+$html.=<<<cd
 			<!-- Icon Box Start -->
 			<div class="one-third column">
 				<div class="icon-box">
