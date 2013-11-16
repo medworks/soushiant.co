@@ -16,65 +16,33 @@
             case 'about':
 				$seo->Site_Title = "درباره ما";	
 				$seo->Site_Describtion = mb_substr(GetSettingValue('About_System',1),0,150,"UTF-8");
-                return "themes/about.php";
-			break;
-			case 'services':
-				$seo->Site_Title = "خدمات";	
-                return "themes/services.php";
-			break;
-			case 'adsl':
-				$seo->Site_Title = "ADSL";	
-                return "themes/adsl.php";
+                return "themes/default/about.php";
 			break;
 			case 'contact':			    			
 				$seo->Site_Title = "تماس با ما";
 				$seo->Site_Describtion = mb_substr(GetSettingValue('Address',1),0,150,"UTF-8");
-                return "themes/contact.php";
+                return "themes/default/contact.php";
 			break;
 			case 'gallery':
 			    $seo->Site_Title = "گالری تصاویر";				
-                return "themes/gallery.php";
+                return "themes/default/gallery.php";
 			break;
 			case 'dashboard':
 				if ($act=="do") return "dashboard.php";
-			break;	
-            case 'projects':
-				$seo->Site_Title = "پروژه ها";
-                if ($act=="do") return "themes/projects.php";
-            break;
-            case 'fullproject':
-                if ($act=="do") return "themes/single-project.php";
-            break;			          
-            case 'news':
-				$seo->Site_Title = "اخبار";
-                if ($act=="do") return "themes/news.php";
-			break;
-			case 'fullnews':
-                if ($act=="do") return "themes/single-news.php";
-			break;
+			break;	            
 			case 'search':
 				$seo->Site_Title = "جستجو";
-                if ($act=="do") return "themes/search.php";
-			break;
-			case 'articles':
-				$seo->Site_Title = "مطالب مفید";
-                return "themes/articles.php";
-			break;
-			case 'fullarticles':
-                if ($act=="do") return "themes/single-articles.php";
-			break;
+                if ($act=="do") return "themes/default/search.php";
+			break;			
 			case 'uploadmgr':
               if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/uploadmgr.php";
 			break;
-			case 'worksmgr':
-                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/worksmgr.php";
+			case 'compmgr':
+                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/companymgr.php";
 			break;
-			case 'articlesmgr':
-                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/articlesmgr.php";
-			break;
-			case 'newsmgr':
-                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/newsmgr.php";
-			break;
+			case 'plansmgr':
+                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/plansmgr.php";
+			break;			
 			case 'usermgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/usermgr.php";
 			break;
@@ -105,9 +73,6 @@
 			case 'newslettermgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="user" or 
 				    $act=="dela" or $act=="delu" or $act=="set" or $act=="arc") return "../manager/newslettermgr.php";
-			break;
-			case 'pollmgr':
-                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit" or $act=="chg") return "../manager/pollmgr.php";
 			break;
 
 		}
@@ -475,6 +440,12 @@ code;
 	    $db = Database::GetDatabase();
 		$row = $db ->Select("section","secname","ID = '{$secid}'");
 		return ($row["secname"]);
+	}
+	function GetCompanyName($cid)
+	{
+	    $db = Database::GetDatabase();
+		$row = $db ->Select("service","name","ID = '{$cid}'");
+		return ($row["name"]);
 	}
 
 	// *****************CheckEmail Function***********************
