@@ -91,10 +91,11 @@
           <li>
             <a href="?item=plansmgr&act=do" id="articles" name="articles" class="articles"><p>مدیریت طرح ها</p></a>
           </li>
-		   <!--
+		   
           <li>
             <a href="?item=newsmgr&act=do" id="news" name="news" class="news"><p>مدیریت اخبار</p></a>
           </li>
+		  <!--
           <li >            
             <a href="?item=worksmgr&act=do" id="works" name="works" class="works"><p>مدیریت کارها</p></a>
           </li>
