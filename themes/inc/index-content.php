@@ -26,7 +26,21 @@
 		$news[0]["ndate"] = ToJalali($news[0]["ndate"]," l d F  Y");
 		$news[1]["ndate"] = ToJalali($news[1]["ndate"]," l d F  Y");
 		$news[2]["ndate"] = ToJalali($news[2]["ndate"]," l d F  Y");
-		
+//------------------------------- works part -------------------------
+		$works = $db->SelectAll("works","*",null,"fdate DESC","0","4");
+		$works[0]["body"] =(mb_strlen($works[0]["body"])>150)?
+                mb_substr(html_entity_decode(strip_tags($works[0]["body"]), ENT_QUOTES, "UTF-8"), 0, 150,"UTF-8") . "..." :
+                html_entity_decode(strip_tags($works[0]["body"]), ENT_QUOTES, "UTF-8");
+		$works[1]["body"] =(mb_strlen($works[1]["body"])>150)?
+                mb_substr(html_entity_decode(strip_tags($works[1]["body"]), ENT_QUOTES, "UTF-8"), 0, 150,"UTF-8") . "..." :
+                html_entity_decode(strip_tags($works[1]["body"]), ENT_QUOTES, "UTF-8");
+       
+        $works[2]["body"] =(mb_strlen($works[2]["body"])>150)?
+                mb_substr(html_entity_decode(strip_tags($works[2]["body"]), ENT_QUOTES, "UTF-8"), 0, 150,"UTF-8") . "..." :
+                html_entity_decode(strip_tags($works[2]["body"]), ENT_QUOTES, "UTF-8");
+		$works[3]["body"] =(mb_strlen($works[3]["body"])>150)?
+                mb_substr(html_entity_decode(strip_tags($works[3]["body"]), ENT_QUOTES, "UTF-8"), 0, 150,"UTF-8") . "..." :
+                html_entity_decode(strip_tags($works[3]["body"]), ENT_QUOTES, "UTF-8");				
 $html=<<<cd
 	<!-- Content  ========================================= -->
 	<!-- LayerSlider Container -->
@@ -83,38 +97,22 @@ $html.=<<<cd
 			<!-- Headline -->
 			<div class="headline no-margin"><h3>کارهای اخیر</h3></div>
 		</div>
+cd;
+foreach($works as $key=>$val)
+{
+$html.=<<<cd
 		<!-- Project -->
 		<div class="four columns">
-			<div class="picture"><a href="single_project.html"><img src="themes/images/demo/portoflio-09.jpg" alt=""><div class="image-overlay-link"></div></a></div>
+			<div class="picture"><a href="single_project.html">
+			<img src="{$val[image]}" alt="{$val[subject]}"><div class="image-overlay-link"></div></a></div>
 			<div class="item-description">
-				<h5><a href="#">سربرگ اول</a></h5>
-				<p>توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... </p>
-			</div>
-		</div>	
-		<!-- Project -->
-		<div class="four columns">
-			<div class="picture"><a href="themes/images/demo/portoflio-08-large.jpg" rel="image" title="Coffee Time"><img src="themes/images/demo/portoflio-08.jpg" alt=""><div class="image-overlay-zoom"></div></a></div>
-			<div class="item-description">
-				<h5><a href="#">Coffee Time</a></h5>
-				<p>Amet sit lorem ligula est, eget conseact etur lectus hendrerit suscipit maecenas.</p>
+				<h5><a href="#">{$val["subject"]}</a></h5>
+				<p>{$val["body"]}</p>
 			</div>
 		</div>
-		<!-- Project -->
-		<div class="four columns">
-			<div class="picture"><a href="single_project.html"><img src="themes/images/demo/portoflio-10.jpg" alt=""><div class="image-overlay-link"></div></a></div>
-			<div class="item-description">
-				<h5><a href="#">Surfing The Web</a></h5>
-				<p>Lorem sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit.</p>
-			</div>
-		</div>
-		<!-- Project -->
-		<div class="four columns">
-			<div class="picture"><a href="single_project.html"><img src="themes/images/demo/portoflio-07.jpg" alt=""><div class="image-overlay-link"></div></a></div>
-			<div class="item-description">
-				<h5><a href="#">Wireless Keyboard</a></h5>
-				<p>Ligula mauris sit amet est eget consat etur lectus maecenas hendrerit suscipit.</p>
-			</div>
-		</div>
+cd;
+}
+$html.=<<<cd
 	</div>
 	<!-- 960 Container / End -->
 cd;
