@@ -9,38 +9,32 @@
     }else{
         include_once("./classes/database.php");
         include_once("./lib/persiandate.php");
-        $db = database::GetDatabase();  
-
+        $db = database::GetDatabase();
+//------------------------------- header slides part -------------------------
+		$slides = $db->SelectAll("slides","*");				
+		
 $html=<<<cd
-	<!-- Content
-	================================================== -->
+	<!-- Content  ========================================= -->
 	<!-- LayerSlider Container -->
 	<div class="layerslider-container">
 		<!-- LayerSlider / Start -->
-		<div id="layerslider" style="width: 940px; height: 400px; margin: 0 auto;"> 
+		<div id="layerslider" style="width: 940px; height: 400px; margin: 0 auto;">
+cd;
+foreach($slides as $key=>$val)
+{
+$html.=<<<cd
 				<!-- Slide #1 -->
 				<div class="ls-layer" style="transition2d: 67; timeshift: -1000; slidedelay: 7000;">	 
 					<!-- Background -->
-					<img class="ls-bg" src="themes/images/demo/slider-img-01.jpg" alt="">
+					<img class="ls-bg" src="{$val[image]}" alt="">
 					<div class="slide-caption ls-s1" style="left: 20px; top: 228px; width: 30%; slidedirection: bottom; slideoutdirection: bottom; durationin: 800; durationout: 800; delayin: 0; delayout: 0;">
-						<h3>سربرگ</h3>
-						<p>توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... </p>
+						<h3>{$val["subject"]}</h3>
+						<p>{$val["body"]}</p>
 					</div>
 				</div>
-				<!-- Slide #2 -->
-				<div class="ls-layer" style="transition2d: 3; timeshift: -500; slidedelay: 7000;">
-					<!-- Background -->
-					<img class="ls-bg" src="themes/images/demo/slider-img-02.jpg" alt="">	
-					<div class="slide-caption alt ls-s1" style="left: 0; top: 0; height: 100%; width: 30%; slidedirection: left; slideoutdirection: left; durationin: 800; durationout: 800; delayin: 0; delayout: 0;">
-						<h3>سربرگ</h3>
-						<p>توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... </p>
-					</div>
-				</div>
-				<!-- Slide #3 -->
-				<div class="ls-layer" style="transition2d: 5; slidedelay: 7000;">
-					<!-- Background -->
-					<img class="ls-bg" src="themes/images/demo/slider-img-03.jpg" alt="">
-				</div>
+cd;
+}	
+$html.=<<<cd
 		</div>
 		<!-- LayerSlider / End -->
 	</div>
