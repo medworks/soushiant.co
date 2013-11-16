@@ -29,7 +29,17 @@
 			break;
 			case 'dashboard':
 				if ($act=="do") return "dashboard.php";
-			break;	            
+			break;
+			case 'news':
+				$seo->Site_Title = "اخبار";
+                if ($act=="do") return "themes/default/news.php";
+			break;
+			case 'fullnews':
+                if ($act=="do") return "themes/default/single-news.php";
+			break;
+			case 'newsmgr':
+                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/newsmgr.php";
+			break;		
 			case 'search':
 				$seo->Site_Title = "جستجو";
                 if ($act=="do") return "themes/default/search.php";
