@@ -1,7 +1,7 @@
 <?php
   error_reporting (E_ALL ^ E_NOTICE);
   
-  define("_DB_NAME","soushiant.co");
+  define("_DB_NAME","soushiant");
   define("_DB_USER", "root");
   define("_DB_PASS", "");
   define("_DB_SERVER", "localhost");
