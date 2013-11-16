@@ -14,14 +14,14 @@
 		$slides = $db->SelectAll("slides","*");	
 //------------------------------- news part -------------------------	
         $news = $db->SelectAll("news","*",null,"ndate DESC","0","3");
-		$news[0]["body"] =(mb_strlen($articles[0]["body"])>150)?
+		$news[0]["body"] =(mb_strlen($news[0]["body"])>150)?
                 mb_substr(html_entity_decode(strip_tags($news[0]["body"]), ENT_QUOTES, "UTF-8"), 0, 150,"UTF-8") . "..." :
                 html_entity_decode(strip_tags($news[0]["body"]), ENT_QUOTES, "UTF-8");		
-		$news[1]["body"] =(mb_strlen($news[1]["body"])>60)?
-                mb_substr(html_entity_decode(strip_tags($news[1]["body"]), ENT_QUOTES, "UTF-8"), 0, 60,"UTF-8") . "..." :
+		$news[1]["body"] =(mb_strlen($news[1]["body"])>150)?
+                mb_substr(html_entity_decode(strip_tags($news[1]["body"]), ENT_QUOTES, "UTF-8"), 0, 150,"UTF-8") . "..." :
                 html_entity_decode(strip_tags($news[1]["body"]), ENT_QUOTES, "UTF-8");
-        $news[2]["body"] =(mb_strlen($news[2]["body"])>60)?
-                mb_substr(html_entity_decode(strip_tags($news[2]["body"]), ENT_QUOTES, "UTF-8"), 0, 60,"UTF-8") . "..." :
+        $news[2]["body"] =(mb_strlen($news[2]["body"])>150)?
+                mb_substr(html_entity_decode(strip_tags($news[2]["body"]), ENT_QUOTES, "UTF-8"), 0, 150,"UTF-8") . "..." :
                 html_entity_decode(strip_tags($news[2]["body"]), ENT_QUOTES, "UTF-8");				
 		$news[0]["ndate"] = ToJalali($news[0]["ndate"]," l d F  Y");
 		$news[1]["ndate"] = ToJalali($news[1]["ndate"]," l d F  Y");
@@ -73,24 +73,6 @@ $html.=<<<cd
 cd;
 }
 $html.=<<<cd
-			<!-- Icon Box Start -->
-			<div class="one-third column">
-				<div class="icon-box">
-					<i class="ico-bookmark"></i>
-					<h3>Easily Customization</h3>
-					<p>Nam aliquam volutpat leo vel bibendum nunc elit purus, tempus pulvinare rhoncus egestas nibh volutpat leo.</p>
-				</div>
-			</div>
-			<!-- Icon Box End -->
-			<!-- Icon Box Start -->
-			<div class="one-third column">
-				<div class="icon-box">
-					<i class="ico-bookmark"></i>
-					<h3>Fully Responsive</h3>
-					<p>Fusce porttitor turpis quis molestie costant equat. Nam purus, tincidunt sedeat dapibus ugravida ut dui. Fusce et magna libero.</p>
-				</div>
-			</div>
-			<!-- Icon Box End -->		
 		</div>
 		<!-- Icon Boxes / End -->
 	</div>
