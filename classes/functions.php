@@ -39,7 +39,17 @@
 			break;
 			case 'newsmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/newsmgr.php";
-			break;		
+			break;
+			case 'works':
+				$seo->Site_Title = "کارهای ما";
+                if ($act=="do") return "themes/default/works.php";
+            break;
+            case 'fullworks':
+                if ($act=="do") return "themes/default/single-works.php";
+            break;
+            case 'worksmgr':
+                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/worksmgr.php";
+			break;			
 			case 'search':
 				$seo->Site_Title = "جستجو";
                 if ($act=="do") return "themes/default/search.php";
