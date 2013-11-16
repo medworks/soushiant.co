@@ -1,3 +1,13 @@
+<?php
+	include_once("./classes/database.php");
+	include_once("./lib/persiandate.php");
+	$db = Database::GetDatabase(); 
+	$About_System = GetSettingValue('About_System',0);
+	$news = $db->SelectAll('news',NULL,NULL," ndate DESC");
+	$works = $db->SelectAll('works',NULL,NULL," fdate DESC");
+	$articles = $db->SelectAll('articles',NULL,NULL," ndate DESC");
+	$About_System = mb_substr(html_entity_decode(strip_tags($About_System), ENT_QUOTES, "UTF-8"), 0, 500,"UTF-8")."  ...";
+?>
 </div>
 <!-- Footer
 ================================================== -->
@@ -8,33 +18,49 @@
 		<!-- About -->
 		<div class="four columns">
 			<div class="footer-headline"><h4>درباره ما</h4></div>
-			<p>توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... </p>
-			<p>توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... توضیحات سربرگ... </p>
+			<p><?php echo $About_System ?></p>
 		</div>	
 		<!-- Useful Links -->
 		<div class="four columns">
 			<div class="footer-headline"><h4>اخبار</h4></div>
 			<ul class="links-list">
-				<li><a href="#">خبر اول</a></li>
-				<li><a href="#">خبر اول</a></li>
-				<li><a href="#">خبر اول</a></li>
-				<li><a href="#">خبر اول</a></li>
-				<li><a href="#">Validate License</a></li>
-				<li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Knowledgebase</a></li>
+				<?php									  					
+					for($i=0 ; $i<3 ; $i++){
+						if($news[$i]['subject']!=null){
+	  						$ndate = ToJalali($news[$i]["ndate"]," l d F ");
+							echo "<li>
+                                    <div class='pic'>
+    									<a href='news-fullpage{$news[$i][id]}.html' title='{$news[$i]["subject"]}'>
+    									   <img src='{$news[$i]["image"]}'alt='{$news[$i]["subject"]}'>
+                                        </a>
+                                    </div>
+									<h3><a href='news-fullpage{$news[$i][id]}.html' title='{$news[$i]["subject"]}'>{$news[$i]["subject"]}</a></h3>
+									<span class='date'>{$ndate}</span>
+								 </li>";
+					}}
+				?>
 			</ul>
 		</div>	
 		<!-- Photo Stream -->
 		<div class="four columns">
 			<div class="footer-headline"><h4>کارهای ما</h4></div>
 			<ul class="links-list">
-				<li><a href="#">خبر اول</a></li>
-				<li><a href="#">خبر اول</a></li>
-				<li><a href="#">خبر اول</a></li>
-				<li><a href="#">خبر اول</a></li>
-				<li><a href="#">Validate License</a></li>
-				<li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Knowledgebase</a></li>
+				<?Php
+                        for($i=0 ; $i<3 ; $i++){
+        					if($works[$i]['subject']!=null){						
+        						$fdate = ToJalali($works[$i]["fdate"]," l d F  Y"); 
+        						echo "<li>
+                                        <div class='pic'>
+        								    <a href='work-fullpage{$works[$i][id]}.html' title='{$works[$i]["subject"]}'>
+        								        <img src='{$works[$i]["image"]}'alt='{$works[$i]["subject"]}' style='width:50px;height:50px;'>
+                                            </a>
+                                        </div>
+        								<h3><a href='work-fullpage{$works[$i][id]}.html' title='{$works[$i]["subject"]}'>{$works[$i]["subject"]}</a></h3>								
+        								<span class='date'>{$fdate}</span>
+        							</li>";
+        				    }
+        				}
+    				?>
 			</ul>
 		</div>		
 		<!-- Latest Tweets -->
