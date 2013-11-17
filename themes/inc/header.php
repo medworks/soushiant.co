@@ -119,7 +119,7 @@
 						<li><a href="single_project.html">Single Project</a></li>
 					</ul> -->
 				</li>
-				<li><a href="projects.html">پروژه ها</a></li>
+				<li><a href="works.html">پروژه ها</a></li>
 				<li><a href="news.html">اخبار</a></li>
 				<li><a href="contact.html">تماس با ما</a></li>
 			</ul>
