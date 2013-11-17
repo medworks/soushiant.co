@@ -14,10 +14,10 @@ deny from all
 	RewriteRule ^gallery.html soushiant.co/index.php?item=gallery [L]
 	RewriteRule ^articles.html soushiant.co/index.php?item=articles [L]
 	RewriteRule ^contact.html soushiant.co/index.php?item=contact [L]
-	RewriteRule ^news.html soushiant.co/index.php?item=news&act=do [L]
-	RewriteRule ^projects.html soushiant.co/index.php?item=projects&act=do [L]
+	RewriteRule ^news.html soushiant.co/index.php?item=news&act=do [L]	
 	RewriteRule ^news-fullpage([0-9]+).html soushiant.co/index.php?item=fullnews&act=do&wid=$1 [L]
-	RewriteRule ^project-fullpage([0-9]+).html soushiant.co/index.php?item=fullproject&act=do&wid=$1 [L]
+	RewriteRule ^works.html soushiant.co/index.php?item=works&act=do [L]
+	RewriteRule ^work-fullpage([0-9]+).html soushiant.co/index.php?item=fullwork&act=do&wid=$1 [L]
 	RewriteRule ^article-fullpage([0-9]+).html soushiant.co/index.php?item=fullarticles&act=do&wid=$1 [L]	
     RewriteRule ^news-page([0-9]+).html zhik/index.php?item=news&act=do&pid=$1 [L]	
 	RewriteRule ^sitemap.xml sitemap.php [NC]	#sitemap.xml
