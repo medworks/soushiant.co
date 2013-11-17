@@ -19,7 +19,7 @@
 		$fields = array("`name`","`detail`");
 		$_POST["detail"] = addslashes($_POST["detail"]);		
 		$values = array("'{$_POST[name]}'","'{$_POST[detail]}'");
-		if (!$db->InsertQuery('service',$fields,$values)) 
+		if (!$db->InsertQuery('company',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
 			header('location:?item=compmgr&act=new&msg=2');			
@@ -43,7 +43,7 @@
 		$values = array("`name`"=>"'{$_POST[name]}'",
 			            "`detail`"=>"'{$_POST[detail]}'");
 			
-        $db->UpdateQuery("service",$values,array("id='{$_GET[cid]}'"));
+        $db->UpdateQuery("company",$values,array("id='{$_GET[cid]}'"));
 		header('location:?item=compmgr&act=mgr');
 		//$_GET["item"] = "compmgr";
 		//$_GET["act"] = "act";			
@@ -57,7 +57,7 @@
 	}
 	if ($_GET['act']=="edit")
 	{	
-		$row=$db->Select("service","*","id='{$_GET["cid"]}'",NULL);
+		$row=$db->Select("company","*","id='{$_GET["cid"]}'",NULL);
 		$editorinsert = "
 		<p>
 			 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
@@ -65,8 +65,8 @@
 	}
 	if ($_GET['act']=="del")
 	{
-		$db->Delete("service"," id",$_GET["cid"]);
-		if ($db->CountAll("service")%10==0) $_GET["pageNo"]-=1;		
+		$db->Delete("company"," id",$_GET["cid"]);
+		if ($db->CountAll("company")%10==0) $_GET["pageNo"]-=1;		
 		header("location:?item=compmgr&act=mgr&pageNo={$_GET[pageNo]}");
 	}
 	if ($_GET['act']=="do")
@@ -143,7 +143,7 @@ if ($_GET['act']=="mgr")
 	if ($_POST["mark"]=="srhnews")
 	{	 			    
 		$rows = $db->SelectAll(
-				"service",
+				"company",
 				"*",
 				"{$_POST[cbsearch]} LIKE '%{$_POST[txtsrh]}%'",
 				null,
@@ -161,7 +161,7 @@ if ($_GET['act']=="mgr")
 	else
 	{	
 		$rows = $db->SelectAll(
-				"service",
+				"company",
 				"*",
 				null,
 				null,
@@ -170,7 +170,7 @@ if ($_GET['act']=="mgr")
     }
                 $rowsClass = array();
                 $colsClass = array();
-                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhnews")?$db->CountAll("service"):Count($rows);
+                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhnews")?$db->CountAll("company"):Count($rows);
                 for($i = 0; $i < Count($rows); $i++)
                 {						
 					$rows[$i]["detail"] =(mb_strlen($rows[$i]["detail"])>50)?

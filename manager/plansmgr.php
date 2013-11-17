@@ -20,7 +20,7 @@
 		$fields = array("`sid`","`name`","`speeddl`","`speedup`","`time`","`trafic`","`price`","`detail`");
 		$_POST["detail"] = addslashes($_POST["detail"]);		
 		$values = array("'{$_POST[comp]}'","'{$_POST[name]}'","'{$_POST[speeddl]}'","'{$_POST[speedup]}'","'{$_POST[time]}'","'{$_POST[trafic]}'","'{$_POST[price]}'","'{$_POST[detail]}'");
-		if (!$db->InsertQuery('subservice',$fields,$values)) 
+		if (!$db->InsertQuery('plans',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
 			header('location:?item=plansmgr&act=new&msg=2');			
@@ -50,7 +50,7 @@
 						"`price`"=>"'{$_POST[price]}'",
 			            "`detail`"=>"'{$_POST[detail]}'");
 			
-        $db->UpdateQuery("subservice",$values,array("id='{$_GET[pid]}'"));
+        $db->UpdateQuery("plans",$values,array("id='{$_GET[pid]}'"));
 		header('location:?item=plansmgr&act=mgr');
 		//$_GET["item"] = "plansmgr";
 		//$_GET["act"] = "act";			
@@ -64,7 +64,7 @@
 	}
 	if ($_GET['act']=="edit")
 	{	
-		$row=$db->Select("subservice","*","id='{$_GET["pid"]}'",NULL);
+		$row=$db->Select("plans","*","id='{$_GET["pid"]}'",NULL);
 		$editorinsert = "
 		<p>
 			 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
@@ -72,8 +72,8 @@
 	}
 	if ($_GET['act']=="del")
 	{
-		$db->Delete("subservice"," id",$_GET["pid"]);
-		if ($db->CountAll("subservice")%10==0) $_GET["pageNo"]-=1;		
+		$db->Delete("plans"," id",$_GET["pid"]);
+		if ($db->CountAll("plans")%10==0) $_GET["pageNo"]-=1;		
 		header("location:?item=plansmgr&act=mgr&pageNo={$_GET[pageNo]}");
 	}
 if ($_GET['act']=="do")
@@ -188,7 +188,7 @@ if ($_GET['act']=="mgr")
 	if ($_POST["mark"]=="srhnews")
 	{	 			    
 		$rows = $db->SelectAll(
-				"subservice",
+				"plans",
 				"*",
 				"{$_POST[cbsearch]} LIKE '%{$_POST[txtsrh]}%'",
 				null,
@@ -206,7 +206,7 @@ if ($_GET['act']=="mgr")
 	else
 	{	
 		$rows = $db->SelectAll(
-				"subservice",
+				"plans",
 				"*",
 				null,
 				null,
@@ -215,7 +215,7 @@ if ($_GET['act']=="mgr")
     }
                 $rowsClass = array();
                 $colsClass = array();
-                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhnews")?$db->CountAll("subservice"):Count($rows);
+                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhnews")?$db->CountAll("plans"):Count($rows);
                 for($i = 0; $i < Count($rows); $i++)
                 {						
 				    $rows[$i]["sid"] = GetCompanyName($rows[$i]["sid"]); 
