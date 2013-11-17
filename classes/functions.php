@@ -49,6 +49,9 @@
             break;
             case 'worksmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/worksmgr.php";
+			break;
+			case 'servicesmgr':
+                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/servicesmgr.php";
 			break;			
 			case 'search':
 				$seo->Site_Title = "جستجو";
