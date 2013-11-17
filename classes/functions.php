@@ -16,43 +16,43 @@
             case 'about':
 				$seo->Site_Title = "درباره ما";	
 				$seo->Site_Describtion = mb_substr(GetSettingValue('About_System',1),0,150,"UTF-8");
-                return "themes/default/about.php";
+                return "themes/about.php";
 			break;
 			case 'contact':			    			
 				$seo->Site_Title = "تماس با ما";
 				$seo->Site_Describtion = mb_substr(GetSettingValue('Address',1),0,150,"UTF-8");
-                return "themes/default/contact.php";
+                return "themes/contact.php";
 			break;
 			case 'gallery':
 			    $seo->Site_Title = "گالری تصاویر";				
-                return "themes/default/gallery.php";
+                return "themes/allery.php";
 			break;
 			case 'dashboard':
 				if ($act=="do") return "dashboard.php";
 			break;
 			case 'news':
 				$seo->Site_Title = "اخبار";
-                if ($act=="do") return "themes/default/news.php";
+                if ($act=="do") return "themes/news.php";
 			break;
 			case 'fullnews':
-                if ($act=="do") return "themes/default/single-news.php";
+                if ($act=="do") return "themes/single-news.php";
 			break;
 			case 'newsmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/newsmgr.php";
 			break;
 			case 'works':
 				$seo->Site_Title = "کارهای ما";
-                if ($act=="do") return "themes/default/works.php";
+                if ($act=="do") return "themes/works.php";
             break;
             case 'fullworks':
-                if ($act=="do") return "themes/default/single-works.php";
+                if ($act=="do") return "themes/single-works.php";
             break;
             case 'worksmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/worksmgr.php";
 			break;			
 			case 'search':
 				$seo->Site_Title = "جستجو";
-                if ($act=="do") return "themes/default/search.php";
+                if ($act=="do") return "themes/search.php";
 			break;			
 			case 'uploadmgr':
               if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/uploadmgr.php";
