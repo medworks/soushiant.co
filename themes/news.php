@@ -34,10 +34,10 @@ foreach($news as $key => $post)
 $html.=<<<cd
 				<!-- Post -->
 				<div class="post">
-					<div class="post-img picture"><a href="blog_post.html"><img src="{$post[image]}" alt="{$post[subject]}"><div class="image-overlay-link"></div></a></div>
-					<a href="#" class="post-icon standard"></a>
+					<div class="post-img picture"><a href="news-fullpage{$post[id]}.html"><img src="{$post[image]}" alt="{$post[subject]}"><div class="image-overlay-link"></div></a></div>
+					<a href="news-fullpage{$post[id]}.html" class="post-icon standard"></a>
 					<div class="post-content">
-						<div class="post-title"><h2><a href="news-fullpage1.html">{$post["subject"]}</a></h2></div>
+						<div class="post-title"><h2><a href="news-fullpage{$post[id]}.html">{$post["subject"]}</a></h2></div>
 						<div class="post-meta rtl"><span><i class="mini-ico-calendar"></i>تاریخ: {$ndate}</span> 
 						<span><i class="mini-ico-user"></i>به وسیله:  {$post["userid"]}</span> 
 						<!-- <span><i class="mini-ico-comment"></i>With <a href="#">12 Comments</a></span> --></div>
@@ -50,15 +50,12 @@ $html.=<<<cd
 				<!-- Post -->
 cd;
 }
+$linkFormat = 'news-page'.$pid='%PN%'.'.html';
+$maxPageNumberAtTime = GetSettingValue('Max_Page_Number',0);
+$pageNos = Pagination($itemsCount, $maxItemsInPage, $pageNo, $maxPageNumberAtTime, $linkFormat);
+$html .= '<div class="row"><div id="blog-pagination" class="large-12 columns pagination-centered rtl">' . $pageNos . '</div></div>';
+
 $html.=<<<cd
-				
-				<ul class="pagination rtl">
-					<a href="#"><li>1</li></a>
-					<a href="#"><li class="current">2</li></a>
-					<a href="#"><li>3</li></a>
-					<a href="#"><li>4</li></a>
-					<a href="#"><li>5</li></a>
-				</ul>
 			</div>
 			<!-- Widget ================================================== -->
 			<div class="four columns">
@@ -72,18 +69,20 @@ $html.=<<<cd
 				<!-- Popular Posts -->
 				<div class="widget">
 					<div class="headline no-margin"><h4>آخرین اخبار</h4></div>
+cd;
+$posts = $db->SelectAll("news","*",null,"ndate DESC");
+for($i = 0;$i<5;$i++)
+{
+  if (!isset($posts[$i][id])) break;
+	$ndate = ToJalali($posts[$i]["ndate"]," l d F  Y");
+$html.=<<<cd
 					<div class="latest-post-blog">
-						<a href="#"><img src="themes/images/demo/popular-post-01.png" alt=""></a>
-						<p><a href="#">سربرگ... سربرگ... سربرگ... سربرگ... </a> <span>12 August 2012</span></p>
+						<a href="news-fullpage{$posts[$i][id]}.html"><img src="{$posts[$i][image]}" alt="{$posts[$i][subject]}"></a>
+						<p><a href="news-fullpage{$posts[$i][id]}.html">{$posts[$i]["subject"]} </a> <span>{$ndate}</span></p>
 					</div>
-					<div class="latest-post-blog">
-						<a href="#"><img src="themes/images/demo/popular-post-02.png" alt=""></a>
-						<p><a href="#">Tetus lorem maecenas facili lipsum pretium.</a> <span>26 July 2012</span></p>
-					</div>
-					<div class="latest-post-blog">
-						<a href="#"><img src="themes/images/demo/popular-post-03.png" alt=""></a>
-						<p><a href="#">Lorem pretium metusnula lorem ipsum dolor.</a> <span>16 June 2012</span></p>
-					</div>
+cd;
+}
+$html.=<<<cd
 				</div>
 			</div>
 		</div>
