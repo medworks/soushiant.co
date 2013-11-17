@@ -24,6 +24,14 @@ $html=<<<cd
 		</div>
 		<div class="container">
 			<div class="twelve columns">
+cd;
+foreach($news as $key => $post)
+{
+	$ndate = ToJalali($post["ndate"]," l d F  Y ساعت H:m");
+  	$post["userid"] = GetUserName($post["userid"]);	
+    $post["body"]= strip_tags($post["body"]);
+    $post["body"] = (mb_strlen($post["body"])>500) ? mb_substr($post["body"],0,500,"UTF-8")."..." : $post["body"];
+$html.=<<<cd
 				<!-- Post -->
 				<div class="post">
 					<div class="post-img picture"><a href="blog_post.html"><img src="themes/images/demo/blog-img-01.jpg" alt=""><div class="image-overlay-link"></div></a></div>
@@ -37,6 +45,9 @@ $html=<<<cd
 						<a href="#" class="button color">ادامه خبر</a>
 					</div>
 				</div>
+cd;
+}
+$html.=<<<cd
 				<!-- Post -->
 				<div class="post">
 					<div class="post-img picture"><a href="blog_post.html"><img src="themes/images/demo/blog-img-01.jpg" alt=""><div class="image-overlay-link"></div></a></div>
