@@ -14,10 +14,18 @@ $html=<<<cd
 					<!-- Filters -->
 					<div id="filters">
 						<ul class="option-set" data-option-key="filter">
-							<li><a href="#filter" class="selected" data-option-value="*">همه موارد</a></li>
-							<li><a href="#filter" data-option-value=".1">پروژه های داخلی</a></li>
-							<li><a href="#filter" data-option-value=".2">پروژه های خارجی</a></li>
-						</ul>
+						<li><a href="#filter" class="selected" data-option-value="*">همه موارد</a></li>
+cd;
+foreach($uniqcats as $key=>$val)
+ {
+	$catname = GetCategoryName($val);
+$html.=<<<cd
+							
+					<li><a href="#filter" data-option-value=".{$val}">{$catname}</a></li>
+cd;
+}
+$html.=<<<cd
+                       </ul>
 					</div>
 					<div class="clear"></div>
 					<div id="bolded-line"></div>
