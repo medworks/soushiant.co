@@ -5,6 +5,7 @@ deny from all
                            
 <IFModule mod_rewrite.c>   
 	RewriteEngine On 
+	RewriteBase / 	
 	RewriteRule ^index.html soushiant.co/index.php [L]
 	RewriteRule ^search.html soushiant.co/index.php?item=search&act=do [L]
 	RewriteRule ^about-us.html soushiant.co/index.php?item=about [L]
@@ -17,8 +18,10 @@ deny from all
 	RewriteRule ^projects.html soushiant.co/index.php?item=projects&act=do [L]
 	RewriteRule ^news-fullpage([0-9]+).html soushiant.co/index.php?item=fullnews&act=do&wid=$1 [L]
 	RewriteRule ^project-fullpage([0-9]+).html soushiant.co/index.php?item=fullproject&act=do&wid=$1 [L]
-	RewriteRule ^article-fullpage([0-9]+).html soushiant.co/index.php?item=fullarticles&act=do&wid=$1 [L]		
-	RewriteBase / 	
+	RewriteRule ^article-fullpage([0-9]+).html soushiant.co/index.php?item=fullarticles&act=do&wid=$1 [L]	
+    RewriteRule ^news-page([0-9]+).html zhik/index.php?item=news&act=do&pid=$1 [L]	
+	RewriteRule ^sitemap.xml sitemap.php [NC]	#sitemap.xml
+	
 
 #Skip WWW	
 	#RewriteCond %{HTTP_HOST} ^www.soushiant.co [NC] 
