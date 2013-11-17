@@ -91,6 +91,9 @@
           <li>
             <a href="?item=plansmgr&act=do" id="articles" name="articles" class="articles"><p>مدیریت طرح ها</p></a>
           </li>
+		  <li>
+            <a href="?item=servicemgr&act=do" id="services" name="services" class="articles"><p>مدیریت خدمات</p></a>
+          </li>
 		   
           <li>
             <a href="?item=newsmgr&act=do" id="news" name="news" class="news"><p>مدیریت اخبار</p></a>
