@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2013 at 04:29 PM
+-- Generation Time: Nov 17, 2013 at 05:21 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -90,6 +90,30 @@ INSERT INTO `category` (`id`, `secid`, `catname`, `latinname`, `describe`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `company`
+--
+
+CREATE TABLE IF NOT EXISTS `company` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `detail` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`id`, `name`, `detail`) VALUES
+(1, 'شاتل', '<p>برترین برند خدماتی در زمینه اینترنت</p>'),
+(2, 'مخابرات', ''),
+(3, 'صبانت', ''),
+(4, 'مبین نت', ''),
+(5, 'ایرانسل', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gallery`
 --
 
@@ -148,53 +172,44 @@ INSERT INTO `news` (`id`, `subject`, `image`, `body`, `ndate`, `userid`, `resour
 -- --------------------------------------------------------
 
 --
--- Table structure for table `section`
+-- Table structure for table `plans`
 --
 
-CREATE TABLE IF NOT EXISTS `section` (
+CREATE TABLE IF NOT EXISTS `plans` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `secname` varchar(50) NOT NULL,
-  `latinname` varchar(50) NOT NULL,
-  `describe` varchar(100) NOT NULL,
+  `sid` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `speeddl` int(11) NOT NULL,
+  `speedup` int(11) NOT NULL,
+  `time` varchar(10) NOT NULL,
+  `trafic` int(11) NOT NULL,
+  `price` float NOT NULL,
+  `avarage` float NOT NULL,
+  `detail` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `section`
+-- Dumping data for table `plans`
 --
 
-INSERT INTO `section` (`id`, `secname`, `latinname`, `describe`) VALUES
-(1, 'کامپیوتر', 'camputer', ''),
-(2, 'روانشناسی', 'sycologist', 'اطلاعات روانشناسی'),
-(3, 'الکترونیک', 'electronic', 'نرم افزار های الکترونیک'),
-(4, 'معماری', 'artituvjh', 'گروه معماری'),
-(5, 'روانشناسی2', 'sycologist', 'نرم افزار های الکترونیک'),
-(6, 'روانشناسی2', 'sycologist', 'نرم افزار های الکترونیک'),
-(7, 'معماری2', 'artituvjh', 'این سایت بر پایه phpطراحی شده است که باعث سهولت در');
+INSERT INTO `plans` (`id`, `sid`, `name`, `speeddl`, `speedup`, `time`, `trafic`, `price`, `avarage`, `detail`) VALUES
+(1, 1, 'ECO 128/128 kbps', 128, 128, 'یک ماهه', 3, 14700, 0, '<p>ندارد</p>'),
+(2, 2, 'سعید', 128, 128, 'یک  ماهه', 3, 14700, 0, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `service`
+-- Table structure for table `services`
 --
 
-CREATE TABLE IF NOT EXISTS `service` (
+CREATE TABLE IF NOT EXISTS `services` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `detail` varchar(100) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `image` varchar(60) NOT NULL,
+  `body` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `service`
---
-
-INSERT INTO `service` (`id`, `name`, `detail`) VALUES
-(1, 'شاتل', '<p>برترین برند خدماتی در زمینه اینترنت</p>'),
-(2, 'مخابرات', ''),
-(3, 'صبانت', ''),
-(4, 'مبین نت', ''),
-(5, 'ایرانسل', '');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -261,34 +276,6 @@ INSERT INTO `slides` (`id`, `image`, `subject`, `body`, `pos`) VALUES
 (2, './slidespics/seo.jpg', 'تست سعید حاتمی', 'این تست جهت حل مشکلات ویرایش می باشد', 3),
 (3, './slidespics/slide1.jpg', 'تست اسم عکس', 'تست توضیحات عکس سعید حاتمی', 1),
 (4, './slidespics/slide2.png', 'تست سابمیت', 'تست دوم', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `subservice`
---
-
-CREATE TABLE IF NOT EXISTS `subservice` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sid` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `speeddl` int(11) NOT NULL,
-  `speedup` int(11) NOT NULL,
-  `time` varchar(10) NOT NULL,
-  `trafic` int(11) NOT NULL,
-  `price` float NOT NULL,
-  `avarage` float NOT NULL,
-  `detail` varchar(500) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `subservice`
---
-
-INSERT INTO `subservice` (`id`, `sid`, `name`, `speeddl`, `speedup`, `time`, `trafic`, `price`, `avarage`, `detail`) VALUES
-(1, 1, 'ECO 128/128 kbps', 128, 128, 'یک ماهه', 3, 14700, 0, '<p>ندارد</p>'),
-(2, 2, 'سعید', 128, 128, 'یک  ماهه', 3, 14700, 0, '');
 
 -- --------------------------------------------------------
 
