@@ -25,17 +25,11 @@
 			<div class="footer-headline"><h4>اخبار</h4></div>
 			<ul class="links-list">
 				<?php									  					
-					for($i=0 ; $i<3 ; $i++){
+					for($i=0 ; $i<5 ; $i++){
 						if($news[$i]['subject']!=null){
 	  						$ndate = ToJalali($news[$i]["ndate"]," l d F ");
 							echo "<li>
-                                    <div class='pic'>
-    									<a href='news-fullpage{$news[$i][id]}.html' title='{$news[$i]["subject"]}'>
-    									   <img src='{$news[$i]["image"]}'alt='{$news[$i]["subject"]}'>
-                                        </a>
-                                    </div>
-									<h3><a href='news-fullpage{$news[$i][id]}.html' title='{$news[$i]["subject"]}'>{$news[$i]["subject"]}</a></h3>
-									<span class='date'>{$ndate}</span>
+									<a href='news-fullpage{$news[$i][id]}.html' title='{$news[$i]["subject"]}'>{$news[$i]["subject"]}</a>
 								 </li>";
 					}}
 				?>
@@ -46,17 +40,11 @@
 			<div class="footer-headline"><h4>کارهای ما</h4></div>
 			<ul class="links-list">
 				<?Php
-                        for($i=0 ; $i<3 ; $i++){
+                        for($i=0 ; $i<5 ; $i++){
         					if($works[$i]['subject']!=null){						
         						$fdate = ToJalali($works[$i]["fdate"]," l d F  Y"); 
         						echo "<li>
-                                        <div class='pic'>
-        								    <a href='work-fullpage{$works[$i][id]}.html' title='{$works[$i]["subject"]}'>
-        								        <img src='{$works[$i]["image"]}'alt='{$works[$i]["subject"]}' style='width:50px;height:50px;'>
-                                            </a>
-                                        </div>
-        								<h3><a href='work-fullpage{$works[$i][id]}.html' title='{$works[$i]["subject"]}'>{$works[$i]["subject"]}</a></h3>								
-        								<span class='date'>{$fdate}</span>
+        								<a href='work-fullpage{$works[$i][id]}.html' title='{$works[$i]["subject"]}'>{$works[$i]["subject"]}</a>
         							</li>";
         				    }
         				}
