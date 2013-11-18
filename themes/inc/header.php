@@ -21,6 +21,9 @@
 
 <!-- CSS
 ================================================== -->
+<link rel="stylesheet" type="text/css" href="themes/css/base.css">
+<link rel="stylesheet" type="text/css" href="themes/css/skeleton.css">
+<link rel="stylesheet" type="text/css" href="themes/css/fancybox.css">
 <link rel="stylesheet" type="text/css" href="themes/css/style.css">
 <link rel="stylesheet" type="text/css" href="themes/css/boxed.css" id="layout">
 <link rel="stylesheet" type="text/css" href="themes/css/colors/green.css" id="colors">
