@@ -1,6 +1,6 @@
 <?php
-  include_once("./classes/database.php");
-  include_once("./lib/persiandate.php");
+  include_once("../config.php");
+  include_once("../classes/database.php");  
   $db = Database::GetDatabase();
   $companyid = $_GET["compid"];
   $companyname = $_GET["comp"];
@@ -15,20 +15,30 @@ $html=<<<cd
 				</div>
 				<!-- Number of Tables / From 2 to 5 / -->
 				<div class="four-tables">
+cd;
+$i = 0;
+foreach($plans as $key => $val)
+{
+   ++$i;
+   $totalprice = $val["price"]*$val["time"];
+$html.=<<<cd
 					<div class="pricing-table">
 						<div class="color-1">
-							<h3>ECO 128</h3>
-							<h4><span class="price">13,900 ریال</span> <span class="time">یک ماهه</span></h4>
+							<h3>{$val["name"]}</h3>
+							<h4><span class="price">{$totalprice}</span> 
+							<span class="time">{$val["time"]}</span></h4>
 							<ul>
-								<li>سرعت دریافت 128 Kb/S</li>
-								<li>سرعت ارسال 128 Kb/S</li>
-								<li>ترافیک 3 GB</li>
-								<li>هزینه در ماه 13,900 ریال</li>
-								<li>هزینه اشتراک 13,900 ریال</li>
+								<li>سرعت دریافت {$val["speeddl"]} KB/S</li>
+								<li>سرعت ارسال {$val["speedup"]} KB/S</li>
+								<li>ترافیک {$val["trafic"]} GB</li>
+								<li>هزینه در ماه {$val["price"]} ریال</li>			
 							</ul>
 							<a href="#" class="sign-up"><span>پرداخت هزینه</span></a>
 						</div>
 					</div>
+cd;
+}
+$html.=<<<cd
 				</div>
 			</div>
 		</div>
