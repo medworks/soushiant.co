@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="sixteen columns">	
 			<!-- Headline -->
-			<div class="headline no-margin"><h3>مشتریان ما</h3></div>
+			<div class="headline no-margin"><h3>همکاران ما</h3></div>
 			<ul class="client-list">
 				<li><img src="themes/images/demo/logo-01.png" alt=""></li>
 				<li><img src="themes/images/demo/logo-02.png" alt=""></li>
