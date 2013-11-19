@@ -29,7 +29,7 @@ $html.=<<<cd
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-wifi-alt" style="margin-left: -12px;"></i>
-						<h3><a class="price-table">{$val["name"]}</a></h3>
+						<h3><a class="price-table" name="{$val[name]}">{$val["name"]}</a></h3>
 						<p>{$val["body"]}</p>
 					</div>
 				</div>
@@ -43,9 +43,10 @@ $html.=<<<cd
 			<script>
 				$(document).ready(function(){
 					$('.price-table').click(function(){
+						var name = $(this).attr("name");
 						$.ajax({
 							type: 'POST',
-				    		url: "themes/price.php",
+				    		url: "themes/price.php?comp="+name,
 				   			// data: $(".price-table").serialize(),
 					    		success: function(msg)
 								{
