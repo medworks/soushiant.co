@@ -1,8 +1,7 @@
 <?php 
     include_once("../config.php");
     include_once("../classes/database.php");
-	include_once("../classes/messages.php");
-	include_once("../classes/session.php");	
+	include_once("../classes/messages.php");	
 	include_once("../classes/functions.php");
 	include_once("../classes/login.php");
 	include_once("../lib/persiandate.php");	
@@ -12,24 +11,17 @@
 		header("Location: ../index.php");
 		die(); // solve a security bug
 	}
-	$db = Database::GetDatabase();
-	$sess = Session::GetSesstion();	
-	$userid = $sess->Get("userid");
+	$db = Database::GetDatabase();	
 	$overall_error = false;
-	if ($_GET['item']!="newsmgr")	exit();	   
-	if (isset($_POST["mark"]) and $_POST["mark"]!="srhnews")
+	if ($_GET['item']!="servicesmgr")	exit();	   
+	if (isset($_POST["mark"]) and $_POST["mark"]!="srhservices")
 	{
-	   date_default_timezone_set('Asia/Tehran');
-	   list($hour,$minute,$second) = explode(':', Date('H:i:s'));
-	   list($year,$month,$day) = explode("-", trim($_POST["ndate"]));		
-	   list($gyear,$gmonth,$gday) = jalali_to_gregorian($year,$month,$day);		
-	   $ndatetime = Date("Y-m-d H:i:s",mktime($hour, $minute, $second, $gmonth, $gday, $gyear));		
-				  
+			  
 	   if(empty($_POST["selectpic"]))
 	   { 
 			//$msgs = $msg->ShowError("لط??ا ??ایل عکس را انتخاب کنید");
-			header('location:?item=newsmgr&act=new&msg=4');
-			//$_GET["item"] = "newsmgr";
+			header('location:?item=servicesmgr&act=new&msg=4');
+			//$_GET["item"] = "servicesmgr";
 			//$_GET["act"] = "new";
 			//$_GET["msg"] = 4;
 			$overall_error = true;
@@ -38,38 +30,38 @@
 		else						
 		if (empty($_POST['detail']))
 		{
-		   header('location:?item=newsmgr&act=new&msg=5');
-			//$_GET["item"] = "newsmgr";
+		   header('location:?item=servicesmgr&act=new&msg=5');
+			//$_GET["item"] = "servicesmgr";
 			//$_GET["act"] = "new";
 			//$_GET["msg"] = 5;
 		    $overall_error = true;
 		}			
 		
 	}	
-	if (!$overall_error && $_POST["mark"]=="savenews")
+	if (!$overall_error && $_POST["mark"]=="saveservices")
 	{	    
 		$fields = array("`subject`","`image`","`body`","`ndate`","`userid`","`resource`","`catid`");
 		$_POST["detail"] = addslashes($_POST["detail"]);		
 		$values = array("'{$_POST[subject]}'","'{$_POST[selectpic]}'","'{$_POST[detail]}'","'{$ndatetime}'","'{$userid}'","'{$_POST[res]}'","'{$_POST[cbcat]}'");
-		if (!$db->InsertQuery('news',$fields,$values)) 
+		if (!$db->InsertQuery('services',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
-			header('location:?item=newsmgr&act=new&msg=2');			
-			//$_GET["item"] = "newsmgr";
+			header('location:?item=servicesmgr&act=new&msg=2');			
+			//$_GET["item"] = "servicesmgr";
 			//$_GET["act"] = "new";
 			//$_GET["msg"] = 2;
 		} 	
 		else 
 		{  										
 			//$msgs = $msg->ShowSuccess("ثبت اطلاعات با مو??قیت انجام شد");			
-			header('location:?item=newsmgr&act=new&msg=1');		    
-			//$_GET["item"] = "newsmgr";
+			header('location:?item=servicesmgr&act=new&msg=1');		    
+			//$_GET["item"] = "servicesmgr";
 			//$_GET["act"] = "new";
 			//$_GET["msg"] = 1;
 		}  				 
 	}
     else
-	if (!$overall_error && $_POST["mark"]=="editnews")
+	if (!$overall_error && $_POST["mark"]=="editservices")
 	{		
 	    $_POST["detail"] = addslashes($_POST["detail"]);	    
 		$values = array("`subject`"=>"'{$_POST[subject]}'",
@@ -80,9 +72,9 @@
 						"`resource`"=>"'{$_POST[res]}'",
 						"`catid`"=>"'{$_POST[cbcat]}'");
 			
-        $db->UpdateQuery("news",$values,array("id='{$_GET[nid]}'"));
-		header('location:?item=newsmgr&act=mgr');
-		//$_GET["item"] = "newsmgr";
+        $db->UpdateQuery("services",$values,array("id='{$_GET[nid]}'"));
+		header('location:?item=servicesmgr&act=mgr');
+		//$_GET["item"] = "servicesmgr";
 		//$_GET["act"] = "act";			
 	}
 
@@ -103,22 +95,22 @@ if ($_GET['act']=="new")
 	$editorinsert = "
 		<p>
 			<input type='submit' id='submit' value='ذخیره' class='submit' />	 
-			<input type='hidden' name='mark' value='savenews' />";
+			<input type='hidden' name='mark' value='saveservices' />";
 }
 if ($_GET['act']=="edit")
 {
-	$row=$db->Select("news","*","id='{$_GET["nid"]}'",NULL);
+	$row=$db->Select("services","*","id='{$_GET["nid"]}'",NULL);
 	$row['ndate'] = ToJalali($row["ndate"]);
 	$editorinsert = "
 	<p>
       	 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
-      	 <input type='hidden' name='mark' value='editnews' />";
+      	 <input type='hidden' name='mark' value='editservices' />";
 }
 if ($_GET['act']=="del")
 {
-	$db->Delete("news"," id",$_GET["nid"]);
-	if ($db->CountAll("news")%10==0) $_GET["pageNo"]-=1;		
-	header("location:?item=newsmgr&act=mgr&pageNo={$_GET[pageNo]}");
+	$db->Delete("services"," id",$_GET["nid"]);
+	if ($db->CountAll("services")%10==0) $_GET["pageNo"]-=1;		
+	header("location:?item=servicesmgr&act=mgr&pageNo={$_GET[pageNo]}");
 }
 if ($_GET['act']=="do")
 {
@@ -126,20 +118,20 @@ if ($_GET['act']=="do")
 		<div class="title">
 	      <ul>
 	        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-	        <li><span>مدیریت اخبار</span></li>
+	        <li><span>مدیریت خدمات</span></li>
 	      </ul>
 	      <div class="badboy"></div>
 	    </div>
 		<div class="sub-menu" id="mainnav">
 			<ul>
 			  <li>		  
-				<a href="?item=newsmgr&act=new">درج خبر جدید
-					<span class="add-news"></span>
+				<a href="?item=servicesmgr&act=new">درج خدمت جدید
+					<span class="add-services"></span>
 				</a>
 			  </li>
 			  <li>
-				<a href="?item=newsmgr&act=mgr" id="news" name="news">حذف/ویرایش اخبار
-					<span class="edit-news"></span>
+				<a href="?item=servicesmgr&act=mgr" id="services" name="services">حذف/ ویرایش خدمت
+					<span class="edit-services"></span>
 				</a>
 			  </li>
 			 </ul>
@@ -150,26 +142,11 @@ ht;
 if ($_GET['act']=="new" or $_GET['act']=="edit")
 {
 $msgs = GetMessage($_GET['msg']);
-$sections = $db->SelectAll("section","*",null,"id ASC");
-if ($_GET['act']=="edit") 
-{   
-    $category = $db->SelectAll("category","*",null,"id ASC");
-    $secid = $db ->Select("category","secid","ID = '{$row[catid]}'");
-	$secid = $secid[0];
-	$cbsection = DbSelectOptionTag("cbsec",$sections,"secname","{$secid}",null,"select validate[required]");
-	$cbcategory = DbSelectOptionTag("cbcat",$category,"catname","{$row[catid]}",null,"select validate[required]");
-	
-}
-else
-{
-  $cbsection = DbSelectOptionTag("cbsec",$sections,"secname",null,null,"select validate[required]");
-  $cbcategory = null;
-} 
 
 $html=<<<cd
 	<script type='text/javascript'>
 		$(document).ready(function(){	   
-			$("#frmnewsmgr").validationEngine();
+			$("#frmservicesmgr").validationEngine();
 			$("#cbsec").change(function(){
 				$.get('ajaxcommand.php?sec='+$(this).val(), function(data) {
 						$('#catgory').html(data);
@@ -180,70 +157,26 @@ $html=<<<cd
   <div class="title">
       <ul>
         <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-	    <li><span>مدیریت اخبار</span></li>
+	    <li><span>مدیریت خدمات</span></li>
       </ul>
       <div class="badboy"></div>
   </div>
   <div class="mes" id="message">{$msgs}</div>
   <div class='content'>
-	<form name="frmnewsmgr" id="frmnewsmgr" class="" action="" method="post" >
+	<form name="frmservicesmgr" id="frmservicesmgr" class="" action="" method="post" >
      <p class="note">پر کردن موارد مشخص شده با * الزامی می باشد</p>
-	 <div class="badboy"></div>
-       <p>
-         <label for="cbsection">سر گروه </label>
-         <span>*</span>
-       </p>    
-	   {$cbsection}   
-	   <div id="catgory">
-		   {$cbcategory}
-	   </div>
-       <div class="badboy"></div>
+	 <div class="badboy"></div>       
        <p>
          <label for="subject">عنوان </label>
          <span>*</span>
        </p>    
-       <input type="text" name="subject" class="validate[required] subject" id="subject" value='{$row[subject]}'/> 
-  	   <p>
-         <label for="pic">عکس </label>
-         <span>*</span>
-       </p>       
-	   <p>
-	   		<input type="text" name="selectpic" class="selectpic" id="selectpic" value='{$row[image]}' />
-	   		<input type="text" class="validate[required] showadd" id="showadd" value='{$row[image]}' />
-	   		<a class="filesbrowserbtn" id="filesbrowserbtn" name="newsmgr" title="گالری تصاویر">گالری تصاویر</a>
-	   		<a class="selectbuttton" id="selectbuttton" title="انتخاب">انتخاب</a>
-	   </p>
-	   <div class="badboy"></div>
-	   <div id="filesbrowser"></div>
+       <input type="text" name="subject" class="validate[required] subject" id="subject" value='{$row[subject]}'/>   	   
 	   <div class="badboy"></div>
   	   <p>
          <label for="detail">توضیحات </label>
          <span>*</span>
        </p>
-       <textarea cols="50" rows="10" name="detail" class="detail" id="detail" > {$row[body]}</textarea>
-  	   <p>
-        <label for="sdate">تاریخ </label>
-        <span>*</span><br /><br />
-        <input type="text" name="ndate" class="validate[required] ndate" id="date_input_1" value='{$row[ndate]}' />
-        <img src="./images/cal.png" id="date_btn_1" alt="cal-pic">
-         <script type="text/javascript">
-          Calendar.setup({
-            inputField  : "date_input_1",   // id of the input field
-            button      : "date_btn_1",   // trigger for the calendar (button ID)
-                ifFormat    : "%Y-%m-%d",       // format of the input field
-                showsTime   : false,
-                dateType  : 'jalali',
-                showOthers  : true,
-                langNumbers : true,
-                weekNumbers : true
-          });
-        </script>
-       </p>
-       <p>
-  	   <label>منبع خبر </label>
-       <span>*</span>   	 
-       </p>
-       <input type="text" name="res" class='validate[required]' value='{$row['resource']}'/>
+       <textarea cols="50" rows="10" name="detail" class="detail" id="detail" > {$row[body]}</textarea>  	   
 	   {$editorinsert}       
       	 <input type="reset" value="پاک کردن" class='reset' /> 	 	     
        </p>  
@@ -255,7 +188,7 @@ cd;
 } else
 if ($_GET['act']=="mgr")
 {
-	if ($_POST["mark"]=="srhnews")
+	if ($_POST["mark"]=="srhservices")
 	{	 		
 	    if ($_POST["cbsearch"]=="ndate")
 		{
@@ -265,7 +198,7 @@ if ($_GET['act']=="mgr")
 		   $_POST["txtsrh"] = Date("Y-m-d",mktime(0, 0, 0, $gmonth, $gday, $gyear));
 		}
 		$rows = $db->SelectAll(
-				"news",
+				"services",
 				"*",
 				"{$_POST[cbsearch]} LIKE '%{$_POST[txtsrh]}%'",
 				"ndate DESC",
@@ -273,17 +206,17 @@ if ($_GET['act']=="mgr")
 				10);
 			if (!$rows) 
 			{					
-				//$_GET['item'] = "newsmgr";
+				//$_GET['item'] = "servicesmgr";
 				//$_GET['act'] = "mgr";
 				//$_GET['msg'] = 6;				
-				header("Location:?item=newsmgr&act=mgr&msg=6");
+				header("Location:?item=servicesmgr&act=mgr&msg=6");
 			}
 		
 	}
 	else
 	{	
 		$rows = $db->SelectAll(
-				"news",
+				"services",
 				"*",
 				null,
 				"ndate DESC",
@@ -292,7 +225,7 @@ if ($_GET['act']=="mgr")
     }
                 $rowsClass = array();
                 $colsClass = array();
-                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhnews")?$db->CountAll("news"):Count($rows);
+                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhservices")?$db->CountAll("services"):Count($rows);
                 for($i = 0; $i < Count($rows); $i++)
                 {						
 		        $rows[$i]["subject"] =(mb_strlen($rows[$i]["subject"])>20)?mb_substr($rows[$i]["subject"],0,20,"UTF-8")."...":$rows[$i]["subject"];
@@ -311,13 +244,13 @@ if ($_GET['act']=="mgr")
 				}
 				$rows[$i]["username"]=GetUserName($rows[$i]["userid"]); 
 				$rows[$i]["catid"] = GetCategoryName($rows[$i]["catid"]);
-				$rows[$i]["edit"] = "<a href='?item=newsmgr&act=edit&nid={$rows[$i]["id"]}' class='edit-field'" .
+				$rows[$i]["edit"] = "<a href='?item=servicesmgr&act=edit&nid={$rows[$i]["id"]}' class='edit-field'" .
 						"style='text-decoration:none;'></a>";								
 				$rows[$i]["delete"]=<<< del
 				<a href="javascript:void(0)"
 				onclick="DelMsg('{$rows[$i]['id']}',
 					'از حذف این خبر اطمینان دارید؟',
-				'?item=newsmgr&act=del&pageNo={$_GET[pageNo]}&nid=');"
+				'?item=servicesmgr&act=del&pageNo={$_GET[pageNo]}&nid=');"
 				 class='del-field' style='text-decoration:none;'></a>
 del;
                          }
@@ -335,7 +268,7 @@ del;
 							"username"=>"کاربر",
                             "edit"=>"ویرایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
-                            $_GET["pageNo"], "id", false, true, true, $rowCount,"item=newsmgr&act=mgr");
+                            $_GET["pageNo"], "id", false, true, true, $rowCount,"item=servicesmgr&act=mgr");
                     
             }
 $msgs = GetMessage($_GET['msg']);
@@ -372,7 +305,7 @@ $code=<<<edit
 				  </div>
                     <div class="Top">                       
 						<center>
-							<form action="?item=newsmgr&act=mgr" method="post" id="frmsrh" name="frmsrh">
+							<form action="?item=servicesmgr&act=mgr" method="post" id="frmsrh" name="frmsrh">
 								<p>جستجو بر اساس {$combobox}</p>
 
 								<p class="search-form">
@@ -390,10 +323,10 @@ $code=<<<edit
 							                weekNumbers : true
 							          });
 							        </script>
-									<a href="?item=newsmgr&act=mgr" name="srhsubmit" id="srhsubmit" class="button"> جستجو</a>
-									<a href="?item=newsmgr&act=mgr&rec=all" name="retall" id="retall" class="button"> کلیه اطلاعات</a>
+									<a href="?item=servicesmgr&act=mgr" name="srhsubmit" id="srhsubmit" class="button"> جستجو</a>
+									<a href="?item=servicesmgr&act=mgr&rec=all" name="retall" id="retall" class="button"> کلیه اطلاعات</a>
 								</p>
-								<input type="hidden" name="mark" value="srhnews" /> 
+								<input type="hidden" name="mark" value="srhservices" /> 
 								{$msgs}
 								{$gridcode} 
 							</form>
