@@ -21,9 +21,14 @@ foreach($plans as $key => $val)
 {
    ++$i;
    $totalprice = $val["price"]*$val["time"];
+
+if ($i % 2 != 0)	
+	$html.="<div class='pricing-table'> <div class='color-1'>";
+else	
+    $html.="<div class='pricing-table'> <div class='color-2'>";
+					
+						
 $html.=<<<cd
-					<div class="pricing-table">
-						<div class="color-1">
 							<h3>{$val["name"]}</h3>
 							<h4><span class="price">{$totalprice}</span> 
 							<span class="time">{$val["time"]}</span></h4>
