@@ -40,7 +40,7 @@ $html.=<<<cd
 				</div>
 				<!-- Icon Box End -->
 cd;
-	if ($i % 2 == 0)	  
+	if (($i % 2 == 0) or (count($services)==$i))	  
 		$html.="</div>   <!-- Icon Box Container / End -->";
    
 }
