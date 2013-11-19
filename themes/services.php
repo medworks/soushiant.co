@@ -34,7 +34,7 @@ $html.=<<<cd
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-cogwheel" style="margin-left: -12px;"></i>
-						<h3><a href="#service1">{$val["subject"]}</a></h3>
+						<h3><a href="service-fullpage{$val[id]}.html">{$val["subject"]}</a></h3>
 						<p>{$val["body"]}</p>
 					</div>
 				</div>
