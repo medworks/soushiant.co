@@ -35,7 +35,7 @@ $html.=<<<cd
 				</div>
 				<!-- Icon Box End -->
 cd;
-if (($i % 2 == 0) or (count($services)==$i))	  
+if (($i % 2 == 0) or (count($company)==$i))	  
 		$html.="</div>   <!-- Icon Box Container / End -->";
    
 }
