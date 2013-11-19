@@ -17,21 +17,21 @@ $html=<<<cd
 				<div class="four-tables">
 cd;
 $i = 0;
+$j = 0;
 foreach($plans as $key => $val)
 {
    ++$i;
+   ++$j; 
    $totalprice = $val["price"]*$val["time"];
-
 if ($i % 2 != 0)	
 	$html.="<div class='pricing-table'> <div class='color-1'>";
 else	
-    $html.="<div class='pricing-table'> <div class='color-2'>";
-					
+    $html.="<div class='pricing-table'> <div class='color-2'>";	
 						
 $html.=<<<cd
 							<h3>{$val["name"]}</h3>
 							<h4><span class="price">{$totalprice}</span> 
-							<span class="time">{$val["time"]}</span></h4>
+							<span class="time">{$val["time"]}  ماهه </span></h4>
 							<ul>
 								<li>سرعت دریافت {$val["speeddl"]} KB/S</li>
 								<li>سرعت ارسال {$val["speedup"]} KB/S</li>
@@ -42,6 +42,7 @@ $html.=<<<cd
 						</div>
 					</div>
 cd;
+if ($j % 4 == 0) $html.="</br>";
 }
 $html.=<<<cd
 				</div>
