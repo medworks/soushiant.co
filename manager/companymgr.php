@@ -16,9 +16,9 @@
 	if ($_GET['item']!="compmgr")	exit();
 	if (!$overall_error && $_POST["mark"]=="savecomp")
 	{	    
-		$fields = array("`name`","`detail`");
-		$_POST["detail"] = addslashes($_POST["detail"]);		
-		$values = array("'{$_POST[name]}'","'{$_POST[detail]}'");
+		$fields = array("`name`","`body`");
+		$_POST["body"] = addslashes($_POST["body"]);		
+		$values = array("'{$_POST[name]}'","'{$_POST[body]}'");
 		if (!$db->InsertQuery('company',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
@@ -39,9 +39,9 @@
     else
 	if (!$overall_error && $_POST["mark"]=="editcomp")
 	{		
-	    $_POST["detail"] = addslashes($_POST["detail"]);	    
+	    $_POST["body"] = addslashes($_POST["body"]);	    
 		$values = array("`name`"=>"'{$_POST[name]}'",
-			            "`detail`"=>"'{$_POST[detail]}'");
+			            "`body`"=>"'{$_POST[body]}'");
 			
         $db->UpdateQuery("company",$values,array("id='{$_GET[cid]}'"));
 		header('location:?item=compmgr&act=mgr');
@@ -125,10 +125,10 @@ $html=<<<cd
        <input type="text" name="name" class="validate[required] subject" id="name" value='{$row[name]}'/>   	  
 	   <div class="badboy"></div>
   	   <p>
-         <label for="detail">توضیحات</label>
+         <label for="body">توضیحات</label>
          <span>*</span>
        </p>
-       <textarea cols="50" rows="10" name="detail" class="detail" id="detail" > {$row[detail]}</textarea>  	   
+       <textarea cols="50" rows="10" name="body" class="body" id="body" > {$row[body]}</textarea>  	   
 	   {$editorinsert}
       	 <input type="reset" value="پاک کردن" class='reset' />
        </p>  
@@ -173,9 +173,9 @@ if ($_GET['act']=="mgr")
                 $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhnews")?$db->CountAll("company"):Count($rows);
                 for($i = 0; $i < Count($rows); $i++)
                 {						
-					$rows[$i]["detail"] =(mb_strlen($rows[$i]["detail"])>50)?
-					mb_substr(html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8"), 0, 50,"UTF-8") . "..." :
-					html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8");						
+					$rows[$i]["body"] =(mb_strlen($rows[$i]["body"])>50)?
+					mb_substr(html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8"), 0, 50,"UTF-8") . "..." :
+					html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8");						
 					if ($i % 2==0)
 					 {
 							$rowsClass[] = "datagridevenrow";
@@ -200,7 +200,7 @@ del;
             {                    
                     $gridcode .= DataGrid(array( 
 					        "name"=>"نام شرکت",
-							"detail"=>"توضیحات",							
+							"body"=>"توضیحات",							
                             "edit"=>"ویرایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
                             $_GET["pageNo"], "id", false, true, true, $rowCount,"item=compmgr&act=mgr");
@@ -208,7 +208,7 @@ del;
             }
 $msgs = GetMessage($_GET['msg']);
 $list = array("name"=>"نام شرکت",
-              "detail"=>"توضیحات");
+              "body"=>"توضیحات");
 $combobox = SelectOptionTag("cbsearch",$list,"name");
 $code=<<<edit
 <script type='text/javascript'>
