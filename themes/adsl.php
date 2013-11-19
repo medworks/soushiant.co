@@ -1,5 +1,8 @@
 <?php
-
+  include_once("./classes/database.php");
+  include_once("./lib/persiandate.php");
+  $db = Database::GetDatabase();   
+  $company = $db->SelectAll("company","*");   
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
@@ -11,54 +14,32 @@ $html=<<<cd
 				<!-- Page Title / End -->
 			</div>
 		</div>
-		<div class="container">
-			<div class="sixteen columns">
-				<div class="headline"><h4>شاتل</h4></div>
-			</div>
-			<!-- Icon Box Container -->
-			<div class="icon-boxes-container">
+		<div class="container">			
+cd;
+$i = 0;
+foreach($company as $key => $val)
+{
+   ++$i;
+   $val["body"]=  strip_tags($val["body"]);
+   $val["body"] = (mb_strlen($val["body"])>200) ? mb_substr($val["body"],0,200,"UTF-8")."..." : $val["body"];
+   if ($i % 2 != 0)	
+	$html.="<!-- Icon Box Container --> <div class='icon-boxes-container'> ";
+$html.=<<<cd
 				<!-- Icon Box Start -->
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-wifi-alt" style="margin-left: -12px;"></i>
-						<h3><a class="price-table">شاتل</a></h3>
-						<p>توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد شاتل... توضیح در مورد  </p>
+						<h3><a class="price-table">{$val["name"]}</a></h3>
+						<p>{$val["body"]}</p>
 					</div>
 				</div>
 				<!-- Icon Box End -->
-				<!-- Icon Box Start -->
-				<div class="eight columns">
-					<div class="icon-box">
-						<i class="ico-wifi-alt"></i>
-						<h3><a class="price-table">Social Marketing</a></h3>
-						<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Mauris ut ligula tortorea lorem ipsum dolor sit amet gorbi vel nulla eget quam porttitor gravida.</p>
-					</div>
-				</div>
-				<!-- Icon Box End -->
-			</div>
-			<!-- Icon Box Container / End -->
-			<!-- Icon Box Container -->
-			<div class="icon-boxes-container">
-				<!-- Icon Box Start -->
-				<div class="eight columns">
-					<div class="icon-box">
-						<i class="ico-wifi-alt" style="margin-left: -10px;"></i>
-						<h3>Web Design</h3>
-						<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Mauris ut ligula tortorea lorem ipsum dolor sit amet gorbi vel nulla eget quam porttitor gravida.</p>
-					</div>
-				</div>
-				<!-- Icon Box End -->
-				<!-- Icon Box Start -->
-				<div class="eight columns">
-					<div class="icon-box">
-						<i class="ico-wifi-alt"></i>
-						<h3>Video Recording</h3>
-						<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Mauris ut ligula tortorea lorem ipsum dolor sit amet gorbi vel nulla eget quam porttitor gravida.</p>
-					</div>
-				</div>
-				<!-- Icon Box End -->
-			</div>
-			<!-- Icon Box Container / End -->
+cd;
+if (($i % 2 == 0) or (count($services)==$i))	  
+		$html.="</div>   <!-- Icon Box Container / End -->";
+   
+}
+$html.=<<<cd
 			<script>
 				$(document).ready(function(){
 					$('.price-table').click(function(){
