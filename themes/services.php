@@ -2,8 +2,7 @@
   include_once("./classes/database.php");
   include_once("./lib/persiandate.php");
   $db = Database::GetDatabase();   
-  $services = $db->SelectAll("services","*");  
-  $itemsCount = $db->CountAll("services");
+  $services = $db->SelectAll("services","*");    
   $partner= file_get_contents('themes/inc/partner.php');
 $html=<<<cd
 		<div class="container">
