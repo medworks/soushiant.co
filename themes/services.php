@@ -1,5 +1,10 @@
 <?php
-$partner= file_get_contents('themes/inc/partner.php');
+  include_once("./classes/database.php");
+  include_once("./lib/persiandate.php");
+  $db = Database::GetDatabase();   
+  $services = $db->SelectAll("services","*");  
+  $itemsCount = $db->CountAll("services");
+  $partner= file_get_contents('themes/inc/partner.php');
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
@@ -14,51 +19,33 @@ $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
 				<div class="headline"><h4>خدمات</h4></div>
-			</div>
-			<!-- Icon Box Container -->
-			<div class="icon-boxes-container">
+			</div>						
+cd;
+$i = 0;
+foreach($services as $key => $val)
+{
+   ++$i;
+   $val["body"]=  strip_tags($val["body"]);
+   $val["body"] = (mb_strlen($val["body"])>200) ? mb_substr($val["body"],0,200,"UTF-8")."..." : $val["body"];
+   if ($i % 2 != 0)
+	$html.="<div class='icon-boxes-container'>  <!-- Icon Box Container -->";
+$html.=<<<cd
 				<!-- Icon Box Start -->
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-cogwheel" style="margin-left: -12px;"></i>
-						<h3><a href="#service1">خدمت اول</a></h3>
-						<p>شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... شرح خدمت اول... </p>
+						<h3><a href="#service1">{$val["subject"]}</a></h3>
+						<p>{$val["body"]}</p>
 					</div>
 				</div>
 				<!-- Icon Box End -->
-				<!-- Icon Box Start -->
-				<div class="eight columns">
-					<div class="icon-box">
-						<i class="ico-cogwheel"></i>
-						<h3><a href="#service2">Social Marketing</a></h3>
-						<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Mauris ut ligula tortorea lorem ipsum dolor sit amet gorbi vel nulla eget quam porttitor gravida.</p>
-					</div>
-				</div>
-				<!-- Icon Box End -->
-			</div>
-			<!-- Icon Box Container / End -->
-			<!-- Icon Box Container -->
-			<div class="icon-boxes-container">
-				<!-- Icon Box Start -->
-				<div class="eight columns">
-					<div class="icon-box">
-						<i class="ico-cogwheel" style="margin-left: -10px;"></i>
-						<h3>Web Design</h3>
-						<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Mauris ut ligula tortorea lorem ipsum dolor sit amet gorbi vel nulla eget quam porttitor gravida.</p>
-					</div>
-				</div>
-				<!-- Icon Box End -->
-				<!-- Icon Box Start -->
-				<div class="eight columns">
-					<div class="icon-box">
-						<i class="ico-cogwheel"></i>
-						<h3>Video Recording</h3>
-						<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Mauris ut ligula tortorea lorem ipsum dolor sit amet gorbi vel nulla eget quam porttitor gravida.</p>
-					</div>
-				</div>
-				<!-- Icon Box End -->
-			</div>
-			<!-- Icon Box Container / End -->
+cd;
+	if ($i % 2 == 0)	  
+		$html.="</div>   <!-- Icon Box Container / End -->";
+   
+}
+$html.=<<<cd
+ <!--
 			<div class="two-thirds column">
 				<div class="headline no-margin"><h4 id="service1">خدمت اول</h4></div>
 				<div class="three-third column alpha">
@@ -93,6 +80,7 @@ $html=<<<cd
 				</ul>
 				<p></p>
 			</div>
+-->			
 		</div>
 	{$partner}
 cd;
