@@ -23,7 +23,7 @@
                 return "themes/adsl.php";
 			break;
 			case 'services':
-				$seo->Site_Title = "ADSL";	
+				$seo->Site_Title = "خدمات";	
                 return "themes/services.php";
 			break;
 			case 'contact':			    			
