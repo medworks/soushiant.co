@@ -25,7 +25,7 @@
 			<div class="footer-headline"><h4>اخبار</h4></div>
 			<ul class="links-list">
 				<?php									  					
-					for($i=0 ; $i<5 ; $i++){
+					for($i=0 ; $i<7 ; $i++){
 						if($news[$i]['subject']!=null){
 	  						$ndate = ToJalali($news[$i]["ndate"]," l d F ");
 							echo "<li>
@@ -40,7 +40,7 @@
 			<div class="footer-headline"><h4>کارهای ما</h4></div>
 			<ul class="links-list">
 				<?Php
-                        for($i=0 ; $i<5 ; $i++){
+                        for($i=0 ; $i<7 ; $i++){
         					if($works[$i]['subject']!=null){						
         						$fdate = ToJalali($works[$i]["fdate"]," l d F  Y"); 
         						echo "<li>
