@@ -1,5 +1,10 @@
 <?php
-$companyname = $_GET["comp"];
+  include_once("./classes/database.php");
+  include_once("./lib/persiandate.php");
+  $db = Database::GetDatabase();
+  $companyid = $_GET["compid"];
+  $companyname = $_GET["comp"];
+  $plans = $db->SelectAll("plans","*","sid = {$companyid}");
 $html=<<<cd
 		<!-- Four Tables ================================================== -->
 		<!-- 960 Container -->
