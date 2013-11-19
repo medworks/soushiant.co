@@ -83,6 +83,5 @@ $html=<<<cd
 		<div id="price"></div>
 cd;
 	return $html;
-	include_once('inc/partner.php');
 
 ?>
