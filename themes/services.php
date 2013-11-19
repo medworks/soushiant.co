@@ -1,5 +1,5 @@
 <?php
-
+$partner= file_get_contents('themes/inc/partner.php');
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
@@ -94,8 +94,8 @@ $html=<<<cd
 				<p></p>
 			</div>
 		</div>
+	{$partner}
 cd;
 	return $html;
-	include_once('inc/partner.php');
 
 ?>
