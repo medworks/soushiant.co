@@ -126,12 +126,12 @@ if ($_GET['act']=="do")
 			<ul>
 			  <li>		  
 				<a href="?item=servicesmgr&act=new">درج خدمت جدید
-					<span class="add-services"></span>
+					<span class="add-news"></span>
 				</a>
 			  </li>
 			  <li>
 				<a href="?item=servicesmgr&act=mgr" id="services" name="services">حذف/ ویرایش خدمت
-					<span class="edit-services"></span>
+					<span class="edit-news"></span>
 				</a>
 			  </li>
 			 </ul>
@@ -189,14 +189,7 @@ cd;
 if ($_GET['act']=="mgr")
 {
 	if ($_POST["mark"]=="srhservices")
-	{	 		
-	    if ($_POST["cbsearch"]=="ndate")
-		{
-		   date_default_timezone_set('Asia/Tehran');		   
-		   list($year,$month,$day) = explode("/", trim($_POST["txtsrh"]));		
-		   list($gyear,$gmonth,$gday) = jalali_to_gregorian($year,$month,$day);		
-		   $_POST["txtsrh"] = Date("Y-m-d",mktime(0, 0, 0, $gmonth, $gday, $gyear));
-		}
+	{	 			    
 		$rows = $db->SelectAll(
 				"services",
 				"*",
@@ -232,8 +225,6 @@ if ($_GET['act']=="mgr")
                 $rows[$i]["body"] =(mb_strlen($rows[$i]["body"])>30)?
                 mb_substr(html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8"), 0, 30,"UTF-8") . "..." :
                 html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8");               
-                $rows[$i]["ndate"] =ToJalali($rows[$i]["ndate"]," l d F  Y ");
-				$rows[$i]["image"] ="<img src='{$rows[$i][image]}' alt='{$rows[$i][subject]}' width='40px' height='40px' />";                                            
 				if ($i % 2==0)
 				 {
 						$rowsClass[] = "datagridevenrow";
@@ -241,16 +232,14 @@ if ($_GET['act']=="mgr")
 				else
 				{
 						$rowsClass[] = "datagridoddrow";
-				}
-				$rows[$i]["username"]=GetUserName($rows[$i]["userid"]); 
-				$rows[$i]["catid"] = GetCategoryName($rows[$i]["catid"]);
-				$rows[$i]["edit"] = "<a href='?item=servicesmgr&act=edit&nid={$rows[$i]["id"]}' class='edit-field'" .
-						"style='text-decoration:none;'></a>";								
+				}				
+				$rows[$i]["edit"] = "<a href='?item=servicesmgr&act=edit&sid={$rows[$i]["id"]}' class='edit-field'" .
+						"style='text-decoration:none;'></a>";				
 				$rows[$i]["delete"]=<<< del
 				<a href="javascript:void(0)"
 				onclick="DelMsg('{$rows[$i]['id']}',
 					'از حذف این خبر اطمینان دارید؟',
-				'?item=servicesmgr&act=del&pageNo={$_GET[pageNo]}&nid=');"
+				'?item=servicesmgr&act=del&pageNo={$_GET[pageNo]}&sid=');"
 				 class='del-field' style='text-decoration:none;'></a>
 del;
                          }
@@ -258,14 +247,9 @@ del;
     if (!$_GET["pageNo"] or $_GET["pageNo"]<=0) $_GET["pageNo"] = 0;
             if (Count($rows) > 0)
             {                    
-                    $gridcode .= DataGrid(array( 
-					        "catid"=>"گروه",
-							"subject"=>"عنوان",
-							"image"=>"تصویر",
-							"body"=>"توضیحات",
-							"ndate"=>"تاریخ",
-							"resource"=>"منبع",							
-							"username"=>"کاربر",
+                    $gridcode .= DataGrid(array( 					        
+							"subject"=>"عنوان",							
+							"body"=>"توضیحات",							
                             "edit"=>"ویرایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
                             $_GET["pageNo"], "id", false, true, true, $rowCount,"item=servicesmgr&act=mgr");
@@ -273,9 +257,7 @@ del;
             }
 $msgs = GetMessage($_GET['msg']);
 $list = array("subject"=>"عنوان",
-              "body"=>"توضیحات",
-			  "ndate"=>"تاریخ",
-			  "resource"=>"منبع");
+              "body"=>"توضیحات");			  
 $combobox = SelectOptionTag("cbsearch",$list,"subject");
 $code=<<<edit
 <script type='text/javascript'>
@@ -283,23 +265,13 @@ $code=<<<edit
 		$('#srhsubmit').click(function(){	
 			$('#frmsrh').submit();
 			return false;
-		});
-		$('#cbsearch').change(function(){
-			$("select option:selected").each(function(){
-	            if($(this).val()=="ndate"){
-	            	$('.cal-btn').css('display' , 'inline-block');
-	            	return false;
-	            }else{
-	            	$('.cal-btn').css('display' , 'none');
-	            }
-  			});
-		});
+		});		
 	});
 </script>	   
 					<div class="title">
 				      <ul>
 				        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-					    <li><span>مدیریت اخبار</span></li>
+					    <li><span>مدیریت خدمات</span></li>
 				      </ul>
 				      <div class="badboy"></div>
 				  </div>
@@ -310,19 +282,6 @@ $code=<<<edit
 
 								<p class="search-form">
 									<input type="text" id="date_input_1" name="txtsrh" class="search-form" value="جستجو..." onfocus="if (this.value == 'جستجو...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'جستجو...';}"  /> 
-									<img src="./images/cal.png" class="cal-btn" id="date_btn_2" alt="cal-pic">
-							         <script type="text/javascript">
-							          Calendar.setup({
-							            inputField  : "date_input_1",   // id of the input field
-							            button      : "date_btn_2",   // trigger for the calendar (button ID)
-							                ifFormat    : "%Y/%m/%d",       // format of the input field
-							                showsTime   : false,
-							                dateType  : 'jalali',
-							                showOthers  : true,
-							                langNumbers : true,
-							                weekNumbers : true
-							          });
-							        </script>
 									<a href="?item=servicesmgr&act=mgr" name="srhsubmit" id="srhsubmit" class="button"> جستجو</a>
 									<a href="?item=servicesmgr&act=mgr&rec=all" name="retall" id="retall" class="button"> کلیه اطلاعات</a>
 								</p>
