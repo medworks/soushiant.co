@@ -18,7 +18,7 @@
 		<!-- About -->
 		<div class="four columns">
 			<div class="footer-headline"><h4>درباره ما</h4></div>
-			<p><?php echo $About_System ?></p>
+			<p><a href="about-us.html"><?php echo $About_System ?></a></p>
 		</div>	
 		<!-- Useful Links -->
 		<div class="four columns">
@@ -54,6 +54,16 @@
 		<!-- Latest Tweets -->
 		<div class="four columns">
 			<div class="footer-headline"><h4>اشتراک خبرنامه</h4></div>
+			<form id="subscribfrm" method="post" action="">
+				<p><input type="text" name="name" class="subscrib" id="subscrib" placeholder="نام و نام خانوادگی"></p>
+				<p><input type="text" name="tel" class="subscrib" id="subscrib" placeholder="تلفن همراه"></p>
+				<p><input type="text" name="email" class="subscrib ltr" id="subscrib" placeholder="E-mail"></p>
+				<p><input type="submit" class="submit" id="nsubmit" value="اشتراک"></p>
+				<fieldset class="info_fieldset">
+					<div id="note"></div>
+				</fieldset>
+				<input type="hidden" name="mark" value="regnews">
+			</form>
 		</div>
 		<!-- Footer / Bottom -->
 		<div class="sixteen columns">
