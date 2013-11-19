@@ -1,12 +1,12 @@
 <?php
-
+$companyname = $_GET["comp"];
 $html=<<<cd
 		<!-- Four Tables ================================================== -->
 		<!-- 960 Container -->
 		<div class="container">
 			<div class="sixteen columns">
 				<div class="headline no-margin">
-					<h4>شاتل</h4>
+					<h4>{$companyname}</h4>
 				</div>
 				<!-- Number of Tables / From 2 to 5 / -->
 				<div class="four-tables">
@@ -22,48 +22,6 @@ $html=<<<cd
 								<li>هزینه اشتراک 13,900 ریال</li>
 							</ul>
 							<a href="#" class="sign-up"><span>پرداخت هزینه</span></a>
-						</div>
-					</div>
-					<div class="pricing-table">
-						<div class="color-2">
-							<h3>Premium</h3>
-							<h4><span class="price">$29.99</span> <span class="time">per month</span></h4>
-							<ul>
-								<li>25 GB Storage</li>
-								<li>Free Live Support</li>
-								<li>Unlimited Users</li>
-								<li>No Time Tracking</li>
-								<li>Enhanced SSL Security</li>
-							</ul>
-							<a href="#" class="sign-up"><span>Sign Up</span></a>
-						</div>
-					</div>
-					<div class="pricing-table">
-						<div class="color-1">
-							<h3>Professional</h3>
-							<h4><span class="price">$49.99</span> <span class="time">per month</span></h4>
-							<ul>
-								<li>50 GB Storage</li>
-								<li>Free Live Support</li>
-								<li>Unlimited Users</li>
-								<li>No Time Tracking</li>
-								<li>Enhanced SSL Security</li>
-							</ul>
-							<a href="#" class="sign-up"><span>Sign Up</span></a>
-						</div>
-					</div>
-					<div class="pricing-table">
-						<div class="color-2">
-							<h3>Ultimate</h3>
-							<h4><span class="price">$99.99</span> <span class="time">per month</span></h4>
-							<ul>
-								<li>100 GB Storage</li>
-								<li>Free Live Support</li>
-								<li>Unlimited Users</li>
-								<li>No Time Tracking</li>
-								<li>Enhanced SSL Security</li>
-							</ul>
-							<a href="#" class="sign-up"><span>Sign Up</span></a>
 						</div>
 					</div>
 				</div>
