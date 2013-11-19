@@ -22,7 +22,8 @@ foreach($plans as $key => $val)
 {
    ++$i;
    ++$j; 
-   $totalprice = $val["price"]*$val["time"];
+   $totalprice = $val["price"]*$val["time"];   
+   
 if ($i % 2 != 0)	
 	$html.="<div class='pricing-table'> <div class='color-1'>";
 else	
@@ -42,10 +43,11 @@ $html.=<<<cd
 						</div>
 					</div>
 cd;
-if ($j % 4 == 0) $html.="</br>";
+if (($j % 4 == 0)and (count($plans)!=$j)) $html.="</div> </br> <div class='four-tables'>";
+if (($j % 4 == 0)and (count($plans)==$j)) $html.="</div> </br> ";
 }
+if ($j % 2 != 0) $html.="</div>";
 $html.=<<<cd
-				</div>
 			</div>
 		</div>
 cd;
