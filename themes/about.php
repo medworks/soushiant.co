@@ -15,7 +15,7 @@ $html=<<<cd
 		</div>
 		<div class="container">
 			<!-- Standard Structure -->
-			<div class="two-thirds column">
+			<div class="sixteen columns">
 				<div class="headline no-margin"><h4>درباره ما</h4></div>
 				<p>{$About_System} </p>
 			</div>

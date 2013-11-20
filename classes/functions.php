@@ -45,6 +45,9 @@
 			case 'fullnews':
                 if ($act=="do") return "themes/single-news.php";
 			break;
+			case 'fullservice':
+                if ($act=="do") return "themes/single-service.php";
+			break;
 			case 'newsmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/newsmgr.php";
 			break;
