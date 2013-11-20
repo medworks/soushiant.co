@@ -28,7 +28,7 @@ jQuery(document).ready(function() {
 	/* Responsive Menu */
 	(function() {
 		selectnav('nav', {
-			label: 'Menu',
+			//label: 'Menu',
 			nested: true,
 			indent: '-'
 		});
