@@ -125,7 +125,7 @@ $html=<<<cd
 	<script type='text/javascript'>
 		$(document).ready(function(){	   
 			$("#frmservicesmgr").validationEngine();			
-    });
+   		});
 	</script>
   <div class="title">
       <ul>

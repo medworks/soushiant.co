@@ -29,11 +29,11 @@ if ($_GET["news"]=="reg")
 
 if($_GET["contact"]=="reg"){
 
-	$admin = 'info@mediateq.ir';
+	$admin = 'info@soushiant.co';
 
-	$name    = $_POST['family'];
+	$name    = $_POST['name'];
 	$email   = $_POST['email'];
-	$subject = $_POST['subject'];
+	$subject = $_POST['message'];
 	$text    = $_POST['message'];
 
 	$message = "$text";
@@ -48,11 +48,11 @@ if($_GET["contact"]=="reg"){
 			echo "<div class='notification_ok rtl medium'>پیام شما با موفقیت ارسال شد.</div>";
 
 		}else{
-			echo "<div class='notification_error rtl'>خطا! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
+			echo "<div class='notification_error rtl'>خطا1! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
 
 		}
 	}else{
-		echo "<div class='notification_error rtl'>خطا! لطفا فیلدها را بررسی نمایید و مجددا ارسال کنید!</div>";
+		echo "<div class='notification_error rtl'>خطا2! لطفا فیلدها را بررسی نمایید و مجددا ارسال کنید!</div>";
 	}
 
 }

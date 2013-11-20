@@ -28,25 +28,45 @@ $html=<<<cd
 					</div>
 				</div>
 				<!-- Form -->
+				<script>
+                    $(document).ready(function(){
+                        $("#send").click(function(){
+                            $.ajax({
+                                type: "POST",
+                                url: "manager/ajaxcommand.php?contact=reg",
+                                data: $("#contact-form").serialize(),
+                                    success: function(msg)
+                                    {
+                                        $("#note-contact").ajaxComplete(function(event, request, settings){             
+                                            $(this).hide();
+                                            $(this).html(msg).slideDown("slow");
+                                            $(this).html(msg);
+                                        });
+                                    }
+                            });
+                            return false;
+                        });
+                    });
+                </script>
 				<div id="contact-form">
-					<form method="post" class="rtl" action="contact.php">
+					<form id="contact-form" method="post" class="rtl">
 						<div class="field">
-							<label>نام و نام خانوادگی:</label>
+							<label>نام و نام خانوادگی <span>*</span></label>
 							<input type="text" name="name" class="text">
 						</div>
 						<div class="field">
-							<label>ایمیل: <span>*</span></label>
-							<input type="text" name="email" class="text">
+							<label>ایمیل <span>*</span></label>
+							<input type="text" name="email" class="text ltr">
 						</div>
 						<div class="field">
-							<label>پیام: <span>*</span></label>
+							<label>پیام <span>*</span></label>
 							<textarea name="message" class="text textarea"></textarea>
 						</div>
 						<div class="field">
 							<input type="button" id="send" value="ارسال پیام">
-							<div class="loading"></div>
 						</div>
 					</form>
+					<div id="note-contact" ></div>
 				</div>
 			</div>
 			<!-- Contact Details -->
@@ -61,7 +81,7 @@ $html=<<<cd
 					{
 						var mapProp = {
 						  center:new google.maps.LatLng(36.321505, 59.523654),
-						  zoom:18,
+						  zoom:17,
 						  mapTypeId:google.maps.MapTypeId.ROADMAP
 						  };
 

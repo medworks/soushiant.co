@@ -254,7 +254,7 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 	// Validating
 	
 	function validateName(name) {
-		if (name.val()=='*') {name.addClass('validation-error',animateSpeed); return false;}
+		if (name.val()=='') {name.addClass('validation-error',animateSpeed); return false;}
 		else {name.removeClass('validation-error',animateSpeed); return true;}
 	}
 
@@ -282,55 +282,6 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 		if(!validateMessage(message)) result=false;
 		
 		if(result==false) return false;
-				
-		// Data
-		var data = 'name=' + name.val() + '&email=' + email.val() + '&message='  + encodeURIComponent(message.val());
-		
-		// Disable fields
-		$('.text').attr('disabled','true');
-		
-		// Loading icon
-		$('.loading').show();
-		
-		// Start jQuery
-		$.ajax({
-		
-			// PHP file that processes the data and send mail
-			url: "contact.php",	
-			
-			// GET method is used
-			type: "GET",
-
-			// Pass the data			
-			data: data,		
-			
-			//Do not cache the page
-			cache: false,
-			
-			// Success
-			success: function (html) {				
-			
-				if (html==1) {	
-
-					// Loading icon
-					$('.loading').fadeOut('slow');	
-						
-					//show the success message
-					$('.success-message').slideDown('slow');
-											
-					// Disable send button
-					$('#send').attr('disabled',true);
-					
-				}
-				
-				else {
-					$('.loading').fadeOut('slow')
-					alert('Sorry, unexpected error. Please try again later.');				
-				}
-			}		
-		});
-	
-		return false;
 		
 	});
 		

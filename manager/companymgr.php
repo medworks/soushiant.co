@@ -103,8 +103,7 @@ $html=<<<cd
 	<script type='text/javascript'>
 		$(document).ready(function(){	   
 			$("#frmcompanymgr").validationEngine();			
-			});
-    });
+		});
 	</script>
   <div class="title">
       <ul>
