@@ -53,6 +53,21 @@
 		</div>		
 		<!-- Latest Tweets -->
 		<div class="four columns">
+			<div class="footer-headline"><h4>ارتباط با ما</h4></div>
+			<ul class="links-list rtl contact">
+				<li class="latin-font"><i class="mini-ico-road"></i><p>سن انسیا نمسیا نمسیا لنمستیا سیال سیال سیال سیال سیال سیال سیال سیال سیال</p></li>
+				<li class="latin-font"><i class="mini-ico-envelope"></i>
+					<script type="text/javascript">
+                        emailE='soushain.co'
+                        emailE=('info' + '@' + emailE)
+                        document.write('<a href="mailto:' + emailE + '">' + emailE + '</a>')
+
+                    </script>
+                </li>
+				<li class="latin-font"><i class="mini-ico-user"></i><p class="latin-font ltr" style="text-align:left;">+98 511 609 0609</p></li>
+			</ul>
+		</div>
+		<!-- <div class="four columns">
 			<div class="footer-headline"><h4>اشتراک خبرنامه</h4></div>
 			<form id="subscribfrm" method="post" action="">
 				<p><input type="text" name="name" class="subscrib" id="subscrib" placeholder="نام و نام خانوادگی"></p>
@@ -64,7 +79,7 @@
 				</fieldset>
 				<input type="hidden" name="mark" value="regnews">
 			</form>
-		</div>
+		</div> -->
 		<!-- Footer / Bottom -->
 		<div class="sixteen columns">
 			<div id="footer-bottom" class="latin-font">
