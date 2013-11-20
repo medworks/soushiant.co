@@ -320,6 +320,7 @@ $code=<<<edit
 					</div>
 edit;
 $html = $code;
+}
 } else
 if ($_GET['item']=="traficmgr")
 {
@@ -580,6 +581,7 @@ $code=<<<edit
 					</div>
 edit;
 $html = $code;	
+}
 }
 	
 return $html;
