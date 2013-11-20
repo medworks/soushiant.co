@@ -62,7 +62,7 @@
 <body>
 <div class="container">
     <header>
-      <a href="../" class="logo" title="Mediateq" target="_blank">Mediateq website</a>
+      <a href="../" class="logo" title="Soushiant" target="_blank">Soushiant website</a>
       <div id="mini-nav">
         <ul class="hidden-phone">
           <li class="pic"><img src="<?php echo $pic; ?>" alt="<?php echo $name; ?>" /></li>       
