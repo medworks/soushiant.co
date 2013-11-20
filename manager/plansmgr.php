@@ -66,7 +66,7 @@
 	}
 	if ($_GET['act']=="edit")
 	{	
-		$row=$db->Select("plans","*","id='{$_GET["cid"]}'",NULL);
+		$row = $db->Select("plans","*","id='{$_GET["cid"]}'",NULL);
 		$comps = $db->SelectAll("company","*",null,"id ASC");
 		$cbcomp = DbSelectOptionTag("comp",$comps,"name","{$row['sid']}",null,"select validate[required]");
 		$editorinsert = "
