@@ -31,13 +31,13 @@ else
 						
 $html.=<<<cd
 							<h3>{$val["name"]}</h3>
-							<h4><span class="price">{$totalprice} تومان</span> 
+							<h4><span class="price">{$totalprice} ریال</span> 
 							<span class="time">{$val["time"]}  ماهه </span></h4>
 							<ul>
 								<li>سرعت دریافت {$val["speeddl"]} KB/S</li>
 								<li>سرعت ارسال {$val["speedup"]} KB/S</li>
 								<li>ترافیک {$val["trafic"]} GB</li>
-								<li>هزینه در ماه {$val["price"]} تومان</li>			
+								<li>هزینه در ماه {$val["price"]} ریال</li>			
 							</ul>
 							<a href="#" class="sign-up"><span>پرداخت هزینه</span></a>
 						</div>
