@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2013 at 03:12 PM
+-- Generation Time: Nov 20, 2013 at 03:35 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -178,6 +178,7 @@ INSERT INTO `news` (`id`, `subject`, `image`, `body`, `ndate`, `userid`, `resour
 CREATE TABLE IF NOT EXISTS `plans` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sid` int(11) NOT NULL,
+  `pos` int(11) NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL,
   `speeddl` int(11) NOT NULL,
   `speedup` int(11) NOT NULL,
@@ -193,13 +194,13 @@ CREATE TABLE IF NOT EXISTS `plans` (
 -- Dumping data for table `plans`
 --
 
-INSERT INTO `plans` (`id`, `sid`, `name`, `speeddl`, `speedup`, `time`, `trafic`, `price`, `avarage`, `detail`) VALUES
-(1, 1, 'ECO 128/128 kbps', 128, 128, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(2, 2, 'سعید', 128, 128, '3', 3, 14700, 0, ''),
-(3, 1, 'ECO 256/256kbps', 256, 256, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(4, 1, 'ECO 512/512 kbps', 512, 512, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(5, 1, 'ECO 1024/1024 kbps', 1024, 1024, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(6, 1, 'ECO 2048/2048 kbps', 2048, 2048, '1', 3, 14700, 0, '<p>ندارد</p>');
+INSERT INTO `plans` (`id`, `sid`, `pos`, `name`, `speeddl`, `speedup`, `time`, `trafic`, `price`, `avarage`, `detail`) VALUES
+(1, 1, 1, 'ECO 128/128 kbps', 128, 128, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(2, 2, 1, 'سعید', 128, 128, '3', 3, 14700, 0, ''),
+(3, 1, 0, 'ECO 256/256kbps', 256, 256, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(4, 1, 0, 'ECO 512/512 kbps', 512, 512, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(5, 1, 0, 'ECO 1024/1024 kbps', 1024, 1024, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(6, 1, 2, 'ECO 2048/2048 kbps', 2048, 2048, '1', 3, 14700, 0, '<p>ندارد</p>');
 
 -- --------------------------------------------------------
 
