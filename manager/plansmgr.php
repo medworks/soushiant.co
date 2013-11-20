@@ -50,13 +50,15 @@
 						"`price`"=>"'{$_POST[price]}'",
 			            "`detail`"=>"'{$_POST[detail]}'");
 			
-        $db->UpdateQuery("plans",$values,array("id='{$_GET[pid]}'"));
+        $db->UpdateQuery("plans",$values,array("id='{$_GET[cid]}'"));
 		header('location:?item=plansmgr&act=mgr');
 		//$_GET["item"] = "plansmgr";
 		//$_GET["act"] = "act";			
 	}
 	if ($_GET['act']=="new")
 	{
+	    $rows = $db->SelectAll("company","*",null,"id ASC");
+        $cbcomp = DbSelectOptionTag("comp",$rows,"name");
 		$editorinsert = "
 			<p>
 				<input type='submit' id='submit' value='ذخیره' class='submit' />	 
@@ -64,7 +66,9 @@
 	}
 	if ($_GET['act']=="edit")
 	{	
-		$row=$db->Select("plans","*","id='{$_GET["pid"]}'",NULL);
+		$row=$db->Select("plans","*","id='{$_GET["cid"]}'",NULL);
+		$comps = $db->SelectAll("company","*",null,"id ASC");
+		$cbcomp = DbSelectOptionTag("comp",$comps,"name","{$row['sid']}",null,"select validate[required]");
 		$editorinsert = "
 		<p>
 			 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
@@ -72,7 +76,7 @@
 	}
 	if ($_GET['act']=="del")
 	{
-		$db->Delete("plans"," id",$_GET["pid"]);
+		$db->Delete("plans"," id",$_GET["cid"]);
 		if ($db->CountAll("plans")%10==0) $_GET["pageNo"]-=1;		
 		header("location:?item=plansmgr&act=mgr&pageNo={$_GET[pageNo]}");
 	}
@@ -106,8 +110,6 @@ ht;
 if ($_GET['act']=="new" or $_GET['act']=="edit")
 {
 $msgs = GetMessage($_GET['msg']);
-$rows = $db->SelectAll("service","*",null,"id ASC");
-$comp = DbSelectOptionTag("comp",$rows,"name",null,null,'select validate[required]');
 $html=<<<cd
 	<script type='text/javascript'>
 		$(document).ready(function(){	   
@@ -130,7 +132,7 @@ $html=<<<cd
          <label for="name">نام شرکت</label>
          <span>*</span>
        </p>
-	   {$comp}
+	   {$cbcomp}
        <div class="badboy"></div>
        <p>
          <label for="name">نام طرح</label>
@@ -163,7 +165,7 @@ $html=<<<cd
        <input type="text" name="trafic" class="validate[required] subject" id="trafic" value='{$row[trafic]}'/>
 		<div class="badboy"></div>
        <p>
-         <label for="name">هزینه دوره(تومان) (GB)</label>
+         <label for="name">هزینه دوره(ریال) (GB)</label>
          <span>*</span>
        </p>    
        <input type="text" name="price" class="validate[required] subject" id="price" value='{$row[price]}'/> 	   
@@ -229,13 +231,13 @@ if ($_GET['act']=="mgr")
 					{
 							$rowsClass[] = "datagridoddrow";
 					}					
-					$rows[$i]["edit"] = "<a href='?item=plansmgr&act=edit&pid={$rows[$i]["id"]}' class='edit-field'" .
+					$rows[$i]["edit"] = "<a href='?item=plansmgr&act=edit&cid={$rows[$i]["id"]}' class='edit-field'" .
 							"style='text-decoration:none;'></a>";								
 					$rows[$i]["delete"]=<<< del
 					<a href="javascript:void(0)"
 					onclick="DelMsg('{$rows[$i]['id']}',
 						'از حذف این خبر اطمینان دارید؟',
-					'?item=plansmgr&act=del&pageNo={$_GET[pageNo]}&pid=');"
+					'?item=plansmgr&act=del&pageNo={$_GET[pageNo]}&cid=');"
 					 class='del-field' style='text-decoration:none;'></a>
 del;
                 }
