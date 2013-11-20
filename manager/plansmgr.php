@@ -103,6 +103,16 @@ if ($_GET['act']=="do")
 					<span class="edit-plan"></span>
 				</a>
 			  </li>
+			  <li>		  
+				<a href="?item=traficmgr&act=new">درج ترافیک
+					<span class="add-plan"></span>
+				</a>
+			  </li>
+			  <li>
+				<a href="?item=traficmgr&act=mgr" >حذف/ویرایش ترافیک
+					<span class="edit-plan"></span>
+				</a>
+			  </li>
 			 </ul>
 			 <div class="badboy"></div>
 		</div>		 
