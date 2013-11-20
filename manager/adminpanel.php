@@ -85,14 +85,14 @@
             <a href="?item=dashboard&act=do" class='dashboard'><p>پیشخوان</p></a>
           </li>
           <li>
-            <a href="?item=compmgr&act=do" class="catmgr"><p>مدیریت شرکت</p></a>            
+            <a href="?item=compmgr&act=do" class="compmgr"><p>مدیریت شرکت</p></a>            
           </li>
 		 
           <li>
-            <a href="?item=plansmgr&act=do" id="articles" name="articles" class="articles"><p>مدیریت طرح ها</p></a>
+            <a href="?item=plansmgr&act=do" id="plansmgr" name="plansmgr" class="plansmgr"><p>مدیریت طرح ها</p></a>
           </li>
 		  <li>
-            <a href="?item=servicesmgr&act=do" id="services" name="services" class="articles"><p>مدیریت خدمات</p></a>
+            <a href="?item=servicesmgr&act=do" id="services" name="services" class="service"><p>مدیریت خدمات</p></a>
           </li>
 		   
           <li>

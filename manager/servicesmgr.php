@@ -1,4 +1,4 @@
-<?php 
+service<?php 
     include_once("../config.php");
     include_once("../classes/database.php");
 	include_once("../classes/messages.php");	
@@ -104,12 +104,12 @@ if ($_GET['act']=="do")
 			<ul>
 			  <li>		  
 				<a href="?item=servicesmgr&act=new">درج خدمت جدید
-					<span class="add-news"></span>
+					<span class="add-service"></span>
 				</a>
 			  </li>
 			  <li>
-				<a href="?item=servicesmgr&act=mgr" id="services" name="services">حذف/ ویرایش خدمت
-					<span class="edit-news"></span>
+				<a href="?item=servicesmgr&act=mgr" id="services" name="services">حذف/ ویرایش خدمات
+					<span class="edit-service"></span>
 				</a>
 			  </li>
 			 </ul>

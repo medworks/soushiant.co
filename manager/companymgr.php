@@ -83,12 +83,12 @@
 			<ul>
 			  <li>		  
 				<a href="?item=compmgr&act=new">درج شرکت جدید
-					<span class="add-news"></span>
+					<span class="add-comp"></span>
 				</a>
 			  </li>
 			  <li>
-				<a href="?item=compmgr&act=mgr" id="news" name="news">حذف/ویرایش شرکت
-					<span class="edit-news"></span>
+				<a href="?item=compmgr&act=mgr" id="news" name="news">حذف/ویرایش شرکتها
+					<span class="edit-comp"></span>
 				</a>
 			  </li>
 			 </ul>

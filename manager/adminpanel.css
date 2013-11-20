@@ -719,6 +719,15 @@ header #mini-nav span.newSignup{
   background-image: url('./images/articles.png');
 }
 
+#mainnav > ul > li a.plansmgr{
+  background-image: url('./images/plan.png');
+}
+
+#mainnav > ul > li a.service{
+  background-image: url('./images/service.png');
+}
+
+
 #mainnav > ul > li a.works{
   background-image: url('./images/works.png');
 }
@@ -747,8 +756,8 @@ header #mini-nav span.newSignup{
   background-image: url('./images/block.png');
 }
 
-#mainnav > ul > li a.catmgr{
-  background-image: url('./images/cat.png');
+#mainnav > ul > li a.compmgr{
+  background-image: url('./images/comp.png');
 }
 
 #mainnav > ul > li a.upload{
@@ -898,6 +907,30 @@ header #mini-nav span.newSignup{
 
 .sub-menu ul li span.edit-news{
   background-image: url('./images/editnews.png');
+}
+
+.sub-menu ul li span.add-comp{
+  background-image: url('./images/add-comp.png');
+}
+
+.sub-menu ul li span.edit-comp{
+  background-image: url('./images/edit-comp.png');
+}
+
+.sub-menu ul li span.add-plan{
+  background-image: url('./images/add-plan.png');
+}
+
+.sub-menu ul li span.edit-plan{
+  background-image: url('./images/edit-plan.png');
+}
+
+.sub-menu ul li span.add-service{
+  background-image: url('./images/add-service.png');
+}
+
+.sub-menu ul li span.edit-service{
+  background-image: url('./images/edit-service.png');
 }
 
 .sub-menu ul li span.add-works{

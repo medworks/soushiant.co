@@ -90,12 +90,12 @@ if ($_GET['act']=="do")
 			<ul>
 			  <li>		  
 				<a href="?item=plansmgr&act=new">درج طرح جدید
-					<span class="add-news"></span>
+					<span class="add-plan"></span>
 				</a>
 			  </li>
 			  <li>
-				<a href="?item=plansmgr&act=mgr" id="news" name="news">حذف/ویرایش طرح
-					<span class="edit-news"></span>
+				<a href="?item=plansmgr&act=mgr" id="news" name="news">حذف/ویرایش طرحها
+					<span class="edit-plan"></span>
 				</a>
 			  </li>
 			 </ul>
@@ -107,13 +107,12 @@ if ($_GET['act']=="new" or $_GET['act']=="edit")
 {
 $msgs = GetMessage($_GET['msg']);
 $rows = $db->SelectAll("service","*",null,"id ASC");
-$comp = DbSelectOptionTag("comp",$rows,"name");
+$comp = DbSelectOptionTag("comp",$rows,"name",null,null,'select validate[required]');
 $html=<<<cd
 	<script type='text/javascript'>
 		$(document).ready(function(){	   
-			$("#frmplansmgr").validationEngine();			
-			});
-    });
+			$("#frmplansmgr").validationEngine();
+    	});
 	</script>
   <div class="title">
       <ul>
