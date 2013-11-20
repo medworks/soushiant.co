@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2013 at 06:51 PM
+-- Generation Time: Nov 20, 2013 at 03:12 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -200,6 +200,33 @@ INSERT INTO `plans` (`id`, `sid`, `name`, `speeddl`, `speedup`, `time`, `trafic`
 (4, 1, 'ECO 512/512 kbps', 512, 512, '1', 3, 14700, 0, '<p>ندارد</p>'),
 (5, 1, 'ECO 1024/1024 kbps', 1024, 1024, '1', 3, 14700, 0, '<p>ندارد</p>'),
 (6, 1, 'ECO 2048/2048 kbps', 2048, 2048, '1', 3, 14700, 0, '<p>ندارد</p>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `section`
+--
+
+CREATE TABLE IF NOT EXISTS `section` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `secname` varchar(50) NOT NULL,
+  `latinname` varchar(50) NOT NULL,
+  `describe` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `section`
+--
+
+INSERT INTO `section` (`id`, `secname`, `latinname`, `describe`) VALUES
+(1, 'کامپیوتر', 'camputer', ''),
+(2, 'روانشناسی', 'sycologist', 'اطلاعات روانشناسی'),
+(3, 'الکترونیک', 'electronic', 'نرم افزار های الکترونیک'),
+(4, 'معماری', 'artituvjh', 'گروه معماری'),
+(5, 'روانشناسی2', 'sycologist', 'نرم افزار های الکترونیک'),
+(6, 'روانشناسی2', 'sycologist', 'نرم افزار های الکترونیک'),
+(7, 'معماری2', 'artituvjh', 'این سایت بر پایه phpطراحی شده است که باعث سهولت در');
 
 -- --------------------------------------------------------
 
