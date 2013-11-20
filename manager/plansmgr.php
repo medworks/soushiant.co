@@ -17,9 +17,9 @@
 	if ($_GET['item']!="plansmgr")	exit();
 	if (!$overall_error && $_POST["mark"]=="saveplan")
 	{	    
-		$fields = array("`sid`","`name`","`speeddl`","`speedup`","`time`","`trafic`","`price`","`detail`");
+		$fields = array("`sid`","`pos`","`name`","`speeddl`","`speedup`","`time`","`trafic`","`price`","`detail`");
 		$_POST["detail"] = addslashes($_POST["detail"]);		
-		$values = array("'{$_POST[comp]}'","'{$_POST[name]}'","'{$_POST[speeddl]}'","'{$_POST[speedup]}'","'{$_POST[time]}'","'{$_POST[trafic]}'","'{$_POST[price]}'","'{$_POST[detail]}'");
+		$values = array("'{$_POST[comp]}'","'{$_POST[pos]}'","'{$_POST[name]}'","'{$_POST[speeddl]}'","'{$_POST[speedup]}'","'{$_POST[time]}'","'{$_POST[trafic]}'","'{$_POST[price]}'","'{$_POST[detail]}'");
 		if (!$db->InsertQuery('plans',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
@@ -42,6 +42,7 @@
 	{		
 	    $_POST["detail"] = addslashes($_POST["detail"]);	    
 		$values = array("`sid`"=>"'{$_POST[comp]}'",
+						"`pos`"=>"'{$_POST[pos]}'",
 		                "`name`"=>"'{$_POST[name]}'",
 						"`speeddl`"=>"'{$_POST[speeddl]}'",
 						"`speedup`"=>"'{$_POST[speedup]}'",
@@ -127,7 +128,8 @@ $html=<<<cd
   <div class='content'>
 	<form name="frmplansmgr" id="frmplansmgr" class="" action="" method="post" >
      <p class="note">پر کردن موارد مشخص شده با * الزامی می باشد</p>	 
-	 <div class="badboy"></div>
+	 <div class="badboy"></div>	   
+       <div class="badboy"></div>
        <p>
          <label for="name">نام شرکت</label>
          <span>*</span>
@@ -138,7 +140,7 @@ $html=<<<cd
          <label for="name">نام طرح</label>
          <span>*</span>
        </p>    
-       <input type="text" name="name" class="validate[required] subject" id="name" value='{$row[name]}'/>
+       <input type="text" name="name" class="validate[required] subject" id="name" value='{$row[name]}'/>	   
 	   <div class="badboy"></div>
        <p>
          <label for="name">سرعت دانلود</label>
@@ -174,7 +176,11 @@ $html=<<<cd
          <label for="detail">توضیحات</label>
          <span>*</span>
        </p>
-       <textarea cols="50" rows="10" name="detail" class="detail" id="detail" > {$row[detail]}</textarea>  	   
+       <textarea cols="50" rows="10" name="detail" class="detail" id="detail" > {$row[detail]}</textarea>
+       <p>
+         <label for="pos">ترتیب نمایش</label>         
+       </p>
+	   <input type="text" name="pos" class="validate[required] subject" id="name" value='{$row[pos]}'/>	   
 	   {$editorinsert}
       	 <input type="reset" value="پاک کردن" class='reset' />
        </p>  
@@ -219,7 +225,7 @@ if ($_GET['act']=="mgr")
                 $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhnews")?$db->CountAll("plans"):Count($rows);
                 for($i = 0; $i < Count($rows); $i++)
                 {						
-				    $rows[$i]["sid"] = GetCompanyName($rows[$i]["sid"]); 
+				    $rows[$i]["sid"] = GetCompanyName($rows[$i]["sid"]);					
 					$rows[$i]["detail"] = (mb_strlen($rows[$i]["detail"])>50)?
 					mb_substr(html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8"), 0, 50,"UTF-8") . "..." :
 					html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8");						
@@ -247,13 +253,14 @@ del;
             {                    
                     $gridcode .= DataGrid(array( 
 					        "sid"=>"نام شرکت",
-					        "name"=>"نام طرح",
+					        "name"=>"نام طرح",							
 							"speeddl"=>"سرعت دانلود",
 							"speedup"=>"سرعت آپلود",
 							"time"=>"مدت دوره",
 							"trafic"=>"ترافیک(GB)",
 							"price"=>"هزینه(تومان)",
-							"detail"=>"توضیحات",							
+							"detail"=>"توضیحات",
+							"pos"=>"مکان نمایش",
                             "edit"=>"ویرایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
                             $_GET["pageNo"], "id", false, true, true, $rowCount,"item=plansmgr&act=mgr");
