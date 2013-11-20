@@ -478,7 +478,7 @@ code;
 	function GetCompanyName($cid)
 	{
 	    $db = Database::GetDatabase();
-		$row = $db ->Select("service","name","ID = '{$cid}'");
+		$row = $db ->Select("company","name","ID = '{$cid}'");
 		return ($row["name"]);
 	}
 
