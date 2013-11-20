@@ -353,7 +353,7 @@ if ($_GET['item']=="traficmgr")
 		                "`cnt`"=>"'{$_POST[count]}'",
 						"`price`"=>"'{$_POST[price]}'");
 			
-        $db->UpdateQuery("trafic",$values,array("id='{$_GET[cid]}'"));
+        $db->UpdateQuery("trafic",$values,array("id='{$_GET[tid]}'"));
 		header('location:?item=traficmgr&act=mgr');
 		//$_GET["item"] = "traficmgr";
 		//$_GET["act"] = "act";			
@@ -369,7 +369,7 @@ if ($_GET['item']=="traficmgr")
 	}
 	if ($_GET['act']=="edit")
 	{	
-		$row = $db->Select("trafic","*","id='{$_GET["cid"]}'",NULL);
+		$row = $db->Select("trafic","*","id='{$_GET["tid"]}'",NULL);
 		$comps = $db->SelectAll("company","*",null,"id ASC");
 		$cbcomp = DbSelectOptionTag("comp",$comps,"name","{$row['pid']}",null,"select validate[required]");
 		$editorinsert = "
