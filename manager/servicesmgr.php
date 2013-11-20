@@ -17,17 +17,6 @@
 	if (isset($_POST["mark"]) and $_POST["mark"]!="srhservices")
 	{
 			  
-	   if(empty($_POST["selectpic"]))
-	   { 
-			//$msgs = $msg->ShowError("لط??ا ??ایل عکس را انتخاب کنید");
-			header('location:?item=servicesmgr&act=new&msg=4');
-			//$_GET["item"] = "servicesmgr";
-			//$_GET["act"] = "new";
-			//$_GET["msg"] = 4;
-			$overall_error = true;
-			//exit();
-		}
-		else						
 		if (empty($_POST['detail']))
 		{
 		   header('location:?item=servicesmgr&act=new&msg=5');
@@ -38,11 +27,11 @@
 		}			
 		
 	}	
-	if (!$overall_error && $_POST["mark"]=="saveservices")
+	if (!$overall_error && $_POST["mark"]=="saveservice")
 	{	    
-		$fields = array("`subject`","`image`","`body`","`ndate`","`userid`","`resource`","`catid`");
+		$fields = array("`subject`","`body`");
 		$_POST["detail"] = addslashes($_POST["detail"]);		
-		$values = array("'{$_POST[subject]}'","'{$_POST[selectpic]}'","'{$_POST[detail]}'","'{$ndatetime}'","'{$userid}'","'{$_POST[res]}'","'{$_POST[cbcat]}'");
+		$values = array("'{$_POST[subject]}'","'{$_POST[detail]}'");
 		if (!$db->InsertQuery('services',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
@@ -61,18 +50,13 @@
 		}  				 
 	}
     else
-	if (!$overall_error && $_POST["mark"]=="editservices")
+	if (!$overall_error && $_POST["mark"]=="editservice")
 	{		
 	    $_POST["detail"] = addslashes($_POST["detail"]);	    
-		$values = array("`subject`"=>"'{$_POST[subject]}'",
-			            "`image`"=>"'{$_POST[selectpic]}'",
-						"`body`"=>"'{$_POST[detail]}'",
-						"`ndate`"=>"'{$ndatetime}'",
-						"`userid`"=>"'{$userid}'",
-						"`resource`"=>"'{$_POST[res]}'",
-						"`catid`"=>"'{$_POST[cbcat]}'");
+		$values = array("`subject`"=>"'{$_POST[subject]}'",			            
+						"`body`"=>"'{$_POST[detail]}'");
 			
-        $db->UpdateQuery("services",$values,array("id='{$_GET[nid]}'"));
+        $db->UpdateQuery("services",$values,array("id='{$_GET[sid]}'"));
 		header('location:?item=servicesmgr&act=mgr');
 		//$_GET["item"] = "servicesmgr";
 		//$_GET["act"] = "act";			
@@ -80,35 +64,29 @@
 
 	if ($overall_error)
 	{
-		$row = array("subject"=>$_POST['subject'],
-		             "image"=>$_POST['image'],
-					 "body"=>$_POST['detail'],
-					 "ndate"=>$_POST['ndate'],
-					 "userid"=>$userid,
-					 "resource"=>$_POST['res'],
-					 "cat"=>$_POST['cbcat']);
+		$row = array("subject"=>$_POST['subject'],		             
+					 "body"=>$_POST['detail']);
 	}
-	
 	
 if ($_GET['act']=="new")
 {
 	$editorinsert = "
 		<p>
 			<input type='submit' id='submit' value='ذخیره' class='submit' />	 
-			<input type='hidden' name='mark' value='saveservices' />";
+			<input type='hidden' name='mark' value='saveservice' />";
 }
 if ($_GET['act']=="edit")
 {
-	$row=$db->Select("services","*","id='{$_GET["nid"]}'",NULL);
+	$row=$db->Select("services","*","id='{$_GET["sid"]}'",NULL);
 	$row['ndate'] = ToJalali($row["ndate"]);
 	$editorinsert = "
 	<p>
       	 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
-      	 <input type='hidden' name='mark' value='editservices' />";
+      	 <input type='hidden' name='mark' value='editservice' />";
 }
 if ($_GET['act']=="del")
 {
-	$db->Delete("services"," id",$_GET["nid"]);
+	$db->Delete("services"," id",$_GET["sid"]);
 	if ($db->CountAll("services")%10==0) $_GET["pageNo"]-=1;		
 	header("location:?item=servicesmgr&act=mgr&pageNo={$_GET[pageNo]}");
 }
@@ -146,12 +124,7 @@ $msgs = GetMessage($_GET['msg']);
 $html=<<<cd
 	<script type='text/javascript'>
 		$(document).ready(function(){	   
-			$("#frmservicesmgr").validationEngine();
-			$("#cbsec").change(function(){
-				$.get('ajaxcommand.php?sec='+$(this).val(), function(data) {
-						$('#catgory').html(data);
-				});
-			});
+			$("#frmservicesmgr").validationEngine();			
     });
 	</script>
   <div class="title">
@@ -194,7 +167,7 @@ if ($_GET['act']=="mgr")
 				"services",
 				"*",
 				"{$_POST[cbsearch]} LIKE '%{$_POST[txtsrh]}%'",
-				"ndate DESC",
+				"id DESC",
 				$_GET["pageNo"]*10,
 				10);
 			if (!$rows) 
@@ -212,7 +185,7 @@ if ($_GET['act']=="mgr")
 				"services",
 				"*",
 				null,
-				"ndate DESC",
+				"id DESC ",
 				$_GET["pageNo"]*10,
 				10);
     }
