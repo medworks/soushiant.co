@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2013 at 03:35 PM
+-- Generation Time: Nov 20, 2013 at 04:28 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -319,6 +319,30 @@ INSERT INTO `slides` (`id`, `image`, `subject`, `body`, `pos`) VALUES
 (2, './slidespics/seo.jpg', 'تست سعید حاتمی', 'این تست جهت حل مشکلات ویرایش می باشد', 3),
 (3, './slidespics/slide1.jpg', 'تست اسم عکس', 'تست توضیحات عکس سعید حاتمی', 1),
 (4, './slidespics/slide2.png', 'تست سابمیت', 'تست دوم', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trafic`
+--
+
+CREATE TABLE IF NOT EXISTS `trafic` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `cnt` int(11) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `trafic`
+--
+
+INSERT INTO `trafic` (`id`, `pid`, `subject`, `cnt`, `price`) VALUES
+(1, 1, 'یک گیگا بایت', 1, 50000),
+(2, 1, 'سه گیگا بایت', 3, 145000),
+(3, 2, 'یک گیگا بایت2', 1, 50000);
 
 -- --------------------------------------------------------
 
