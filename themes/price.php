@@ -4,7 +4,7 @@
   $db = Database::GetDatabase();
   $companyid = $_GET["compid"];
   $companyname = $_GET["comp"];
-  $plans = $db->SelectAll("plans","*","sid = {$companyid}");
+  $plans = $db->SelectAll("plans","*","sid = {$companyid}","pos ASC");
 $html=<<<cd
 		<!-- Four Tables ================================================== -->
 		<!-- 960 Container -->
