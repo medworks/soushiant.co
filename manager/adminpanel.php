@@ -84,6 +84,10 @@
           <li>
             <a href="?item=dashboard&act=do" class='dashboard'><p>پیشخوان</p></a>
           </li>
+		  <li>
+            <a href="?item=catmgr&act=do" class="catmgr"><p>دسته بندی</p></a>
+            <a href="?item=secmgr&act=do" class="trick"></a>
+          </li>
           <li>
             <a href="?item=compmgr&act=do" class="compmgr"><p>مدیریت شرکت</p></a>            
           </li>
