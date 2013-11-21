@@ -76,6 +76,9 @@
 			break;
 			case 'plansmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/plansmgr.php";
+			break;
+			case 'traficmgr':
+                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/plansmgr.php";
 			break;			
 			case 'usermgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/usermgr.php";
