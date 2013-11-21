@@ -143,8 +143,9 @@
 			</ul>
 			<!-- Search Form -->
 			<div class="search-form">
-				<form method="get" action="#">
-					<input type="text" class="search-text-box">
+				<form action="search.html" method="post" name="frmsearch">
+					<input type="text" name="searchtxt" id="header-search-input" class="search-text-box"/>
+					<input type="hidden" name="mark" value="search" />
 				</form>
 			</div>
 		</div> 
