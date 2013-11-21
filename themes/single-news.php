@@ -53,19 +53,24 @@ $html=<<<cd
 				</div>
 				<!-- Popular Posts -->
 				<div class="widget">
-					<div class="headline no-margin"><h4>آخرین اخبار</h4></div>
+				<div class="headline no-margin"><h4>آخرین اخبار</h4></div>
+cd;
+$news = $db->SelectAll("news","*",null,"ndate DESC");
+for($i = 0;$i<7;$i++)
+{
+  if (!isset($news[$i][id])) break;
+	$ndate = ToJalali($news[$i]["ndate"]," l d F  Y");
+$html.=<<<cd
+					
 					<div class="latest-post-blog">
-						<a href="#"><img src="themes/images/demo/popular-post-01.png" alt=""></a>
-						<p><a href="#">سربرگ... سربرگ... سربرگ... سربرگ... </a> <span>12 August 2012</span></p>
+						<a href="news-fullpage{$news[$i][id]}.html">
+						<img src="{$news[$i][image]}" alt="{$news[$i][subject]}"></a>
+						<p><a href="news-fullpage{$news[$i][id]}.html">
+						{$news[$i]["subject"]} </a> <span>{$ndate}</span></p>
 					</div>
-					<div class="latest-post-blog">
-						<a href="#"><img src="themes/images/demo/popular-post-02.png" alt=""></a>
-						<p><a href="#">Tetus lorem maecenas facili lipsum pretium.</a> <span>26 July 2012</span></p>
-					</div>
-					<div class="latest-post-blog">
-						<a href="#"><img src="themes/images/demo/popular-post-03.png" alt=""></a>
-						<p><a href="#">Lorem pretium metusnula lorem ipsum dolor.</a> <span>16 June 2012</span></p>
-					</div>
+cd;
+}
+$html.=<<<cd
 				</div>
 			</div>
 		</div>
