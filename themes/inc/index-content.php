@@ -2,8 +2,7 @@
     include_once("config.php");
     include_once("classes/functions.php");
     include_once("classes/seo.php");
-    $seo = Seo::GetSeo(); 
-
+    $seo = Seo::GetSeo();  
     if (GetPageName($_GET['item'],$_GET['act'])){
         echo include_once GetPageName($_GET['item'],$_GET['act']);
     }else{
