@@ -97,10 +97,9 @@ $html=<<<cd
 				<div class="headline low-margin"><h4>پیوستن به ما</h4></div>
 				<div id="social" class="tooltips">
 					<a href="#" rel="tooltip" title="Facebook" class="facebook">Facebook</a>
-					<a href="#" rel="tooltip" title="Evernote" class="evernote">Evernote</a>
-					<a href="#" rel="tooltip" title="LinkedIn" class="linkedin">LinkedIn</a>
+					<a href="#" rel="tooltip" class="twitter" data-original-title="Twitter">Twitter</a>
 					<a href="#" rel="tooltip" title="Google Plus" class="googleplus">Google Plus</a>
-					<a href="#" rel="tooltip" title="Vimeo" class="vimeo">Vimeo</a>
+					<a href="#" rel="tooltip" class="rss" data-original-title="RSS">RSS</a>
 				</div>
 			</div>
 		</div>

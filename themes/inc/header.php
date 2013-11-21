@@ -1,3 +1,9 @@
+<?php
+	$gplus = GetSettingValue('Gplus_Add',0);
+	$facebook = GetSettingValue('FaceBook_Add',0);
+	$twitter = GetSettingValue('Twitter_Add',0);
+	$rss = GetSettingValue('Rss_Add',0);
+?>
 <!DOCTYPE html>
 <!--[if IE 7 ]>
 	<html class="ie ie7" lang="fa">
@@ -69,9 +75,8 @@
 			<ul class="social-icons">
 				<li class="facebook"><a href="#"></a></li>
 				<li class="twitter"><a href="#"></a></li>
-				<li class="dribbble"><a href="#"></a></li>
-				<li class="linkedin"><a href="#"></a></li>
-				<li class="pintrest"><a href="#"></a></li>
+				<li class="googleplus"><a href="#"></a></li>
+				<li class="rss"><a href="#"></a></li>
 			</ul>		
 			<div class="clear"></div>		
 			<!-- Contact Details -->

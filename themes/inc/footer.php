@@ -7,6 +7,9 @@
 	$works = $db->SelectAll('works',NULL,NULL," fdate DESC");
 	$articles = $db->SelectAll('articles',NULL,NULL," ndate DESC");
 	$About_System = mb_substr(html_entity_decode(strip_tags($About_System), ENT_QUOTES, "UTF-8"), 0, 500,"UTF-8")."  ...";
+	$address = GetSettingValue('Address',0);
+	$tel = GetSettingValue('Tell_Number',0);
+	$fax = GetSettingValue('Fax_Number',0);
 ?>
 </div>
 <!-- Footer
@@ -55,7 +58,7 @@
 		<div class="four columns">
 			<div class="footer-headline"><h4>ارتباط با ما</h4></div>
 			<ul class="links-list rtl contact">
-				<li class="latin-font"><i class="mini-ico-road"></i><p>سن انسیا نمسیا نمسیا لنمستیا سیال سیال سیال سیال سیال سیال سیال سیال سیال</p></li>
+				<li class="latin-font"><i class="mini-ico-road"></i><p><?php echo $address; ?></p></li>
 				<li class="latin-font"><i class="mini-ico-envelope"></i>
 					<script type="text/javascript">
                         emailE='soushain.co'
@@ -64,7 +67,8 @@
 
                     </script>
                 </li>
-				<li class="latin-font"><i class="mini-ico-user"></i><p class="latin-font ltr" style="text-align:left;">+98 511 609 0609</p></li>
+				<li class="latin-font"><i class="mini-ico-user"></i><p class="latin-font ltr" style="text-align:left;"><?php echo $tel; ?></p></li>
+				<li class="latin-font"><i class="mini-ico-print"></i><p class="latin-font ltr" style="text-align:left;"><?php echo $fax; ?></p></li>
 			</ul>
 		</div>
 		<!-- <div class="four columns">
