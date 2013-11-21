@@ -167,7 +167,7 @@ $html=<<<cd
        <input type="text" name="trafic" class="validate[required] subject" id="trafic" value='{$row[trafic]}'/>
 		<div class="badboy"></div>
        <p>
-         <label for="name">هزینه دوره(ریال) (GB)</label>
+         <label for="name">هزینه دوره(ریال)</label>
          <span>*</span>
        </p>    
        <input type="text" name="price" class="validate[required] subject" id="price" value='{$row[price]}'/> 	   
