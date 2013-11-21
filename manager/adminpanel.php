@@ -84,7 +84,7 @@
           <li>
             <a href="?item=dashboard&act=do" class='dashboard'><p>پیشخوان</p></a>
           </li>
-		  <li>
+		      <li>
             <a href="?item=catmgr&act=do" class="catmgr"><p>دسته بندی</p></a>
             <a href="?item=secmgr&act=do" class="trick"></a>
           </li>
@@ -95,14 +95,14 @@
           <li>
             <a href="?item=plansmgr&act=do" id="plansmgr" name="plansmgr" class="plansmgr"><p>مدیریت طرح ها</p></a>
           </li>
-		  <li>
+		      <li>
             <a href="?item=servicesmgr&act=do" id="services" name="services" class="service"><p>مدیریت خدمات</p></a>
           </li>
 		   
           <li>
             <a href="?item=newsmgr&act=do" id="news" name="news" class="news"><p>مدیریت اخبار</p></a>
           </li>		  
-          <li >            
+          <li>            
             <a href="?item=worksmgr&act=do" id="works" name="works" class="works"><p>مدیریت کارها</p></a>
           </li>		  
           <li>
@@ -119,7 +119,7 @@
             <a href="?item=pluginmgr&act=do" class="plugin"><p>مدیریت پلاگین</p></a>
           </li>
 		  -->
-		  <li >            
+		      <li>            
             <a href="?item=newslettermgr&act=do" id="newslettermgr" class="newslettermgr"><p>مدیریت خبرنامه</p></a>
           </li>
     	    <li >            
