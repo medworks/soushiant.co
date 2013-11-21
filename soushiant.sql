@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2013 at 04:28 PM
+-- Generation Time: Nov 21, 2013 at 04:34 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `key` varchar(30) NOT NULL,
   `value` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `settings`
@@ -294,7 +294,8 @@ INSERT INTO `settings` (`id`, `key`, `value`) VALUES
 (20, 'Smtp_User_Name', 'hatami4510@gmail.com'),
 (21, 'Smtp_Pass_Word', '12345'),
 (22, 'Smtp_Port', '465'),
-(23, 'Email_Sender_Name', 'گروه مدیاتک');
+(23, 'Email_Sender_Name', 'گروه مدیاتک'),
+(24, 'Gplus_Add', 'er');
 
 -- --------------------------------------------------------
 
@@ -333,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `trafic` (
   `cnt` int(11) NOT NULL,
   `price` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `trafic`
@@ -342,7 +343,8 @@ CREATE TABLE IF NOT EXISTS `trafic` (
 INSERT INTO `trafic` (`id`, `pid`, `subject`, `cnt`, `price`) VALUES
 (1, 1, 'یک گیگا بایت', 1, 50000),
 (2, 1, 'سه گیگا بایت', 3, 145000),
-(3, 2, 'یک گیگا بایت2', 1, 50000);
+(3, 2, 'یک گیگا بایت2', 1, 50000),
+(4, 1, 'پنج گیگابایت', 5, 25000);
 
 -- --------------------------------------------------------
 
