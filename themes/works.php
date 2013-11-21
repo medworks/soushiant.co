@@ -3,6 +3,7 @@
   include_once("./lib/persiandate.php");
   $db = Database::GetDatabase();   
   $works = $db->SelectAll("works","*",null,"fdate DESC");
+  $cats = array();
   foreach($works as $key=>$val) $cats[] = $val["catid"];    
   $uniqcats = array_unique($cats);
 $html=<<<cd
