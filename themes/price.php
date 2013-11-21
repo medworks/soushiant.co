@@ -43,13 +43,27 @@ $html.=<<<cd
 						</div>
 					</div>
 cd;
-if (($j % 4 == 0)and (count($plans)!=$j)) $html.="</div> </br> <div class='four-tables'>";
-if (($j % 4 == 0)and (count($plans)==$j)) $html.="</div> </br> ";
+if (($j % 4 == 0)and (count($plans)!=$j)) $html.="</div><div class='four-tables'>";
+if (($j % 4 == 0)and (count($plans)==$j)) $html.="</div>";
 }
 if ($j % 2 != 0) $html.="</div>";
 $html.=<<<cd
 			</div>
+			
+				<div class='pricing-table'>
+					<div class="color-3">
+						<h3>عنوان</h3>
+						<h4>
+							<span class="price">99 ریال</span>
+						<ul>
+							<li>100 GB حجم</li>
+						</ul>
+						<a href="#" class="sign-up"><span>پرداخت هزینه</span></a>
+					</div>
+				</div>
 		</div>
+
+		
 cd;
 	echo $html;
 
