@@ -288,8 +288,8 @@ $code=<<<edit
 						<center>
 							<form action="?item=plansmgr&act=mgr" method="post" id="frmsrh" name="frmsrh">
 								<p>جستجو بر اساس {$combobox}</p>
-								<input type="text" id="txtsrh" name="txtsrh" class="search-form" value="جستجو..." onfocus="if (this.value == 'جستجو...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'جستجو...';}"  /> 
-								<p class="search-form">									
+								<p class="search-form">
+									<input type="text" id="txtsrh" name="txtsrh" class="search-form" value="جستجو..." onfocus="if (this.value == 'جستجو...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'جستجو...';}"  />									
 									<a href="?item=plansmgr&act=mgr" name="srhsubmit" id="srhsubmit" class="button"> جستجو</a>
 									<a href="?item=plansmgr&act=mgr&rec=all" name="retall" id="retall" class="button"> کلیه اطلاعات</a>
 								</p>

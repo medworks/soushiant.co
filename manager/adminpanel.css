@@ -756,6 +756,10 @@ header #mini-nav span.newSignup{
   background-image: url('./images/block.png');
 }
 
+#mainnav > ul > li a.catmgr{
+  background-image: url('./images/cat.png');
+}
+
 #mainnav > ul > li a.compmgr{
   background-image: url('./images/comp.png');
 }
