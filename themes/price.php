@@ -5,6 +5,7 @@
   $companyid = $_GET["compid"];
   $companyname = $_GET["comp"];
   $plans = $db->SelectAll("plans","*","sid = {$companyid}","pos ASC");
+  $trafic = $db->SelectAll("trafic","*","pid = {$companyid}","id ASC");
 $html=<<<cd
 		<!-- Four Tables ================================================== -->
 		<!-- 960 Container -->
@@ -49,30 +50,38 @@ if (($j % 4 == 0)and (count($plans)==$j)) $html.="</div>";
 if ($j % 2 != 0) $html.="</div>";
 $html.=<<<cd
 			</div>
-
-
 			<div class="sixteen columns">
 				<div class="four-tables">
+cd;
+$i = 0;
+$j = 0;
+foreach($trafic as $key => $val)
+{
+   ++$i;
+   ++$j; 
+$html.=<<<cd
 					<div class='pricing-table'>
 						<div class="color-3">
 							<h3>بسته ترافیک اضافه</h3>
 								<h4>
-									<span class="price">1999 ریال</span> 
-									<span class="time">نیم گیگابایت</span> 
+									<span class="price">{$val["pricd"]} ریال </span> 
+									<span class="time">{$val["subject"]}</span> 
 								</h4>
 								<ul>
-									<li>0,5 گیگابایت</li>		
+									<li>{$val["cnt"]} گیگابایت</li>		
 								</ul>
 								<a href="#" class="sign-up"><span>پرداخت هزینه</span></a>
 						</div>
 					</div>
-				</div>
-			</div>	
-
-			
-		</div>
-
-		
+cd;
+if (($j % 4 == 0)and (count($plans)!=$j)) $html.="</div><div class='four-tables'>";
+if (($j % 4 == 0)and (count($plans)==$j)) $html.="</div>";
+}
+//if ($j % 2 != 0) $html.="</div>";
+$html.=<<<cd
+           </div>
+			</div>
+		</div>		
 cd;
 	echo $html;
 
