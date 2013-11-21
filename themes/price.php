@@ -64,7 +64,7 @@ $html.=<<<cd
 						<div class="color-3">
 							<h3>بسته ترافیک اضافه</h3>
 								<h4>
-									<span class="price">{$val["pricd"]} ریال </span> 
+									<span class="price">{$val["price"]} ریال </span> 
 									<span class="time">{$val["subject"]}</span> 
 								</h4>
 								<ul>
