@@ -30,7 +30,7 @@ $html=<<<cd
 				<!-- Form -->
 				<script>
                     $(document).ready(function(){
-                        $("#send").click(function(){
+                        $("#contact-form").submit(function(){
                             $.ajax({
                                 type: "POST",
                                 url: "manager/ajaxcommand.php?contact=reg",
@@ -63,10 +63,11 @@ $html=<<<cd
 							<textarea name="message" class="text textarea"></textarea>
 						</div>
 						<div class="field">
-							<input type="button" id="send" value="ارسال پیام">
+							<input type="submit" class="button color" style="width:100px;float:right" id="send" value="ارسال پیام">
 						</div>
 					</form>
-					<div id="note-contact" ></div>
+					<div id="note-contact" style="padding-top:10px;margin-right:120px;font-size:18px;"></div>
+					<div class="clear"></div>
 				</div>
 			</div>
 			<!-- Contact Details -->

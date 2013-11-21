@@ -38,8 +38,7 @@ if($_GET["contact"]=="reg"){
 
 	$message = "$text";
 
-	if( strlen($name)>=1 && checkEmail($email) && strlen($text)>=1 ){
-		if( @mail (
+	if( @mail (
 				$admin,
 				"$subject",
 				$message,
@@ -51,9 +50,6 @@ if($_GET["contact"]=="reg"){
 			echo "<div class='notification_error rtl'>خطا1! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
 
 		}
-	}else{
-		echo "<div class='notification_error rtl'>خطا2! لطفا فیلدها را بررسی نمایید و مجددا ارسال کنید!</div>";
-	}
 
 }
 
