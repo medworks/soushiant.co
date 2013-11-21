@@ -49,18 +49,27 @@ if (($j % 4 == 0)and (count($plans)==$j)) $html.="</div>";
 if ($j % 2 != 0) $html.="</div>";
 $html.=<<<cd
 			</div>
-			
-				<div class='pricing-table'>
-					<div class="color-3">
-						<h3>عنوان</h3>
-						<h4>
-							<span class="price">99 ریال</span>
-						<ul>
-							<li>100 GB حجم</li>
-						</ul>
-						<a href="#" class="sign-up"><span>پرداخت هزینه</span></a>
+
+
+			<div class="sixteen columns">
+				<div class="four-tables">
+					<div class='pricing-table'>
+						<div class="color-3">
+							<h3>بسته ترافیک اضافه</h3>
+								<h4>
+									<span class="price">1999 ریال</span> 
+									<span class="time">نیم گیگابایت</span> 
+								</h4>
+								<ul>
+									<li>0,5 گیگابایت</li>		
+								</ul>
+								<a href="#" class="sign-up"><span>پرداخت هزینه</span></a>
+						</div>
 					</div>
 				</div>
+			</div>	
+
+			
 		</div>
 
 		
