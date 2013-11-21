@@ -20,7 +20,7 @@ deny from all
 	RewriteRule ^adsl.html soushiant.co/index.php?item=adsl&act=do [L]
 	RewriteRule ^services.html soushiant.co/index.php?item=services&act=do [L]
 	RewriteRule ^service-fullpage([0-9]+).html soushiant.co/index.php?item=fullservice&act=do&wid=$1 [L]
-	RewriteRule ^work-fullpage([0-9]+).html soushiant.co/index.php?item=fullwork&act=do&wid=$1 [L]
+	RewriteRule ^work-fullpage([0-9]+).html soushiant.co/index.php?item=fullworks&act=do&wid=$1 [L]
 	RewriteRule ^article-fullpage([0-9]+).html soushiant.co/index.php?item=fullarticles&act=do&wid=$1 [L]	
     RewriteRule ^news-page([0-9]+).html soushiant.co/index.php?item=news&act=do&pid=$1 [L]	
 	RewriteRule ^sitemap.xml sitemap.php [NC]	#sitemap.xml
