@@ -2,6 +2,8 @@
 	include_once("config.php");
 	include_once("classes/database.php");
 	include_once("classes/functions.php");
+	include_once("classes/seo.php");
+    $seo = Seo::GetSeo();
 	$db = Database::GetDatabase(); 
 
 	$gplus = GetSettingValue('Gplus_Add',0);
@@ -24,7 +26,10 @@
 <!-- Basic Page Needs
 ================================================== -->
 <meta charset="utf-8">
-<title>soushiant.co</title>
+<title><?php echo $seo->Site_Title;?></title>
+<meta name="description" content="<?php echo $seo->Site_Describtion;?>"/>
+<meta name="keywords" content="<?php echo $seo->Site_KeyWords;?>"/>
+<meta name="robots" content="INDEX,FOLLOW">
 
 <!-- Mobile Specific
 ================================================== -->
