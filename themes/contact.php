@@ -96,10 +96,10 @@ $html=<<<cd
 			<div class="four columns">
 				<div class="headline low-margin"><h4>پیوستن به ما</h4></div>
 				<div id="social" class="tooltips">
-					<a href="#" rel="tooltip" title="Facebook" class="facebook">Facebook</a>
-					<a href="#" rel="tooltip" class="twitter" data-original-title="Twitter">Twitter</a>
-					<a href="#" rel="tooltip" title="Google Plus" class="googleplus">Google Plus</a>
-					<a href="#" rel="tooltip" class="rss" data-original-title="RSS">RSS</a>
+					<a href="https://{$facebook}" rel="tooltip" title="Facebook" class="facebook">Facebook</a>
+					<a href="https://{$twitter}" rel="tooltip" class="twitter" data-original-title="Twitter">Twitter</a>
+					<a href="https://{$gplus}" rel="tooltip" title="Google Plus" class="googleplus">Google Plus</a>
+					<a href="http://{$rss}" rel="tooltip" class="rss" data-original-title="RSS">RSS</a>
 				</div>
 			</div>
 		</div>

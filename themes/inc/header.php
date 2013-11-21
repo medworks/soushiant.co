@@ -1,4 +1,9 @@
 <?php
+	include_once("config.php");
+	include_once("classes/database.php");
+	include_once("classes/functions.php");
+	$db = Database::GetDatabase(); 
+
 	$gplus = GetSettingValue('Gplus_Add',0);
 	$facebook = GetSettingValue('FaceBook_Add',0);
 	$twitter = GetSettingValue('Twitter_Add',0);
@@ -73,10 +78,10 @@
 		<div class="eight columns">	
 			<!-- Social Icons -->
 			<ul class="social-icons">
-				<li class="facebook"><a href="#"></a></li>
-				<li class="twitter"><a href="#"></a></li>
-				<li class="googleplus"><a href="#"></a></li>
-				<li class="rss"><a href="#"></a></li>
+				<li class="facebook"><a href="https://<?php echo $facebook; ?>"></a></li>
+				<li class="twitter"><a href="https://<?php echo $twitter; ?>"></a></li>
+				<li class="googleplus"><a href="https://<?php echo $gplus; ?>"></a></li>
+				<li class="rss"><a href="http://<?php echo $rss; ?>"></a></li>
 			</ul>		
 			<div class="clear"></div>		
 			<!-- Contact Details -->
