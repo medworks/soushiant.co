@@ -62,9 +62,35 @@ $html.=<<<cd
 				<!-- Search -->
 				<div class="widget first">
 					<div class="headline no-margin"><h4>جستجو</h4></div>
-					<div class="search">
-						<input type="text" onblur="if(this.value=='')this.value='';" onfocus="if(this.value=='')this.value='';" value="" class="text">
-					</div>
+					<form id="frmsearch" method="post" action="">
+						<div class="search">
+							<input type="text" id="findtxt" name="findtxt" onblur="if(this.value=='')this.value='';" onfocus="if(this.value=='')this.value='';" value="" class="text">
+						</div>
+					</form>
+					<fieldset class="info_fieldset">
+                                <div id="srhresult"></div>
+                            </fieldset>
+					<script type='text/javascript'>
+							    $(document).ready(function(){
+    								$("#frmsearch").submit(function(){
+    									$.ajax({									    
+    										type: "POST",
+    										url: "manager/ajaxcommand.php?items=search&cat=news",
+    										data: $("#frmsearch").serialize(), 
+    										success: function(msg)
+    										{
+                                                $('.info_fieldset').css('display','block');
+    											$("#srhresult").ajaxComplete(function(event, request, settings){
+    												$(this).hide();
+    												$(this).html(msg).slideDown("slow");
+    												$(this).html(msg);
+    											});
+    										}
+    									});
+    									return false;
+    								});
+    						    });
+    						</script>
 				</div>
 				<!-- Popular Posts -->
 				<div class="widget">
