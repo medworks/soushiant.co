@@ -3,7 +3,43 @@
     include_once("../classes/database.php");	
 	include_once("../classes/functions.php");		
 	$db = Database::GetDatabase();
-
+if ($_GET["items"]=="search")
+{ 
+      $table = $_GET["cat"];
+      $field = "subject";
+	  if ($table =="news") $page = "news";
+	  else if ($table =="articles") $page = "article";
+	  $rownum = 0;
+	  if (!empty($_POST["findtxt"])) $searchtxt = "'%{$_POST[findtxt]}%'";
+	  $rows = $db->SelectAll(
+				$table,
+				"*",
+				"{$field} LIKE {$searchtxt}",
+				"id DESC",
+				$_GET["pageNo"]*10,
+				10);
+	  if (!$rows)
+	  {
+	    echo "<div class='notification_error rtl'>عبارت مورد نظر یافت نشد</div>";
+	  }
+	  else
+	  {
+		 $success = count($rows);
+		 foreach($rows as $key=>$val)
+		 {
+			 ++$rownum;
+			 $row .= "<p class='srlink'>{$rownum}- <a target='_blank' href='{$page}-fullpage{$val['id']}.html' class='srlink'>
+					 {$val['subject']}</a></p>";
+		}
+		$result=<<<rt
+		 <p class="sresult"><span>عبارت جستجو شده: </span>{$_POST["findtxt"]}</p>
+		 <p class="sresult"><span>تعداد نتایج یافت شده: </span>{$success}</p>
+		 {$row}		
+rt;
+        echo $result;
+       }
+	   
+}	   
 if ($_GET["news"]=="reg")
 {
 	$fields = array("`email`","`tel`","`name`");		
