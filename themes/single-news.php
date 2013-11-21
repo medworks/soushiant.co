@@ -1,11 +1,22 @@
 <?php
-
+	include_once("./config.php");
+	include_once("./lib/persiandate.php");
+	include_once("./classes/database.php");	
+	include_once("./classes/seo.php");	
+	$db = Database::GetDatabase();
+	$seo = Seo::GetSeo();
+ 	$news = $db->Select('news',NULL,"id={$_GET[wid]}"," ndate DESC");
+	$ndate = ToJalali($news["ndate"]," l d F  Y ");
+	$news["userid"] = GetUserName($news["userid"]);
+	$body = $news['body'];
+	$seo->Site_Title = $news["subject"];
+	$seo->Site_Describtion = strip_tags(mb_substr($news["body"],0,150,"UTF-8"));
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
 				<!-- Page Title -->
 				<div id="page-title">
-					<h2>اخبار <span>/ خبر یک</span></h2>
+					<h2>اخبار <span>/ {$news["subject"]}</span></h2>
 					<div id="bolded-line"></div>
 				</div>
 				<!-- Page Title / End -->
@@ -16,15 +27,18 @@ $html=<<<cd
 			<div class="twelve columns">
 				<!-- Post -->
 				<div class="post">
-					<div class="post-img picture"><a href="blog_post.html"><img src="themes/images/demo/blog-img-01.jpg" alt=""><div class="image-overlay-link"></div></a></div>
+					<div class="post-img picture"><a href="news.html">
+					<img src="{$news[image]}" alt="{$news[subject]}"><div class="image-overlay-link"></div></a></div>
 					<a href="#" class="post-icon standard"></a>
 					<div class="post-content">
-						<div class="post-title"><h2><a href="single-news.html">خبر اول</a></h2></div>
-						<div class="post-meta rtl"><span><i class="mini-ico-calendar"></i>تاریخ: 1392/12/11</span> <span><i class="mini-ico-user"></i>به وسیله: مجتبی امجدی</span> <!-- <span><i class="mini-ico-comment"></i>With <a href="#">12 Comments</a></span> --></div>
+						<div class="post-title"><h2>
+						<a href="#">{$news["subject"]}</a></h2></div>
+						<div class="post-meta rtl"><span><i class="mini-ico-calendar"></i>تاریخ: {$ndate}</span> <span><i class="mini-ico-user"></i>
+						به وسیله: {$news["userid"]}</span> 
+						<!-- <span><i class="mini-ico-comment"></i>With <a href="#">12 Comments</a></span> --></div>
 						<div class="post-description">
-							<p>شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... شرح توضیحات... </p>
-						</div>
-						<a href="#" class="button color">ادامه خبر</a>
+							<p>{$news["body"]}</p>
+						</div>						
 					</div>
 				</div>
 			</div>
