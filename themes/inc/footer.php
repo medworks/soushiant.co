@@ -23,7 +23,7 @@
 		<!-- Useful Links -->
 		<div class="four columns">
 			<div class="footer-headline"><h4>اخبار</h4></div>
-			<ul class="links-list">
+			<ul class="links-list rtl">
 				<?php									  					
 					for($i=0 ; $i<7 ; $i++){
 						if($news[$i]['subject']!=null){
@@ -38,7 +38,7 @@
 		<!-- Photo Stream -->
 		<div class="four columns">
 			<div class="footer-headline"><h4>کارهای ما</h4></div>
-			<ul class="links-list">
+			<ul class="links-list rtl">
 				<?Php
                         for($i=0 ; $i<7 ; $i++){
         					if($works[$i]['subject']!=null){						

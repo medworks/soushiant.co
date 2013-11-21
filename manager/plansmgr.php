@@ -58,7 +58,7 @@
 	if ($_GET['act']=="new")
 	{
 	    $rows = $db->SelectAll("company","*",null,"id ASC");
-        $cbcomp = DbSelectOptionTag("comp",$rows,"name");
+        $cbcomp = DbSelectOptionTag("comp",$rows,"name",null,null,"select validate[required]");
 		$editorinsert = "
 			<p>
 				<input type='submit' id='submit' value='ذخیره' class='submit' />	 
