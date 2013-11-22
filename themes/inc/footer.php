@@ -87,7 +87,8 @@
 		<!-- Footer / Bottom -->
 		<div class="sixteen columns">
 			<div id="footer-bottom" class="latin-font">
-				© Copyright 2013 by <a href="./">Soushiant</a>. All rights reserved.
+				© Copyright 2013 by <a href="./">Soushiant</a>. All rights reserved.<br />
+				Designed by <a href="http://www.mediateq.ir" target="_blank">Mediateq</a>
 				<div id="scroll-top-top"><a href="#"></a></div>
 			</div>
 		</div>
