@@ -1,11 +1,21 @@
 <?php
-
+    include_once("./config.php");
+	include_once("./lib/persiandate.php");
+	include_once("./classes/database.php");	
+	include_once("./classes/seo.php");	
+	$db = Database::GetDatabase();
+	$seo = Seo::GetSeo();
+ 	$work = $db->Select('works',NULL,"id={$_GET[wid]}");	
+	$sdate = ToJalali($work["sdate"]," l d F  Y ");
+	$fdate = ToJalali($work["fdate"]," l d F  Y ");	
+	$seo->Site_Title = $work["subject"];
+	$seo->Site_Describtion = strip_tags(mb_substr($work["body"],0,150,"UTF-8"));
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
 				<!-- Page Title -->
 				<div id="page-title">
-					<h2>پروژه ها <span>/ پروژه یک</span></h2>
+					<h2>پروژه ها <span>/ {$work["subject"]}</span></h2>
 					<div id="bolded-line"></div>
 				</div>
 				<!-- Page Title / End -->
@@ -16,63 +26,22 @@ $html=<<<cd
 			<div class="sixteen columns">
 				<div class="flexslider home">
 					<ul class="slides">
-						<li><img src="themes/images/demo/portoflio-single-01.jpg" alt=""></li>
-						<!-- <li><img src="themes/images/demo/portoflio-single-02.jpg" alt=""></li> -->
+						<li><img src="{$work[image]}" alt="{$work[subject]}"></li>						
 					 </ul>
 				</div>
 			</div>
 		</div>
 		<div class="container" style="margin-top: 30px;">
 			<div class="twelve columns tooltips">
-				<div class="twelve columns alpha"><p>شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... شرح پروژه ها... </p></div>
+				<div class="twelve columns alpha"><p>{$work["body"]} </p></div>
 			</div>
 			<div class="four columns">
 				<ul class="project-info">
-					<li><strong>مشتری:</strong> Google</li>
-					<li><strong>تاریخ:</strong> August 2012</li>
-				</ul>
-				<!-- <a href="#" class="button color launch">Launch Project</a> -->
+					<li><strong>مشتری:</strong> </li>
+					<li><strong>تاریخ:</strong> {$fdate}</li>
+				</ul>				
 			</div>
-		</div>
-		<div class="container">
-			<div class="sixteen columns">
-				<!-- Headline -->
-				<div class="headline" style="margin-top: 5px;"><h3>پروژه های مرتبط</h3></div>
-			</div>
-			<!-- 1/4 Column -->
-			<div class="four columns">
-				<div class="picture"><a href="single_project.html"><img src="themes/images/demo/portoflio-01.jpg" alt=""><div class="image-overlay-link"></div></a></div>
-				<div class="item-description related">
-					<h5><a href="single_project.html">سربرگ اول</a></h5>
-					<p>سربرگ اول... سربرگ اول... سربرگ اول... سربرگ اول... سربرگ اول... سربرگ اول... سربرگ اول... </p>
-				</div>
-			</div>
-			<!-- 1/4 Column -->
-			<div class="four columns">
-				<div class="picture"><a href="single_project.html"><img src="themes/images/demo/portoflio-02.jpg" alt=""><div class="image-overlay-link"></div></a></div>
-				<div class="item-description related">
-					<h5><a href="single_project.html">Grand Canyon</a></h5>
-					<p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit</p>
-				</div>
-			</div>
-			<!-- 1/4 Column -->
-			<div class="four columns">
-				<div class="picture"><a href="single_project.html"><img src="themes/images/demo/portoflio-03.jpg" alt=""><div class="image-overlay-link"></div></a></div>
-				<div class="item-description related">
-					<h5><a href="single_project.html">Pine Tree Near Water</a></h5>
-					<p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit</p>
-				</div>
-			</div>
-				
-			<!-- 1/4 Column -->
-			<div class="four columns">
-				<div class="picture"><a href="single_project.html"><img src="themes/images/demo/portoflio-04.jpg" alt=""><div class="image-overlay-link"></div></a></div>
-				<div class="item-description related">
-					<h5><a href="single_project.html">Seeds to the Earth</a></h5>
-					<p>Mauris sit amet ligula est, eget conseact etur lectus maecenas hendrerit suscipit</p>
-				</div>
-			</div>
-		</div>
+		</div>		
 cd;
 	return $html;
 
