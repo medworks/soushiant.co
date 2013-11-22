@@ -10,6 +10,9 @@
 	$facebook = GetSettingValue('FaceBook_Add',0);
 	$twitter = GetSettingValue('Twitter_Add',0);
 	$rss = GetSettingValue('Rss_Add',0);
+
+	$tel = GetSettingValue('Tell_Number',0);
+
 ?>
 <!DOCTYPE html>
 <!--[if IE 7 ]>
@@ -99,7 +102,7 @@
                                         document.write('<a href="mailto:' + emailE + '">' + emailE + '</a>')
 
                                     </script></li>
-					<li class="latin-font"><i class="mini-ico-user"></i>+98 511 609 0609</li>
+					<li class="latin-font"><i class="mini-ico-user"></i><?php echo $tel; ?></li>
 				</ul>
 			</div>
 		</div>
@@ -144,7 +147,7 @@
 			<!-- Search Form -->
 			<div class="search-form">
 				<form action="search.html" method="post" name="frmsearch">
-					<input type="text" name="searchtxt" id="header-search-input" class="search-text-box"/>
+					<input type="text" name="searchtxt" id="header-search-input" class="search-text-box" autocomplete="off"/>
 					<input type="hidden" name="mark" value="search" />
 				</form>
 			</div>

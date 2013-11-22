@@ -182,12 +182,12 @@ $html=<<<cd
 						        </p>
 						        <p>
 							        <input type="radio" name="category" class="right subject mar-lef" id="category" value="works" />
-							        <label>کارهای ما</label>
+							        <label>پروژه ها</label>
 						        </p>
-						        <p>
+						        <!-- <p>
 							        <input type="radio" name="category" class="subject right mar-lef" id="category" value="articles" />
 							        <label>مطالب خواندنی</label>
-						        </p>
+						        </p> -->
 		                    </li>
 		                    <li>
 		                    	<p>
