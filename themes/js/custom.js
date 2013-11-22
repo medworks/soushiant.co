@@ -262,6 +262,11 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 		if (!regex.test(email.val())) {email.addClass('validation-error',animateSpeed); return false;}
 		else {email.removeClass('validation-error',animateSpeed); return true;}
 	}
+
+	function validateSubject(subject) {
+		if (subject.val()=='') {subject.addClass('validation-error',animateSpeed); return false;}
+		else {subject.removeClass('validation-error',animateSpeed); return true;}
+	}
 		
 	function validateMessage(message) {
 		if (message.val()=='') {message.addClass('validation-error',animateSpeed); return false;}
@@ -274,11 +279,13 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 		
 		var name = $('input[name=name]');
 		var email = $('input[name=email]');
+		var subject = $('input[name=subject]');
 		var message = $('textarea[name=message]');
 				
 		// Validate
 		if(!validateName(name)) result=false;
 		if(!validateEmail(email,emailReg)) result=false;
+		if(!validateSubject(subject)) result=false;
 		if(!validateMessage(message)) result=false;
 		
 		if(result==false) return false;
@@ -287,6 +294,7 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 		
 	$('input[name=name]').blur(function(){validateName($(this));});
 	$('input[name=email]').blur(function(){validateEmail($(this),emailReg); });
+	$('input[name=subject]').blur(function(){validateSubject($(this));});
 	$('textarea[name=message]').blur(function(){validateMessage($(this)); });
 	   
 })();

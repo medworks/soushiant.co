@@ -39,11 +39,11 @@ $html=<<<cd
 				<!-- Form -->
 				<script>
                     $(document).ready(function(){
-                        $("#contact-form").submit(function(){
+                        $("#contact-frm").submit(function(){
                             $.ajax({
                                 type: "POST",
                                 url: "manager/ajaxcommand.php?contact=reg",
-                                data: $("#contact-form").serialize(),
+                                data: $("#contact-frm").serialize(),
                                     success: function(msg)
                                     {
                                         $("#note-contact").ajaxComplete(function(event, request, settings){             
@@ -58,7 +58,7 @@ $html=<<<cd
                     });
                 </script>
 				<div id="contact-form">
-					<form id="contact-form" method="post" class="rtl">
+					<form id="contact-frm" method="post" class="rtl">
 						<div class="field">
 							<label>نام و نام خانوادگی <span>*</span></label>
 							<input type="text" name="name" class="text">
@@ -66,6 +66,10 @@ $html=<<<cd
 						<div class="field">
 							<label>ایمیل <span>*</span></label>
 							<input type="text" name="email" class="text ltr">
+						</div>
+						<div class="field">
+							<label>موضوع <span>*</span></label>
+							<input type="text" name="subject" class="text">
 						</div>
 						<div class="field">
 							<label>پیام <span>*</span></label>

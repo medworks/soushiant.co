@@ -69,23 +69,27 @@ if($_GET["contact"]=="reg"){
 
 	$name    = $_POST['name'];
 	$email   = $_POST['email'];
-	$subject = $_POST['message'];
 	$text    = $_POST['message'];
-
+	$subject = $_POST['subject'];
 	$message = "$text";
+	
 
-	if( @mail (
-				$admin,
-				"$subject",
-				$message,
-				"From:$name $email" )
-		){
-			echo "<div class='notification_ok rtl medium'>پیام شما با موفقیت ارسال شد.</div>";
+	if( strlen($name)>=1 && checkEmail($email) && strlen($text)>=1 ){
+		if( @mail (
+					$admin,
+					"$subject",
+					$message,
+					"From:$name $email" )
+			){
+				echo "<div class='notification_ok rtl medium'>پیام شما با موفقیت ارسال شد.</div>";
 
-		}else{
-			echo "<div class='notification_error rtl'>خطا1! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
+			}else{
+				echo "<div class='notification_error rtl'>خطا1! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
 
-		}
+			}
+	}else{
+		echo "<div class='notification_error rtl'>خطا2! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
+	}
 
 }
 
