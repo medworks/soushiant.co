@@ -30,6 +30,7 @@
 ================================================== -->
 <meta charset="utf-8">
 <title><?php echo $seo->Site_Title;?></title>
+<meta name="google-site-verification" content="hGvARX_fJJChNR5D7a98iY4SvfcTlcU4yxiU7reORjg" />
 <meta name="description" content="<?php echo $seo->Site_Describtion;?>"/>
 <meta name="keywords" content="<?php echo $seo->Site_KeyWords;?>"/>
 <meta name="robots" content="INDEX,FOLLOW">
