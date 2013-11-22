@@ -154,74 +154,64 @@ rt;
 		
 $msgs = GetMessage($_GET['msg']);
 $html=<<<cd
-    <div id="content-container" class="content-width">
-    	<div class="row">
-            <div id="breadcrumbs-wrapper" class="large-12 columns for-nested">
-                <span>مسیر شما:</span>
-                <ul class="breadcrumbs">
-                    <li class="current">
-                        <a>جستجو در سوشیانت</a>
-                    </li>
-                    <li>
-                        <a href="./">صفحه اصلی</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div id="intro" class="not-homepage row">
-            <div class="large-9 large-centered columns">
-                <h1>جستجو در <strong>سوشیانت</strong></h1>
-            </div>
-        </div>
-        <div id="portfolio-item-info-wrapper" class="row search">
+    	<div class="container">
+			<div class="sixteen columns">
+				<!-- Page Title -->
+				<div id="page-title">
+					<h2>جستجو</h2>
+					<div id="bolded-line"></div>
+				</div>
+				<!-- Page Title / End -->
+			</div>
+		</div>
+		<div class="container">
 			<form action="" id="searchfrm" method="post">
-	            <div id="portfolio-item-info" class="large-3 columns no-padding">
-	                <ul id="portfolio-item-meta">
-	                	<li>
-	                		<p>
-					        	<label class="mar-bot">عبارت مورد نظر </label>
-					        </p>
-					        <input type="text" name="searchtxt" class="subject" id="searchtxt" value="{$_POST[searchtxt]}"/>
-	                	</li>
-	                    <li>
-	                    	<p>
-					        	<label class="mar-bot">جستجو در: </label>
-					        </p>
-					        <p>
-						        <input type="radio" name="category" class="subject right mar-lef" id="category" value="news" checked/>
-						        <label>اخبار</label>
-					        </p>
-					        <p>
-						        <input type="radio" name="category" class="right subject mar-lef" id="category" value="works" />
-						        <label>کارهای ما</label>
-					        </p>
-					        <p>
-						        <input type="radio" name="category" class="subject right mar-lef" id="category" value="articles" />
-						        <label>مطالب خواندنی</label>
-					        </p>
-	                    </li>
-	                    <li>
-	                    	<p>
-					        	<label class="mar-bot">قسمت: </label>
-					        </p>
-					        <p>  
-					        	<input type="radio" name="subcat" class="subject right mar-lef" id="category" value="subject" checked/>
-						        <label>عنوان</label>
-				        	</p>
-					        <p>
-						        <input type="radio" name="subcat" class="subject right mar-lef" id="category" value="body" />
-						        <label>توضیحات</label>
-					        </p>
-	                    </li>              
-	                </ul>
-	            </div>
-	            <div class="large-9 columns">
-			        {$result}
-	            </div>
+	                <div class="eight columns">
+	                	<div class="headline"><h3>عبارت جستجو</h3></div>
+		                <ul id="portfolio-item-meta">
+		                	<li>
+						        <input type="text" name="searchtxt" class="subject" id="searchtxt" value="{$_POST[searchtxt]}" style="width:320px;font-size:18px;"/>
+		                	</li>
+		                    <li>
+		                    	<p>
+						        	<label class="mar-bot" style="margin-top:15px">جستجو در: </label>
+						        </p>
+						        <p>
+							        <input type="radio" name="category" class="subject right mar-lef" id="category" value="news" checked/>
+							        <label>اخبار</label>
+						        </p>
+						        <p>
+							        <input type="radio" name="category" class="right subject mar-lef" id="category" value="works" />
+							        <label>کارهای ما</label>
+						        </p>
+						        <p>
+							        <input type="radio" name="category" class="subject right mar-lef" id="category" value="articles" />
+							        <label>مطالب خواندنی</label>
+						        </p>
+		                    </li>
+		                    <li>
+		                    	<p>
+						        	<label class="mar-bot">قسمت: </label>
+						        </p>
+						        <p>  
+						        	<input type="radio" name="subcat" class="subject right mar-lef" id="category" value="subject" checked/>
+							        <label>عنوان</label>
+					        	</p>
+						        <p>
+							        <input type="radio" name="subcat" class="subject right mar-lef" id="category" value="body" />
+							        <label>توضیحات</label>
+						        </p>
+		                    </li>              
+		                </ul>
+		            </div>
+	                <div class="eight columns">
+	                	<div class="headline"><h3>نتایج جستجو</h3></div>
+				        {$result}
+		            </div>
 				<input type="hidden" name="mark" value="find" />
 	        </form>
-        </div>
-	</div>
+	    </div>
+        
 cd;
 return $html;
 ?>
