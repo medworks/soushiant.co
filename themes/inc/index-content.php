@@ -78,9 +78,9 @@ $html.=<<<cd
 			<div class="one-third column">
 				<div class="icon-box">
 					<i class="ico-bookmark" style="margin-left: -10px;"></i>
-					<a href="news-fullpage{$val[id]}.html">
-					  <h3>{$val["subject"]}</h3>
-					</a>					
+					<h3><a href="news-fullpage{$val[id]}.html">
+					  {$val["subject"]}
+					</a></h3>					
 					<p>{$val["body"]}</p>
 				</div>
 			</div>
