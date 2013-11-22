@@ -79,7 +79,9 @@ $html.=<<<cd
 			<div class="one-third column">
 				<div class="icon-box">
 					<i class="ico-bookmark" style="margin-left: -10px;"></i>
-					<h3>{$val["subject"]}</h3>
+					<a href="news-fullpage{$val[id]}.html">
+					  <h3>{$val["subject"]}</h3>
+					</a>					
 					<p>{$val["body"]}</p>
 				</div>
 			</div>
@@ -103,10 +105,10 @@ foreach($works as $key=>$val)
 $html.=<<<cd
 		<!-- Project -->
 		<div class="four columns">
-			<div class="picture"><a href="single_project.html">
+			<div class="picture"><a href="work-fullpage{$val[id]}.html">
 			<img src="{$val[image]}" alt="{$val[subject]}"><div class="image-overlay-link"></div></a></div>
 			<div class="item-description">
-				<h5><a href="#">{$val["subject"]}</a></h5>
+				<h5><a href="work-fullpage{$val[id]}.html">{$val["subject"]}</a></h5>
 				<p>{$val["body"]}</p>
 			</div>
 		</div>
