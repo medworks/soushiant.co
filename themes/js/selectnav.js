@@ -28,7 +28,7 @@ window.selectnav = (function(){
 			autoselect = typeof(o.autoselect) === "boolean" ? o.autoselect : true,
 			nested = typeof(o.nested) === "boolean" ? o.nested : true,
 			indent = o.indent || "→",
-			label = o.label || "- Navigation -",
+			label = o.label || "انتخاب منو",
 			
 			// helper variables
 			level = 0,
@@ -117,7 +117,7 @@ window.selectnav = (function(){
 			if(level === 1 && label) html = '<option value="">' + label + '</option>' + html;
 		
 			// add <select> tag to the top level of the list
-			if(level === 1) html = '<select class="selectnav" id="'+id(true)+'">' + html + '</select>';
+			if(level === 1) html = '<select class="selectnav rtl" id="'+id(true)+'">' + html + '</select>';
 	
 			// go 1 level up
 			level--;
