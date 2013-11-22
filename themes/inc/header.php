@@ -67,7 +67,14 @@
 
 </head>
 <body>
-
+	<script type="text/javascript" src="lib/js/CFInstall.js"></script>
+    <script>
+       CFInstall.check({
+            url: "ie.html",
+            mode: "overlay",
+            destination: "http://www.soushiant.co",
+       });
+    </script>
 <!-- Wrapper Start -->
 <div id="wrapper">
 <!-- Header

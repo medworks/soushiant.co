@@ -8,6 +8,12 @@
     font-style: normal;
 }
 /**********************************IE*******************************/
+div.ie{
+  text-align: right;
+  font-family: 'bmitra';  
+  direction: rtl;
+}
+
 div.alert{
   background-color: yellow;
   margin: 25px auto 0;
@@ -17,7 +23,7 @@ div.alert img{
   margin-left: 50px;
 }
 div.alert p{
-  margin-right: 170px;
+  margin-right: 10px;
   line-height: 1.5;
   font-size: 20px;
   font-weight: "normal";
