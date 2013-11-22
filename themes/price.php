@@ -51,6 +51,7 @@ if ($j % 2 != 0) $html.="</div>";
 $html.=<<<cd
 			</div>
 			</div>
+			<div class="container">
 			<div class="sixteen columns">
 				<div class="four-tables">
 cd;
@@ -81,6 +82,7 @@ if (($j % 4 == 0)and (count($plans)==$j)) $html.="</div>";
 //if ($j % 2 != 0) $html.="</div>";
 $html.=<<<cd
            </div>
+			</div>
 			</div>
 		</div>		
 cd;
