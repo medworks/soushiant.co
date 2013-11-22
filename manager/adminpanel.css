@@ -929,6 +929,14 @@ header #mini-nav span.newSignup{
   background-image: url('./images/edit-plan.png');
 }
 
+.sub-menu ul li span.add-vol{
+  background-image: url('./images/add-vol.png');
+}
+
+.sub-menu ul li span.edit-vol{
+  background-image: url('./images/edit-vol.png');
+}
+
 .sub-menu ul li span.add-service{
   background-image: url('./images/add-service.png');
 }

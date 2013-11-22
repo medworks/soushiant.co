@@ -94,7 +94,7 @@ if ($_GET['act']=="do")
 	      <div class="badboy"></div>
 	    </div>
 		<div class="sub-menu" id="mainnav">
-			<ul>
+			<ul class="two-column">
 			  <li>		  
 				<a href="?item=plansmgr&act=new">درج طرح جدید
 					<span class="add-plan"></span>
@@ -107,12 +107,12 @@ if ($_GET['act']=="do")
 			  </li>
 			  <li>		  
 				<a href="?item=traficmgr&act=new">درج ترافیک
-					<span class="add-plan"></span>
+					<span class="add-vol"></span>
 				</a>
 			  </li>
 			  <li>
 				<a href="?item=traficmgr&act=mgr" >حذف/ویرایش ترافیک
-					<span class="edit-plan"></span>
+					<span class="edit-vol"></span>
 				</a>
 			  </li>
 			 </ul>
@@ -167,7 +167,7 @@ $html=<<<cd
        <input type="text" name="speedup" class="validate[required] subject" id="speedup" value='{$row[speedup]}'/>
 		<div class="badboy"></div>
        <p>
-         <label for="name">مدت زمان طرح</label>
+         <label for="name">مدت زمان طرح (عدد)</label>
          <span>*</span>
        </p>    
        <input type="text" name="time" class="validate[required] subject" id="time" value='{$row[time]}'/> 

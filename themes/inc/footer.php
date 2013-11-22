@@ -58,12 +58,12 @@
 		<div class="four columns">
 			<div class="footer-headline"><h4>ارتباط با ما</h4></div>
 			<ul class="links-list rtl contact">
-				<li class="latin-font"><i class="mini-ico-road"></i><p><?php echo $address; ?></p></li>
+				<li class="latin-font"><i class="mini-ico-road"></i><p style="display:inline;"><?php echo $address; ?></p></li>
 				<li class="latin-font"><i class="mini-ico-envelope"></i>
 					<script type="text/javascript">
                         emailE='soushain.co'
                         emailE=('info' + '@' + emailE)
-                        document.write('<a href="mailto:' + emailE + '">' + emailE + '</a>')
+                        document.write('<a href="mailto:' + emailE + '" target="_blank">' + emailE + '</a>')
 
                     </script>
                 </li>

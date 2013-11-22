@@ -86,10 +86,10 @@
 		<div class="eight columns">	
 			<!-- Social Icons -->
 			<ul class="social-icons">
-				<li class="facebook"><a href="https://<?php echo $facebook; ?>"></a></li>
-				<li class="twitter"><a href="https://<?php echo $twitter; ?>"></a></li>
-				<li class="googleplus"><a href="https://<?php echo $gplus; ?>"></a></li>
-				<li class="rss"><a href="http://<?php echo $rss; ?>"></a></li>
+				<li class="facebook"><a href="https://<?php echo $facebook; ?>" target="_blank"></a></li>
+				<li class="twitter"><a href="https://<?php echo $twitter; ?>" target="_blank"></a></li>
+				<li class="googleplus"><a href="https://<?php echo $gplus; ?>" target="_blank"></a></li>
+				<li class="rss"><a href="http://<?php echo $rss; ?>" target="_blank"></a></li>
 			</ul>		
 			<div class="clear"></div>		
 			<!-- Contact Details -->
@@ -99,7 +99,7 @@
 
                                         emailE='soushain.co'
                                         emailE=('info' + '@' + emailE)
-                                        document.write('<a href="mailto:' + emailE + '">' + emailE + '</a>')
+                                        document.write('<a href="mailto:' + emailE + '" target="_blank">' + emailE + '</a>')
 
                                     </script></li>
 					<li class="latin-font"><i class="mini-ico-user"></i><?php echo $tel; ?></li>

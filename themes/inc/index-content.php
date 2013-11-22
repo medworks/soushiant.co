@@ -100,6 +100,7 @@ $html.=<<<cd
 		</div>
 cd;
 foreach($works as $key=>$val)
+	if($val['subject']!=null){
 {
 $html.=<<<cd
 		<!-- Project -->
@@ -112,7 +113,7 @@ $html.=<<<cd
 			</div>
 		</div>
 cd;
-}
+}}
 $html.=<<<cd
 	</div>
 	<!-- 960 Container / End -->

@@ -1,4 +1,13 @@
 <?php
+	include_once("config.php");
+	include_once("classes/database.php");
+	include_once("classes/functions.php");
+	$db = Database::GetDatabase();
+
+	$gplus = GetSettingValue('Gplus_Add',0);
+	$facebook = GetSettingValue('FaceBook_Add',0);
+	$twitter = GetSettingValue('Twitter_Add',0);
+	$rss = GetSettingValue('Rss_Add',0);
 
 $html=<<<cd
 		<div class="container">
@@ -97,10 +106,10 @@ $html=<<<cd
 			<div class="four columns">
 				<div class="headline low-margin"><h4>پیوستن به ما</h4></div>
 				<div id="social" class="tooltips">
-					<a href="https://{$facebook}" rel="tooltip" title="Facebook" class="facebook">Facebook</a>
-					<a href="https://{$twitter}" rel="tooltip" class="twitter" data-original-title="Twitter">Twitter</a>
-					<a href="https://{$gplus}" rel="tooltip" title="Google Plus" class="googleplus">Google Plus</a>
-					<a href="http://{$rss}" rel="tooltip" class="rss" data-original-title="RSS">RSS</a>
+					<a href="https://{$facebook}" rel="tooltip" title="Facebook" class="facebook" target="_blank">Facebook</a>
+					<a href="https://{$twitter}" rel="tooltip" class="twitter" data-original-title="Twitter" target="_blank">Twitter</a>
+					<a href="https://{$gplus}" rel="tooltip" title="Google Plus" class="googleplus" target="_blank">Google Plus</a>
+					<a href="http://{$rss}" rel="tooltip" class="rss" data-original-title="RSS" target="_blank">RSS</a>
 				</div>
 			</div>
 		</div>

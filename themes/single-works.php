@@ -32,15 +32,15 @@ $html=<<<cd
 			</div>
 		</div>
 		<div class="container" style="margin-top: 30px;">
-			<div class="twelve columns tooltips">
-				<div class="twelve columns alpha"><p>{$work["body"]} </p></div>
+			<div class="sixteen columns tooltips">
+				<div class="sixteen columns alpha"><p>{$work["body"]} </p></div>
 			</div>
-			<div class="four columns">
+			<!-- <div class="four columns">
 				<ul class="project-info">
 					<li><strong>مشتری:</strong> </li>
 					<li><strong>تاریخ:</strong> {$fdate}</li>
 				</ul>				
-			</div>
+			</div> -->
 		</div>		
 cd;
 	return $html;
