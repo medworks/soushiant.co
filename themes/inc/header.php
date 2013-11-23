@@ -48,6 +48,9 @@
 <link rel="stylesheet" type="text/css" href="themes/css/boxed.css" id="layout">
 <link rel="stylesheet" type="text/css" href="themes/css/colors/green.css" id="colors">
 
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="favicon.ico">
+
 <!-- Java Script
 ================================================== -->
 <script src="themes/js/jquery.min.js"></script>
