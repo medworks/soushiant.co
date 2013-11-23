@@ -84,11 +84,11 @@ if($_GET["contact"]=="reg"){
 				echo "<div class='notification_ok rtl medium'>پیام شما با موفقیت ارسال شد.</div>";
 
 			}else{
-				echo "<div class='notification_error rtl'>خطا1! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
+				echo "<div class='notification_error rtl'>خطا! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
 
 			}
 	}else{
-		echo "<div class='notification_error rtl'>خطا2! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
+		echo "<div class='notification_error rtl'>خطا! پیام شما ارسال نشد لطفا مجددا تلاش نمایید.</div>";
 	}
 
 }
