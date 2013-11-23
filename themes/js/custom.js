@@ -364,13 +364,13 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 	var url= window.location.href;
 	$('#navigation > ul > li > a').each(function(){
 	    if(this.href.trim() == url){
-	        $(this).addClass("current");
+	        $(this).attr("id","current");
 	        return false;
 	    }else if(url.match(/page/i)){
 	        var href= window.location.href.substr(url.indexOf("/"));
 	        href= href.split('-');
 	        href= href[0].split('/');
-	        $('#navigation > ul > li > a[href*="'+href[3]+'"]').addClass('current');
+	        $('#navigation > ul > li > a[href*="'+href[3]+'"]').attr('id','current');
 	    }
 	});
 	
