@@ -27,12 +27,14 @@ $html=<<<cd
 			<div class="twelve columns">
 				<!-- Post -->
 				<div class="post">
-					<div class="post-img picture"><a href="news.html">
-					<img src="{$news[image]}" alt="{$news[subject]}"><div class="image-overlay-link"></div></a></div>
-					<a href="#" class="post-icon standard"></a>
+					<div class="post-img picture">
+						<img src="{$news[image]}" alt="{$news[subject]}">
+					</div>
+					<a class="post-icon standard"></a>
 					<div class="post-content">
-						<div class="post-title"><h2>
-						<a href="#">{$news["subject"]}</a></h2></div>
+						<div class="post-title">
+							<h2>{$news["subject"]}</h2>
+						</div>
 						<div class="post-meta rtl"><span><i class="mini-ico-calendar"></i>تاریخ: {$ndate}</span> <span><i class="mini-ico-user"></i>
 						به وسیله: {$news["userid"]}</span> 
 						<!-- <span><i class="mini-ico-comment"></i>With <a href="#">12 Comments</a></span> --></div>
