@@ -4,17 +4,18 @@
    include_once("./classes/messages.php");
    
    $table = "";
-   $field = "";   
+   $field = "";
+   if (!empty($_POST["searchtxt"])) $searchtxt = "'%{$_POST[searchtxt]}%'";
    $db = Database::GetDatabase();
    if ($_POST["mark"]=="search")
    {
       $table = "news";
-      $field = "subject";
+      $field = "subject";      
 	  $rownum = 0;
 	  $rows = $db->SelectAll(
 				$table,
 				"*",
-				"{$field} LIKE '%{$_POST[searchtxt]}%'",
+				"{$field} LIKE $searchtxt",
 				"id DESC",
 				$_GET["pageNo"]*10,
 				10);
@@ -63,7 +64,7 @@ rt;
 	$rows = $db->SelectAll(
 				$table,
 				"*",
-				"{$field} LIKE '%{$_POST[searchtxt]}%'",
+				"{$field} LIKE $searchtxt",
 				"id DESC",
 				$_GET["pageNo"]*10,
 				10);
