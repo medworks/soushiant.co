@@ -108,14 +108,14 @@ header('Content-Type: text/html; charset=UTF-8');
 			<!-- Contact Details -->
 			<div id="contact-details">
 				<ul>
-					<li class="latin-font"><i class="mini-ico-envelope"></i><script type="text/javascript">
+					<li class="latin-font ltr"><i class="mini-ico-envelope"></i><script type="text/javascript">
 
                                         emailE='soushain.co'
                                         emailE=('info' + '@' + emailE)
                                         document.write('<a href="mailto:' + emailE + '" target="_blank">' + emailE + '</a>')
 
                                     </script></li>
-					<li class="latin-font"><i class="mini-ico-user"></i><?php echo $tel; ?></li>
+					<li class="latin-font ltr"><i class="mini-ico-user"></i><?php echo $tel; ?></li>
 				</ul>
 			</div>
 		</div>
