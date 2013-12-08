@@ -8,7 +8,7 @@
     }else{
         include_once("./classes/database.php");
         include_once("./lib/persiandate.php");
-        $db = database::GetDatabase();
+        $db = Database::GetDatabase();
 //------------------------------- header slides part -------------------------
 		$slides = $db->SelectAll("slides","*");	
 //------------------------------- news part -------------------------	
