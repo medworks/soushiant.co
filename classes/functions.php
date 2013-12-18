@@ -74,6 +74,9 @@
 			case 'compmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/companymgr.php";
 			break;
+			case 'gplanmgr':
+                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/companymgr.php";
+			break;
 			case 'plansmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/plansmgr.php";
 			break;
