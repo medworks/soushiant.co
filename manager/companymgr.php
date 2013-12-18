@@ -13,7 +13,7 @@
 	}
 	$db = Database::GetDatabase();
 	$overall_error = false;
-	if ($_GET['item']!="compmgr")
+	if ($_GET['item']=="compmgr")
 	{
 	if (!$overall_error && $_POST["mark"]=="savecomp")
 	{	    
@@ -257,7 +257,7 @@ $html = $code;
 }
 }
 else 
-if ($_GET["act"]=="gplanmgr")
+if ($_GET["item"]=="gplanmgr")
 {
 	if (!$overall_error && $_POST["mark"]=="savecomp")
 	{	    
@@ -313,34 +313,7 @@ if ($_GET["act"]=="gplanmgr")
 		$db->Delete("company"," id",$_GET["cid"]);
 		if ($db->CountAll("company")%10==0) $_GET["pageNo"]-=1;		
 		header("location:?item=compmgr&act=mgr&pageNo={$_GET[pageNo]}");
-	}
-	if ($_GET['act']=="do")
-{
-	$html=<<<ht
-		<div class="title">
-	      <ul>
-	        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-	        <li><span>مدیریت شرکت</span></li>
-	      </ul>
-	      <div class="badboy"></div>
-	    </div>
-		<div class="sub-menu" id="mainnav">
-			<ul>
-			  <li>		  
-				<a href="?item=compmgr&act=new">درج شرکت جدید
-					<span class="add-comp"></span>
-				</a>
-			  </li>
-			  <li>
-				<a href="?item=compmgr&act=mgr" id="news" name="news">حذف/ویرایش شرکتها
-					<span class="edit-comp"></span>
-				</a>
-			  </li>
-			 </ul>
-			 <div class="badboy"></div>
-		</div>		 
-ht;
-}else
+	}	
 if ($_GET['act']=="new" or $_GET['act']=="edit")
 {
 $msgs = GetMessage($_GET['msg']);
