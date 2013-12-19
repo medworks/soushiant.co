@@ -22,6 +22,14 @@
 				$seo->Site_Title = "ADSL";	
                 return "themes/adsl.php";
 			break;
+			case 'adsl':
+				$seo->Site_Title = "ADSL";	
+                return "themes/adsl.php";
+			break;
+			case 'product':
+				$seo->Site_Title = "خرید کالا";	
+                return "themes/product.php";
+			break;
 			case 'services':
 				$seo->Site_Title = "خدمات";	
                 return "themes/services.php";

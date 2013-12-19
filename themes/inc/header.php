@@ -153,6 +153,7 @@ header('Content-Type: text/html; charset=UTF-8');
 						<li><a href="single_project.html">Single Project</a></li>
 					</ul> -->
 				</li>
+				<li><a href="product.html">خرید کالا</a></li>
 				<li><a href="works.html">پروژه ها</a></li>
 				<li><a href="news.html">اخبار</a></li>
 				<li><a href="contact.html">تماس با ما</a></li>
