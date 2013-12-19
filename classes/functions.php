@@ -30,6 +30,9 @@
 				$seo->Site_Title = "خرید کالا";	
                 return "themes/product.php";
 			break;
+			case 'fullproduct':
+                if ($act=="do") return "themes/single-product.php";
+			break;
 			case 'services':
 				$seo->Site_Title = "خدمات";	
                 return "themes/services.php";

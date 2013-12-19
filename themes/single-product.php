@@ -8,7 +8,7 @@ $html=<<<cd
 			<div class="sixteen columns">
 				<!-- Page Title -->
 				<div id="page-title">
-					<h2>خرید کالا</h2>
+					<h2>خرید کالا / مودم</h2>
 					<div id="bolded-line"></div>
 				</div>
 				<!-- Page Title / End -->
@@ -29,7 +29,7 @@ $html.=<<<cd
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-shopping-cart" style="margin-left: -12px;"></i>
-						<h3><a href="product-fullpage{$val[id]}.html" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a></h3>
+						<h3><a class="price-table" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a></h3>
 						<p>{$val["body"]}</p>
 					</div>
 				</div>
@@ -40,7 +40,30 @@ if (($i % 2 == 0) or (count($company)==$i))
    
 }
 $html.=<<<cd
+			<script>
+				$(document).ready(function(){
+					$('.price-table').click(function(){
+						var name = $(this).attr("name");
+						var id = $(this).attr("id");
+						$.ajax({
+							type: 'POST',
+				    		url: "themes/price.php?comp="+name+"&compid="+id,
+				   			// data: $(".price-table").serialize(),
+					    		success: function(msg)
+								{
+									$("#product").ajaxComplete(function(event, request, settings){				
+										$(this).hide();
+										$(this).html(msg).slideDown("slow");
+									});
+								}
+
+						});
+						return false;
+					});
+				});
+			</script>
 		</div>
+		<div id="product"></div>
 cd;
 	return $html;
 
