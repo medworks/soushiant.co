@@ -29,7 +29,7 @@ $html.=<<<cd
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-wifi-alt" style="margin-left: -12px;"></i>
-						<h3><a href="adsl-fullpage{$val[id]}.html" class="price-table" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a></h3>
+						<h3><a class="price-table" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a></h3>
 						<p>{$val["body"]}</p>
 					</div>
 				</div>
@@ -39,6 +39,32 @@ if (($i % 2 == 0) or (count($company)==$i))
 		$html.="</div>   <!-- Icon Box Container / End -->";
    
 }
+$html.=<<<cd
+			<script>
+				$(document).ready(function(){
+					$('.price-table').click(function(){
+						var name = $(this).attr("name");
+						var id = $(this).attr("id");
+						$.ajax({
+							type: 'POST',
+				    		url: "themes/price.php?comp="+name+"&compid="+id,
+				   			// data: $(".price-table").serialize(),
+					    		success: function(msg)
+								{
+									$("#price").ajaxComplete(function(event, request, settings){				
+										$(this).hide();
+										$(this).html(msg).slideDown("slow");
+									});
+								}
+
+						});
+						return false;
+					});
+				});
+			</script>
+		</div>
+		<div id="price"></div>
+cd;
 	return $html;
 
 ?>
