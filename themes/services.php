@@ -15,7 +15,7 @@ $html=<<<cd
 				<!-- Page Title / End -->
 			</div>
 		</div>
-		<div class="container">
+		<div class="container cyan">
 			<div class="sixteen columns">
 				<div class="headline"><h4>خدمات</h4></div>
 			</div>						

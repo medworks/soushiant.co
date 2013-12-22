@@ -39,3 +39,11 @@ li.current,
 #current {
 	background: #495d7f !important;
 }
+
+.cyan a{
+	color: #009cb5 !important;
+}
+
+.cyan a:hover{
+	color: #495d7f !important;
+}

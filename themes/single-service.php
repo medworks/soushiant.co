@@ -20,7 +20,7 @@ $html=<<<cd
 			<!-- Page Title / End -->
 		</div>
 		</div>
-		<div class="container">
+		<div class="container cyan">
 			<!-- Standard Structure -->
 			<div class="sixteen columns">
 				<div class="headline no-margin"><h4>{$service["subject"]}</h4></div>

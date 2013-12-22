@@ -67,7 +67,7 @@ $html.=<<<cd
 	</div>
 	<!-- LayerSlider Container / End -->
 	<!-- 960 Container -->
-	<div class="container">
+	<div class="container cyan">
 		<!-- Icon Boxes -->
 		<div class="icon-box-container">
 cd;

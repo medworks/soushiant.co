@@ -14,7 +14,7 @@ $html=<<<cd
 				<!-- Page Title / End -->
 			</div>
 		</div>
-		<div class="container">			
+		<div class="container cyan">			
 cd;
 $i = 0;
 foreach($company as $key => $val)
