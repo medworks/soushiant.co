@@ -48,7 +48,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <link rel="stylesheet" type="text/css" href="themes/css/fancybox.css">
 <link rel="stylesheet" type="text/css" href="themes/css/style.css">
 <link rel="stylesheet" type="text/css" href="themes/css/boxed.css" id="layout">
-<link rel="stylesheet" type="text/css" href="themes/css/colors/green.css" id="colors">
+<link rel="stylesheet" type="text/css" href="themes/css/colors/navy.css" id="colors">
 
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="favicon.ico">
