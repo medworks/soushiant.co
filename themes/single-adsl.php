@@ -8,7 +8,7 @@ $html=<<<cd
 			<div class="sixteen columns">
 				<!-- Page Title -->
 				<div id="page-title">
-					<h2>ADSL</h2>
+					<h2>ADSL / شاتل</h2>
 					<div id="bolded-line"></div>
 				</div>
 				<!-- Page Title / End -->

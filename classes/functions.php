@@ -36,6 +36,9 @@
 			case 'fullproduct':
                 if ($act=="do") return "themes/single-product.php";
 			break;
+			case 'product-fulldetail':
+                if ($act=="do") return "themes/product-fulldetail.php";
+			break;
 			case 'services':
 				$seo->Site_Title = "خدمات";	
                 return "themes/services.php";

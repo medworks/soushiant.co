@@ -29,7 +29,7 @@ $html.=<<<cd
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-shopping-cart" style="margin-left: -12px;"></i>
-						<h3><a class="price-table" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a></h3>
+						<h3><a class="product" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a></h3>
 						<p>{$val["body"]}</p>
 					</div>
 				</div>
@@ -42,12 +42,12 @@ if (($i % 2 == 0) or (count($company)==$i))
 $html.=<<<cd
 			<script>
 				$(document).ready(function(){
-					$('.price-table').click(function(){
+					$('.product').click(function(){
 						var name = $(this).attr("name");
 						var id = $(this).attr("id");
 						$.ajax({
 							type: 'POST',
-				    		url: "themes/price.php?comp="+name+"&compid="+id,
+				    		url: "themes/product-detail.php?comp="+name+"&compid="+id,
 				   			// data: $(".price-table").serialize(),
 					    		success: function(msg)
 								{
