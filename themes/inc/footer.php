@@ -61,7 +61,7 @@
 				<li class="latin-font"><i class="mini-ico-road"></i><p style="display:inline;"><?php echo $address; ?></p></li>
 				<li class="latin-font"><i class="mini-ico-envelope"></i>
 					<script type="text/javascript">
-                        emailE='soushain.co'
+                        emailE='soushiant.co'
                         emailE=('info' + '@' + emailE)
                         document.write('<a href="mailto:' + emailE + '" target="_blank">' + emailE + '</a>')
 
