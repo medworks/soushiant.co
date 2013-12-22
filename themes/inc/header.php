@@ -91,7 +91,7 @@ header('Content-Type: text/html; charset=UTF-8');
 		<!-- Logo -->
 		<div class="eight columns left">
 			<div id="logo">
-				<a href="./"><img src="themes/images/logo.png" alt="logo"></a>
+				<a href="./" title="Soushiant"><img src="themes/images/logo.png" alt="Soushiant"></a>
 				<div class="clear"></div>
 			</div>
 		</div>
