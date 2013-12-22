@@ -94,7 +94,7 @@ $html=<<<cd
 					function initialize()
 					{
 						var mapProp = {
-						  center:new google.maps.LatLng(36.321505, 59.523654),
+						  center:new google.maps.LatLng(36.320872, 59.525607),
 						  zoom:17,
 						  mapTypeId:google.maps.MapTypeId.ROADMAP
 						  };
