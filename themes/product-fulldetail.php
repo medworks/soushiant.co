@@ -18,18 +18,21 @@ $html=<<<cd
 		</div>
 		<div class="container">
 			<!-- Slider -->
-			<div class="sixteen columns">
-				<div class="flexslider home">
-					<ul class="slides">
-						<li><img src="{$work[image]}" alt="{$work[subject]}"></li>						
-					 </ul>
-				</div>
+			<div class="four columns">
+				<ul>
+					<li><img src="themes/images/logo.png" alt=""></li>						
+				 </ul>
+			</div>
+			<div class="four columns">
+					<p>نسبلنمتلت ث هث خهث هثه خث ععهف</p>
+								
 			</div>
 		</div>
-		<div class="container" style="margin-top: 30px;">
-			<div class="sixteen columns tooltips">
-				<div class="sixteen columns alpha"><p>{$work["body"]} </p></div>
+		<div class="container" style="margin-top:30px;">
+			<div class="four columns">
+				<a href="themes/order.php" class="button color" style="text-align:right;float:right;" title="سفارش">سفارش خرید</a>
 			</div>
+			<div class="clear"></div>
 		</div>		
 cd;
 	return $html;
