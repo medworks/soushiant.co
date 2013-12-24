@@ -28,11 +28,36 @@ $html=<<<cd
 								
 			</div>
 		</div>
+		<script>
+			$(document).ready(function(){
+				$('.order').click(function(){
+					//var name = $(this).attr("name");
+					//var id = $(this).attr("id");
+					$.ajax({
+						type: 'POST',
+			    		url: "themes/order.php",
+			   			// data: $(".price-table").serialize(),
+				    		success: function(msg)
+							{
+								$("#order-form").ajaxComplete(function(event, request, settings){				
+									$(this).hide();
+									$(this).html(msg).slideDown("slow");
+								});
+							}
+
+					});
+					return false;
+				});
+			});
+		</script>
 		<div class="container" style="margin-top:30px;">
 			<div class="four columns">
-				<a href="themes/order.php" class="button color" style="text-align:right;float:right;" title="سفارش">سفارش خرید</a>
+				<a class="button color order" style="text-align:right;float:right;" title="سفارش">سفارش خرید</a>
 			</div>
 			<div class="clear"></div>
+		</div>
+		<div class="container" style="margin-top:30px;">
+			<div id="order-form"></div>
 		</div>		
 cd;
 	return $html;
