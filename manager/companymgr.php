@@ -98,7 +98,7 @@
 				</a>
 			  </li>
 			  <li>		  
-				<a href="?item=gplanpmgr&act=mgr">حذف/ویرایش  گروه پلان
+				<a href="?item=gplanmgr&act=mgr">حذف/ویرایش  گروه پلان
 					<span class="add-comp"></span>
 				</a>
 			  </li>
@@ -287,7 +287,7 @@ if ($_GET["item"]=="gplanmgr")
 			            "`subject`"=>"'{$_POST[subject]}'");
 			
         $db->UpdateQuery("plangroups",$values,array("id='{$_GET[pid]}'"));
-		header('location:?item=compmgr&act=mgr');
+		header('location:?item=gplanmgr&act=mgr');
 		//$_GET["item"] = "gplanmgr";
 		//$_GET["act"] = "act";			
 	}
@@ -348,9 +348,8 @@ $html=<<<cd
          <label for="name">عنوان گروه</label>         
          <span>*</span>
        </p>    
-       <input type="text" name="name" class="validate[required] subject" id="name" value='{$row[name]}'/>   	  
-	   <div class="badboy"></div>
-  	    	   
+       <input type="text" name="subject" class="validate[required] subject" id="subject" value='{$row[subject]}'/>   	  
+	   <div class="badboy"></div>  	    	   
 	   {$editorinsert}
       	 <input type="reset" value="پاک کردن" class='reset' />
        </p>  
@@ -402,7 +401,8 @@ if ($_GET['act']=="mgr")
 					else
 					{
 							$rowsClass[] = "datagridoddrow";
-					}					
+					}
+					$rows[$i]["compid"] = GetPlanName($rows[$i]["compid"]);
 					$rows[$i]["edit"] = "<a href='?item=gplanmgr&act=edit&pid={$rows[$i]["id"]}' class='edit-field'" .
 							"style='text-decoration:none;'></a>";								
 					$rows[$i]["delete"]=<<< del
@@ -419,7 +419,7 @@ del;
             {                    
                     $gridcode .= DataGrid(array( 
 					        "compid"=>"نام شرکت",
-							"name"=>"نام گروه طرح",							
+							"subject"=>"نام گروه طرح",							
                             "edit"=>"ویرایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
                             $_GET["pageNo"], "id", false, true, true, $rowCount,"item=gplanmgr&act=mgr");
