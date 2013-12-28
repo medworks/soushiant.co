@@ -498,6 +498,12 @@ code;
 		$row = $db ->Select("section","secname","ID = '{$secid}'");
 		return ($row["secname"]);
 	}
+	function GetPlanName($cid)
+	{
+	    $db = Database::GetDatabase();
+		$row = $db ->Select("company","name","ID = '{$cid}'");
+		return ($row["name"]);
+	}
 	function GetCompanyName($cid)
 	{
 	    $db = Database::GetDatabase();
