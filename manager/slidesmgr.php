@@ -31,8 +31,9 @@
   } 	
  if (!$overall_error && $_POST["mark"]=="saveslides")
  {						   				
-	$fields = array("`image`","`subject`","`body`","`pos`");	
-	$values = array("'{$_POST[selectpic]}'","'{$_POST[subject]}'","'{$_POST[body]}'","'{$_POST[cbpos]}'");
+	$fields = array("`image`","`subject`","`body`","`pos`","`link`");	
+	$values = array("'{$_POST[selectpic]}'","'{$_POST[subject]}'","'{$_POST[body]}'",
+	                "'{$_POST[cbpos]}'","'{$_POST[link]}'");
 	if (!$db->InsertQuery('slides',$fields,$values)) 
 	{
 		//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
@@ -58,7 +59,8 @@
 	$values = array("`image`"=>"'{$_POST[selectpic]}'",
 	       		    "`subject`"=>"'{$_POST[subject]}'",
 					"`body`"=>"'{$_POST[body]}'",
-					"`pos`"=>"'{$_POST[cbpos]}'");
+					"`pos`"=>"'{$_POST[cbpos]}'",
+					"`link`"=>"'{$_POST[link]}'");
 	$db->UpdateQuery("slides",$values,array("id='{$_GET['sid']}'"));
 	header('location:?item=slidesmgr&act=mgr');
 	//$_GET["item"] = "slidesmgr";
@@ -69,7 +71,8 @@
 	{
 		$row = array("image"=>$_FILES['pic']['name'],
 					 "subject"=>$_POST['subject'],
-					 "body"=>$_POST['body']);
+					 "body"=>$_POST['body'],
+					 "link"=>$_POST['link']);
 	}
  
    if ($_GET['act']=="new")
@@ -167,10 +170,15 @@ $html=<<<cd
 			</p>
 			<input type="text" name="subject" class="validate[required] subject" id="subject" value="{$row[subject]}" />
 			<p>
-				<label for="subject">توضیحات </label>
+				<label for="body">توضیحات </label>
 				<span>*</span>
 			</p>
 			<input type="text" name="body" class="validate[required] subject" id="body" value="{$row[body]}" /> 
+			<p>
+				<label for="link">لینک  </label>
+				<span>*</span>
+			</p>
+			<input type="text" name="link" class="validate[required] subject" id="link" value="{$row[link]}" />
 			<p>
 				<label for="cbpos">نمایش عکس در </label>
 			</p>
@@ -198,7 +206,7 @@ if ($_GET['act']=="mgr")
 				//$_GET['item'] = "slidesmgr";
 				//$_GET['act'] = "mgr";
 				//$_GET['msg'] = 6;				
-				header("Location:?item=worksmgr&act=mgr&msg=6");
+				header("Location:?item=slidesmgr&act=mgr&msg=6");
 			}
 		
 	}
