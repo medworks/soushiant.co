@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 21, 2013 at 04:34 AM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Host: localhost
+-- Generation Time: Dec 29, 2013 at 06:46 
+-- Server version: 5.6.12
+-- PHP Version: 5.5.3
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `soushiant`
 --
+CREATE DATABASE IF NOT EXISTS `soushiant` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `soushiant`;
 
 -- --------------------------------------------------------
 
@@ -172,6 +174,31 @@ INSERT INTO `news` (`id`, `subject`, `image`, `body`, `ndate`, `userid`, `resour
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `plangroups`
+--
+
+CREATE TABLE IF NOT EXISTS `plangroups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `compid` int(11) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `plangroups`
+--
+
+INSERT INTO `plangroups` (`id`, `compid`, `subject`) VALUES
+(4, 1, 'Ecco'),
+(5, 1, 'Art'),
+(6, 2, 'طلایی'),
+(7, 2, 'نقره ای'),
+(8, 2, 'برنزی'),
+(9, 2, 'خانواده');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `plans`
 --
 
@@ -309,6 +336,7 @@ CREATE TABLE IF NOT EXISTS `slides` (
   `subject` varchar(50) NOT NULL,
   `body` varchar(250) NOT NULL,
   `pos` tinyint(4) NOT NULL,
+  `link` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
@@ -316,10 +344,10 @@ CREATE TABLE IF NOT EXISTS `slides` (
 -- Dumping data for table `slides`
 --
 
-INSERT INTO `slides` (`id`, `image`, `subject`, `body`, `pos`) VALUES
-(2, './slidespics/seo.jpg', 'تست سعید حاتمی', 'این تست جهت حل مشکلات ویرایش می باشد', 3),
-(3, './slidespics/slide1.jpg', 'تست اسم عکس', 'تست توضیحات عکس سعید حاتمی', 1),
-(4, './slidespics/slide2.png', 'تست سابمیت', 'تست دوم', 1);
+INSERT INTO `slides` (`id`, `image`, `subject`, `body`, `pos`, `link`) VALUES
+(2, './slidespics/seo.jpg', 'تست سعید حاتمی', 'این تست جهت حل مشکلات ویرایش می باشد', 3, 'www.mediateq.ir'),
+(3, './slidespics/slide1.jpg', 'تست اسم عکس', 'تست توضیحات عکس سعید حاتمی', 1, 'www.yahoo.com'),
+(4, './slidespics/slide2.png', 'تست سابمیت', 'تست دوم', 1, 'www.google.com');
 
 -- --------------------------------------------------------
 
