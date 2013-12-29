@@ -50,15 +50,16 @@ cd;
 foreach($slides as $key=>$val)
 {
 $html.=<<<cd
-				<!-- Slide #1 -->
 				<div class="ls-layer" style="transition2d: 67; timeshift: -1000; slidedelay: 7000;">	 
 					<!-- Background -->
-					<img class="ls-bg" src="{$val[image]}" alt="{$val[subject]}">
+					<a href="{$val[link]}" target="_blank">					
+						<img class="ls-bg" src="{$val[image]}" alt="{$val[subject]}">
+					</a>					
 					<div class="slide-caption ls-s1" style="left: 20px; top: 228px; width: 30%; slidedirection: bottom; slideoutdirection: bottom; durationin: 800; durationout: 800; delayin: 0; delayout: 0;">
 						<h3>{$val["subject"]}</h3>
 						<p>{$val["body"]}</p>
 					</div>
-				</div>
+				</div>				
 cd;
 }	
 $html.=<<<cd
