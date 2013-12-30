@@ -166,19 +166,16 @@ $html=<<<cd
 		   <div class="badboy"></div>
 			<p>
 				<label for="subject">عنوان </label>
-				<span>*</span>
 			</p>
-			<input type="text" name="subject" class="validate[required] subject" id="subject" value="{$row[subject]}" />
+			<input type="text" name="subject" class="subject" id="subject" value="{$row[subject]}" />
 			<p>
 				<label for="body">توضیحات </label>
-				<span>*</span>
 			</p>
-			<input type="text" name="body" class="validate[required] subject" id="body" value="{$row[body]}" /> 
+			<input type="text" name="body" class="subject" id="body" value="{$row[body]}" /> 
 			<p>
 				<label for="link">لینک  </label>
-				<span>*</span>
 			</p>
-			<input type="text" name="link" class="validate[required] subject" id="link" value="{$row[link]}" />
+			<input type="text" name="link" class="ltr subject" id="link" value="{$row[link]}" />
 			<p>
 				<label for="cbpos">نمایش عکس در </label>
 			</p>
