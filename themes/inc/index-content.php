@@ -50,7 +50,6 @@ cd;
 foreach($slides as $key=>$val)
 {
 $html.=<<<cd
-				<!-- Slide #1 -->
 				<div class="ls-layer" style="transition2d: 67; timeshift: -1000; slidedelay: 7000;">	 
 					<!-- Background -->
 					<img class="ls-bg" src="{$val[image]}" alt="{$val[subject]}">
@@ -62,7 +61,7 @@ $html.=<<<cd
 						</h3>
 						<p>{$val["body"]}</p>
 					</div>
-				</div>
+				</div>				
 cd;
 }	
 $html.=<<<cd
