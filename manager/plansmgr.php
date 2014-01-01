@@ -19,9 +19,9 @@ if ($_GET['item']=="plansmgr")
 	if ($_GET['item']!="plansmgr")	exit();
 	if (!$overall_error && $_POST["mark"]=="saveplan")
 	{	    
-		$fields = array("`sid`","`pos`","`name`","`speeddl`","`speedup`","`time`","`trafic`","`price`","`detail`");
+		$fields = array("`sid`","`pid`","`name`","`speeddl`","`speedup`","`time`","`trafic`","`price`","`detail`");
 		$_POST["detail"] = addslashes($_POST["detail"]);		
-		$values = array("'{$_POST[comp]}'","'{$_POST[pos]}'","'{$_POST[name]}'","'{$_POST[speeddl]}'","'{$_POST[speedup]}'","'{$_POST[time]}'","'{$_POST[trafic]}'","'{$_POST[price]}'","'{$_POST[detail]}'");
+		$values = array("'{$_POST[cbcomp]}'","'{$_POST[cbplans]}'","'{$_POST[pos]}'","'{$_POST[name]}'","'{$_POST[speeddl]}'","'{$_POST[speedup]}'","'{$_POST[time]}'","'{$_POST[trafic]}'","'{$_POST[price]}'","'{$_POST[detail]}'");
 		if (!$db->InsertQuery('plans',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
@@ -43,7 +43,8 @@ if ($_GET['item']=="plansmgr")
 	if (!$overall_error && $_POST["mark"]=="editplan")
 	{		
 	    $_POST["detail"] = addslashes($_POST["detail"]);	    
-		$values = array("`sid`"=>"'{$_POST[comp]}'",
+		$values = array("`sid`"=>"'{$_POST[cbcomp]}'",
+						"`pid`"=>"'{$_POST[cbplans]}'",
 						"`pos`"=>"'{$_POST[pos]}'",
 		                "`name`"=>"'{$_POST[name]}'",
 						"`speeddl`"=>"'{$_POST[speeddl]}'",
@@ -61,7 +62,7 @@ if ($_GET['item']=="plansmgr")
 	if ($_GET['act']=="new")
 	{
 	    $rows = $db->SelectAll("company","*",null,"id ASC");
-        $cbcomp = DbSelectOptionTag("comp",$rows,"name",null,null,"select validate[required]");
+        $cbcomp = DbSelectOptionTag("cbcomp",$rows,"name",null,null,"select validate[required]");        
 		$editorinsert = "
 			<p>
 				<input type='submit' id='submit' value='ذخیره' class='submit' />	 
@@ -71,7 +72,8 @@ if ($_GET['item']=="plansmgr")
 	{	
 		$row = $db->Select("plans","*","id='{$_GET["cid"]}'",NULL);
 		$comps = $db->SelectAll("company","*",null,"id ASC");
-		$cbcomp = DbSelectOptionTag("comp",$comps,"name","{$row['sid']}",null,"select validate[required]");
+		$cbcomp = DbSelectOptionTag("cbcomp",$comps,"name","{$row['sid']}",null,"select validate[required]");
+		$cbplans = DbSelectOptionTag("cbplans",$plans,"subject","{$row['sid']}",null,"select validate[required]");
 		$editorinsert = "
 		<p>
 			 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
@@ -127,7 +129,12 @@ $html=<<<cd
 	<script type='text/javascript'>
 		$(document).ready(function(){	   
 			$("#frmplansmgr").validationEngine();
-    	});
+			$("#cbcomp").change(function(){
+				$.get('ajaxcommand.php?comp='+$(this).val(), function(data) {
+						$('#plans').html(data);
+				});
+			});
+    });
 	</script>
   <div class="title">
       <ul>
@@ -147,6 +154,9 @@ $html=<<<cd
          <span>*</span>
        </p>
 	   {$cbcomp}
+	   <div id="plans">
+		   {$cbplans}
+	   </div>
        <div class="badboy"></div>
        <p>
          <label for="name">نام طرح</label>
