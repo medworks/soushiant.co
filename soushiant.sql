@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 29, 2013 at 06:46 
+-- Generation Time: Jan 01, 2014 at 02:10 
 -- Server version: 5.6.12
 -- PHP Version: 5.5.3
 
@@ -205,6 +205,7 @@ INSERT INTO `plangroups` (`id`, `compid`, `subject`) VALUES
 CREATE TABLE IF NOT EXISTS `plans` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
   `pos` int(11) NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL,
   `speeddl` int(11) NOT NULL,
@@ -215,19 +216,20 @@ CREATE TABLE IF NOT EXISTS `plans` (
   `avarage` float NOT NULL,
   `detail` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `plans`
 --
 
-INSERT INTO `plans` (`id`, `sid`, `pos`, `name`, `speeddl`, `speedup`, `time`, `trafic`, `price`, `avarage`, `detail`) VALUES
-(1, 1, 1, 'ECO 128/128 kbps', 128, 128, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(2, 2, 1, 'سعید', 128, 128, '3', 3, 14700, 0, ''),
-(3, 1, 0, 'ECO 256/256kbps', 256, 256, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(4, 1, 0, 'ECO 512/512 kbps', 512, 512, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(5, 1, 0, 'ECO 1024/1024 kbps', 1024, 1024, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(6, 1, 2, 'ECO 2048/2048 kbps', 2048, 2048, '1', 3, 14700, 0, '<p>ندارد</p>');
+INSERT INTO `plans` (`id`, `sid`, `pid`, `pos`, `name`, `speeddl`, `speedup`, `time`, `trafic`, `price`, `avarage`, `detail`) VALUES
+(1, 1, 0, 1, 'ECO 128/128 kbps', 128, 128, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(2, 2, 0, 1, 'سعید', 128, 128, '3', 3, 14700, 0, ''),
+(3, 1, 5, 0, 'ART 256/256kbps', 256, 256, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(4, 1, 4, 0, 'ECO 512/512 kbps', 512, 512, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(5, 1, 4, 0, 'ECO 1024/1024 kbps', 1024, 1024, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(6, 1, 5, 2, 'ART 2048/2048 kbps', 2048, 2048, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(7, 1, 4, 0, 'ecco2048', 2048, 1024, '3', 50, 400000, 0, '');
 
 -- --------------------------------------------------------
 
