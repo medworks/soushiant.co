@@ -101,6 +101,13 @@ if($_GET["contact"]=="reg"){
 	echo $cbcategory;
 }
 
+ if (isset($_GET["comp"]))
+{
+	$plans = $db->SelectAll("plangroups","*","compid={$_GET[comp]}","id ASC");
+	$cbplans = DbSelectOptionTag("cbplans",$plans,"subject",null,null,"select validate[required]");
+	echo $cbplans;
+}
+
 if ($_GET["cmd"]=="file")
 {
 	$pics = "";
