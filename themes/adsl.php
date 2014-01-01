@@ -38,6 +38,6 @@ cd;
 if (($i % 2 == 0) or (count($company)==$i))	  
 		$html.="</div>   <!-- Icon Box Container / End -->";
 }
-	return $html;
+	return $html."</div>";
 
 ?>
