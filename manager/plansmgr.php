@@ -253,6 +253,7 @@ if ($_GET['act']=="mgr")
                 for($i = 0; $i < Count($rows); $i++)
                 {						
 				    $rows[$i]["sid"] = GetCompanyName($rows[$i]["sid"]);					
+				    $rows[$i]["pid"] = GetPlanName($rows[$i]["pid"]);
 					$rows[$i]["detail"] = (mb_strlen($rows[$i]["detail"])>50)?
 					mb_substr(html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8"), 0, 50,"UTF-8") . "..." :
 					html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8");						
@@ -280,6 +281,7 @@ del;
             {                    
                     $gridcode .= DataGrid(array( 
 					        "sid"=>"نام شرکت",
+                            "pid"=>"نام پلان",
 					        "name"=>"نام طرح",							
 							"speeddl"=>"سرعت دانلود",
 							"speedup"=>"سرعت آپلود",
