@@ -4,9 +4,9 @@ header('Content-Type: text/html; charset=UTF-8');
   include_once("../config.php");
   include_once("../classes/database.php");  
   $db = Database::GetDatabase();
-  $companyid = $_GET["compid"];
+  $planid = $_GET["compid"];
   $companyname = $_GET["comp"];
-  $plans = $db->SelectAll("plans","*","sid = {$companyid}","pos ASC");
+  $plans = $db->SelectAll("plans","*","pid = {$planid}","pos ASC");
   $trafic = $db->SelectAll("trafic","*","pid = {$companyid}","id ASC");
 $html=<<<cd
 		<!-- Four Tables ================================================== -->
