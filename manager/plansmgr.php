@@ -19,9 +19,12 @@ if ($_GET['item']=="plansmgr")
 	if ($_GET['item']!="plansmgr")	exit();
 	if (!$overall_error && $_POST["mark"]=="saveplan")
 	{	    
-		$fields = array("`sid`","`pid`","`name`","`speeddl`","`speedup`","`time`","`trafic`","`price`","`detail`");
+		$fields = array("`sid`","`pid`","`pos`","`name`","`speeddl`","`speedup`",
+		"`time`","`trafic`","`price`","`detail`");
 		$_POST["detail"] = addslashes($_POST["detail"]);		
-		$values = array("'{$_POST[cbcomp]}'","'{$_POST[cbplans]}'","'{$_POST[pos]}'","'{$_POST[name]}'","'{$_POST[speeddl]}'","'{$_POST[speedup]}'","'{$_POST[time]}'","'{$_POST[trafic]}'","'{$_POST[price]}'","'{$_POST[detail]}'");
+		$values = array("'{$_POST[cbcomp]}'","'{$_POST[cbplans]}'","'{$_POST[pos]}'",
+		"'{$_POST[name]}'","'{$_POST[speeddl]}'","'{$_POST[speedup]}'","'{$_POST[time]}'",
+		"'{$_POST[trafic]}'","'{$_POST[price]}'","'{$_POST[detail]}'");
 		if (!$db->InsertQuery('plans',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
@@ -29,6 +32,7 @@ if ($_GET['item']=="plansmgr")
 			//$_GET["item"] = "plansmgr";
 			//$_GET["act"] = "new";
 			//$_GET["msg"] = 2;
+			//echo $db->cmd;
 		} 	
 		else 
 		{  										
@@ -72,8 +76,9 @@ if ($_GET['item']=="plansmgr")
 	{	
 		$row = $db->Select("plans","*","id='{$_GET["cid"]}'",NULL);
 		$comps = $db->SelectAll("company","*",null,"id ASC");
+		$plans = $db->SelectAll("plangroups","*",null,"id ASC");
 		$cbcomp = DbSelectOptionTag("cbcomp",$comps,"name","{$row['sid']}",null,"select validate[required]");
-		$cbplans = DbSelectOptionTag("cbplans",$plans,"subject","{$row['sid']}",null,"select validate[required]");
+		$cbplans = DbSelectOptionTag("cbplans",$plans,"subject","{$row['pid']}",null,"select validate[required]");
 		$editorinsert = "
 		<p>
 			 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
