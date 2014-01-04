@@ -41,14 +41,14 @@ $html.=<<<cd
 								<li>ترافیک {$val["trafic"]} GB</li>
 								<li>هزینه در ماه {$val["price"]} ریال</li>			
 							</ul>
-							<a href="order.html" class="sign-up"><span>پرداخت هزینه</span></a>
+							<a href="index.php?item=odr&pid={$val[id]}" class="sign-up"><span>پرداخت هزینه</span></a>
 						</div>
 					</div>
 cd;
 if (($j % 4 == 0)and (count($plans)!=$j)) $html.="</div><div class='four-tables'>";
 if (($j % 4 == 0)and (count($plans)==$j)) $html.="</div>";
 }
-//if ($j % 2 == 0) $html.="</div>";
+//if ($j % 2 != 0) $html.="</div>";
 $html.="</div>";
 $html.=<<<cd
 			</div>
@@ -74,7 +74,7 @@ $html.=<<<cd
 								<ul>
 									<li>{$val["cnt"]} گیگابایت</li>		
 								</ul>
-								<a href="order.html" class="sign-up"><span>پرداخت هزینه</span></a>
+								<a href="index.php?item=odr&pid={$val[id]}" class="sign-up"><span>پرداخت هزینه</span></a>
 						</div>
 					</div>
 cd;
