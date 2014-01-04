@@ -16,7 +16,6 @@ $html=<<<cd
 				<div class="headline no-margin">
 					<h4>{$companyname}</h4>
 				</div>
-				<!-- Number of Tables / From 2 to 5 / -->
 				<div class="four-tables">
 cd;
 $i = 0;
@@ -49,7 +48,8 @@ cd;
 if (($j % 4 == 0)and (count($plans)!=$j)) $html.="</div><div class='four-tables'>";
 if (($j % 4 == 0)and (count($plans)==$j)) $html.="</div>";
 }
-if ($j % 2 != 0) $html.="</div>";
+//if ($j % 2 == 0) $html.="</div>";
+$html.="</div>";
 $html.=<<<cd
 			</div>
 			</div>
