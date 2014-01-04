@@ -3,7 +3,8 @@ header('Content-Type: text/html; charset=UTF-8');
 
     include_once("./config.php");
 	include_once("./lib/persiandate.php");
-	include_once("./classes/database.php");	
+	include_once("./classes/database.php");
+	include_once("./classes/functions.php");	
 	$db = Database::GetDatabase();
 	
 	if ($_POST["mark"]=="saveorder")
@@ -11,19 +12,20 @@ header('Content-Type: text/html; charset=UTF-8');
 		$fields = array("`pid`","`otype`","`name`","`email`","`tel`","`mobile`",
 		"`ncode`","`body`");
 		$_POST["body"] = addslashes($_POST["body"]);		
-		$values = array("'{$_POST[cbcomp]}'","'{$_POST[otype]}'","'{$_POST[name]}'",
+		$values = array("'1'","'{$_POST[otype]}'","'{$_POST[name]}'",
 		"'{$_POST[email]}'","'{$_POST[tel]}'","'{$_POST[mobile]}'","'{$_POST[ncode]}'",
 		"'{$_POST[body]}'");
-		if (!$db->InsertQuery('order',$fields,$values)) 
+		if (!$db->InsertQuery('orders',$fields,$values)) 
 		{
-			header('location:?item=odr&&msg=2');						
+			header('location:index.php?item=odr&msg=2');
+			//echo $db->cmd;						
 		} 	
 		else 
 		{  														
-			header('location:?item=odr&msg=1');		    
+			header('location:index.php?item=odr&msg=1');		    
 		}
 	}	
-
+$msgs = GetMessage($_GET['msg']);
 $html=<<<cd
 		<!-- 960 Container -->
 		<div class="container">
@@ -32,6 +34,7 @@ $html=<<<cd
 					<h4>فرم ثبت مشخصات</h4>
 				</div>
 			</div>
+			<div class="mes" id="message">{$msgs}</div>
 			<div class="orderform">
 				<form action="" method="post" name="frmorder" id="frmorder">
 					<div class="field">
@@ -73,7 +76,7 @@ $html=<<<cd
 					<div class="clear"></div>
 					<div class="field">
 						<input type="submit" class="button color" style="width:100px;float:right" id="send" value="ارسال درخواست">
-						<input type="hidden" name="mark" value="saveorder">
+							 <input type='hidden' name='mark' value='saveorder' />"
 					</div>
 				</form>
 				<div class="clear"></div>
