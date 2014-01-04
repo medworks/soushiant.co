@@ -42,7 +42,7 @@ $html.=<<<cd
 								<li>ترافیک {$val["trafic"]} GB</li>
 								<li>هزینه در ماه {$val["price"]} ریال</li>			
 							</ul>
-							<a href="#" class="sign-up"><span>پرداخت هزینه</span></a>
+							<a href="order.html" class="sign-up"><span>پرداخت هزینه</span></a>
 						</div>
 					</div>
 cd;
@@ -74,7 +74,7 @@ $html.=<<<cd
 								<ul>
 									<li>{$val["cnt"]} گیگابایت</li>		
 								</ul>
-								<a href="#" class="sign-up"><span>پرداخت هزینه</span></a>
+								<a href="order.html" class="sign-up"><span>پرداخت هزینه</span></a>
 						</div>
 					</div>
 cd;
