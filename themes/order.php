@@ -12,7 +12,7 @@ header('Content-Type: text/html; charset=UTF-8');
 		$fields = array("`pid`","`otype`","`name`","`email`","`tel`","`mobile`",
 		"`ncode`","`body`");
 		$_POST["body"] = addslashes($_POST["body"]);		
-		$values = array("'1'","'{$_POST[otype]}'","'{$_POST[name]}'",
+		$values = array("'{$_GET[pid]}'","'{$_POST[otype]}'","'{$_POST[name]}'",
 		"'{$_POST[email]}'","'{$_POST[tel]}'","'{$_POST[mobile]}'","'{$_POST[ncode]}'",
 		"'{$_POST[body]}'");
 		if (!$db->InsertQuery('orders',$fields,$values)) 
