@@ -1,10 +1,10 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 
-    include_once("../config.php");
-	include_once("../lib/persiandate.php");
-	include_once("../classes/database.php");	
-	include_once("../classes/seo.php");	
+    include_once("./config.php");
+	include_once("./lib/persiandate.php");
+	include_once("./classes/database.php");	
+	include_once("./classes/seo.php");	
 	$db = Database::GetDatabase();
 	$seo = Seo::GetSeo();
 
