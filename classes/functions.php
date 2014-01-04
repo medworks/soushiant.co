@@ -26,6 +26,10 @@
 				$seo->Site_Title = "ADSL";	
                 return "themes/adsl.php";
 			break;
+			case 'odr':
+				$seo->Site_Title = "سفارش محصول";	
+                return "themes/order.php";
+			break;
 			case 'fulladsl':
                 if ($act=="do") return "themes/single-adsl.php";
 			break;
