@@ -514,6 +514,12 @@ code;
 		$row = $db ->Select("plangroups","subject","ID = '{$pid}'");
 		return ($row["subject"]);
 	}
+	function GetADSLName($pid)
+	{
+	    $db = Database::GetDatabase();
+		$row = $db ->Select("plans","name","ID = '{$pid}'");
+		return ($row["name"]);
+	}
 	function GetCompanyName($cid)
 	{
 	    $db = Database::GetDatabase();
