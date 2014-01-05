@@ -76,7 +76,7 @@
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/stuffmgr.php";
 			break;
 			case 'ordermgr':
-                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/ordermgr.php";
+                if ($act=="do" or $act=="view" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/ordermgr.php";
 			break;
 			case 'works':
 				$seo->Site_Title = "کارهای ما";
