@@ -14,7 +14,7 @@
 	$db = Database::GetDatabase();
 	$overall_error = false;
     if ($_GET['item']!="ordermgr")	exit(); 
-    if ($_GET['act']=="mgr")
+    if ($_GET['act']=="mgr" or $_GET['act']=="do")
 {
 	if ($_POST["mark"]=="srhnews")
 	{	 		
@@ -55,7 +55,9 @@
                 {								        
                 $rows[$i]["body"] =(mb_strlen($rows[$i]["body"])>30)?
                 mb_substr(html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8"), 0, 30,"UTF-8") . "..." :
-                html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8");               
+                html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8");
+                $rows[$i]["pid"] =GetPlanName($rows[$i]["pid"]);
+                $rows[$i]["otype"] =ToJalali($rows[$i]["regdate"]," l d F  Y ");               
                 $rows[$i]["regdate"] =ToJalali($rows[$i]["regdate"]," l d F  Y ");
 				$rows[$i]["image"] ="<img src='{$rows[$i][image]}' alt='{$rows[$i][subject]}' width='40px' height='40px' />";                                            
 				if ($i % 2==0)
@@ -80,23 +82,30 @@ del;
     if (!$_GET["pageNo"] or $_GET["pageNo"]<=0) $_GET["pageNo"] = 0;
             if (Count($rows) > 0)
             {                    
-                    $gridcode .= DataGrid(array( 					        
-							"subject"=>"عنوان",
-							"image"=>"تصویر",
-							"body"=>"توضیحات",
-							"ndate"=>"تاریخ",
-							"resource"=>"منبع",							
-							"username"=>"کاربر",
+                    $gridcode .= DataGrid(array( 
+					        "pid"=>"کالا",
+							"otype"=>"نوع خرید",
+							"name"=>"نام",
+							"email"=>"ایمیل",
+							"tel"=>"تلفن",
+							"mobile"=>"موبایل",							
+							"ncode"=>"کدملی",
+                    		"body"=>"توضیحات",
+                    		"regdate"=>"تاریخ",
                             "edit"=>"ویرایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
-                            $_GET["pageNo"], "id", false, true, true, $rowCount,"item=newsmgr&act=mgr");
+                            $_GET["pageNo"], "id", false, true, true, $rowCount,"item=ordermgr&act=mgr");
                     
             }
 $msgs = GetMessage($_GET['msg']);
-$list = array("subject"=>"عنوان",
+$list = array("name"=>"نام",
+			  "email"=>"ایمیل",
+			  "tel"=>"تلفن",
+			  "mobile"=>"موبایل",
+              "ncode"=>"کد ملی",
               "body"=>"توضیحات",
-			  "ndate"=>"تاریخ",
-			  "resource"=>"منبع");
+			  "regdatedate"=>"تاریخ",
+			  );
 $combobox = SelectOptionTag("cbsearch",$list,"subject");
 $code=<<<edit
 <script type='text/javascript'>
@@ -120,13 +129,13 @@ $code=<<<edit
 					<div class="title">
 				      <ul>
 				        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-					    <li><span>مدیریت اخبار</span></li>
+					    <li><span>مدیریت سفارشات</span></li>
 				      </ul>
 				      <div class="badboy"></div>
 				  </div>
                     <div class="Top">                       
 						<center>
-							<form action="?item=newsmgr&act=mgr" method="post" id="frmsrh" name="frmsrh">
+							<form action="?item=ordermgr&act=mgr" method="post" id="frmsrh" name="frmsrh">
 								<p>جستجو بر اساس {$combobox}</p>
 
 								<p class="search-form">
@@ -144,8 +153,8 @@ $code=<<<edit
 							                weekNumbers : true
 							          });
 							        </script>
-									<a href="?item=newsmgr&act=mgr" name="srhsubmit" id="srhsubmit" class="button"> جستجو</a>
-									<a href="?item=newsmgr&act=mgr&rec=all" name="retall" id="retall" class="button"> کلیه اطلاعات</a>
+									<a href="?item=ordermgr&act=mgr" name="srhsubmit" id="srhsubmit" class="button"> جستجو</a>
+									<a href="?item=ordermgr&act=mgr&rec=all" name="retall" id="retall" class="button"> کلیه اطلاعات</a>
 								</p>
 								<input type="hidden" name="mark" value="srhnews" /> 
 								{$msgs}
