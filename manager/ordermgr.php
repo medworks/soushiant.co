@@ -26,41 +26,37 @@
 		   $_POST["txtsrh"] = Date("Y-m-d",mktime(0, 0, 0, $gmonth, $gday, $gyear));
 		}
 		$rows = $db->SelectAll(
-				"news",
+				"orders",
 				"*",
 				"{$_POST[cbsearch]} LIKE '%{$_POST[txtsrh]}%'",
-				"ndate DESC",
+				"regdate DESC",
 				$_GET["pageNo"]*10,
 				10);
 			if (!$rows) 
 			{					
-				//$_GET['item'] = "newsmgr";
-				//$_GET['act'] = "mgr";
-				//$_GET['msg'] = 6;				
-				header("Location:?item=newsmgr&act=mgr&msg=6");
+				header("Location:?item=ordermgr&act=mgr&msg=6");
 			}
 		
 	}
 	else
 	{	
 		$rows = $db->SelectAll(
-				"news",
+				"orders",
 				"*",
 				null,
-				"ndate DESC",
+				"regdate DESC",
 				$_GET["pageNo"]*10,
 				10);
     }
                 $rowsClass = array();
                 $colsClass = array();
-                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhnews")?$db->CountAll("news"):Count($rows);
+                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhnews")?$db->CountAll("orders"):Count($rows);
                 for($i = 0; $i < Count($rows); $i++)
-                {						
-		        $rows[$i]["subject"] =(mb_strlen($rows[$i]["subject"])>20)?mb_substr($rows[$i]["subject"],0,20,"UTF-8")."...":$rows[$i]["subject"];
+                {								        
                 $rows[$i]["body"] =(mb_strlen($rows[$i]["body"])>30)?
                 mb_substr(html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8"), 0, 30,"UTF-8") . "..." :
                 html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8");               
-                $rows[$i]["ndate"] =ToJalali($rows[$i]["ndate"]," l d F  Y ");
+                $rows[$i]["regdate"] =ToJalali($rows[$i]["regdate"]," l d F  Y ");
 				$rows[$i]["image"] ="<img src='{$rows[$i][image]}' alt='{$rows[$i][subject]}' width='40px' height='40px' />";                                            
 				if ($i % 2==0)
 				 {
@@ -69,16 +65,14 @@
 				else
 				{
 						$rowsClass[] = "datagridoddrow";
-				}
-				$rows[$i]["username"]=GetUserName($rows[$i]["userid"]); 
-				$rows[$i]["catid"] = GetCategoryName($rows[$i]["catid"]);
-				$rows[$i]["edit"] = "<a href='?item=newsmgr&act=edit&nid={$rows[$i]["id"]}' class='edit-field'" .
+				}				
+				$rows[$i]["edit"] = "<a href='?item=ordermgr&act=edit&oid={$rows[$i]["id"]}' class='edit-field'" .
 						"style='text-decoration:none;'></a>";								
 				$rows[$i]["delete"]=<<< del
 				<a href="javascript:void(0)"
 				onclick="DelMsg('{$rows[$i]['id']}',
 					'از حذف این خبر اطمینان دارید؟',
-				'?item=newsmgr&act=del&pageNo={$_GET[pageNo]}&nid=');"
+				'?item=ordermgr&act=del&pageNo={$_GET[pageNo]}&oid=');"
 				 class='del-field' style='text-decoration:none;'></a>
 del;
                          }
@@ -86,8 +80,7 @@ del;
     if (!$_GET["pageNo"] or $_GET["pageNo"]<=0) $_GET["pageNo"] = 0;
             if (Count($rows) > 0)
             {                    
-                    $gridcode .= DataGrid(array( 
-					        "catid"=>"گروه",
+                    $gridcode .= DataGrid(array( 					        
 							"subject"=>"عنوان",
 							"image"=>"تصویر",
 							"body"=>"توضیحات",
