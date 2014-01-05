@@ -13,7 +13,65 @@
 	 }
 	$db = Database::GetDatabase();
 	$overall_error = false;
-    if ($_GET['item']!="ordermgr")	exit(); 
+    if ($_GET['item']!="ordermgr")	exit();
+  if ($_GET['act']=="view")
+  {
+  	$html=<<<cd
+		<!-- 960 Container -->
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="headline no-margin">
+					<h4>فرم مشخصات</h4>
+				</div>
+			</div>
+			<div class="sixteen columns">		
+				<div class="orderform">
+					<form action="" method="post" name="frmorder" id="frmorder">
+						<div class="field">
+							<label>نام و نام خانوادگی <span>*</span></label>
+							<input type="text" name="name" class="text" style="float:right;" placeholder="نام و نام خانوادگی">
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>ایمیل <span>*</span></label>
+							<input type="text" name="email" class="text ltr" style="float:right;" placeholder="yourname@domain.com">
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>شماره تلفن <span>*</span></label>
+							<input type="text" name="tel" class="text ltr" style="float:right;" placeholder="511-6093609">
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>شماره موبایل <span>*</span></label>
+							<input type="text" name="mobile" class="text ltr" style="float:right;" placeholder="09154321234">
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>کد ملی <span>*</span></label>
+							<input type="text" name="ncode" class="text ltr" style="float:right;" placeholder="0123456789">
+						</div>
+						<div class="clear"></div>
+						<div class="field" style="float:right;direction:rtl">
+							<label>درخواست <span>*</span></label>
+							<input type="radio" name="otype" value="1" style="width:30px;">ثبت جدید سرویس<br />
+							<input type="radio" name="otype" value="2" style="width:30px;">تمدید سرویس<br />
+							<input type="radio" name="otype" value="3" style="width:30px;">خرید کالا<br />
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>توضیحات (لطفا کد پیگیری دریافتی از بانک و چهار رقم آخر کارتتان را در این قسمت وارد نمایید)<span></span></label>
+							<textarea name="body" style="min-width:450px;float:right" class="text textarea"></textarea>
+						</div>
+						<div class="clear"></div>						
+					</form>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>	
+cd;
+  }
+  else    
     if ($_GET['act']=="mgr" or $_GET['act']=="do")
 {
 	if ($_POST["mark"]=="srhnews")
@@ -73,7 +131,7 @@
 				{
 						$rowsClass[] = "datagridoddrow";
 				}				
-				$rows[$i]["edit"] = "<a href='?item=ordermgr&act=edit&oid={$rows[$i]["id"]}' class='edit-field'" .
+				$rows[$i]["view"] = "<a href='?item=ordermgr&act=view&oid={$rows[$i]["id"]}' class='edit-field'" .
 						"style='text-decoration:none;'></a>";								
 				$rows[$i]["delete"]=<<< del
 				<a href="javascript:void(0)"
@@ -97,14 +155,14 @@ del;
 							"ncode"=>"کدملی",
                     		"body"=>"توضیحات",
                     		"regdate"=>"تاریخ",
-                            "edit"=>"ویرایش",
+                            "view"=>"نمایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
                             $_GET["pageNo"], "id", false, true, true, $rowCount,"item=ordermgr&act=mgr");
                     
             }
 $msgs = GetMessage($_GET['msg']);
 $list = array("name"=>"نام",
-			  "email"=>"ایمیل",
+			  //"email"=>"ایمیل",
 			  "tel"=>"تلفن",
 			  "mobile"=>"موبایل",
               "ncode"=>"کد ملی",
