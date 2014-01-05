@@ -272,6 +272,26 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 		if (message.val()=='') {message.addClass('validation-error',animateSpeed); return false;}
 		else {message.removeClass('validation-error',animateSpeed); return true;}
 	}
+
+	function validateTel(tel) {
+		if (tel.val()=='') {tel.addClass('validation-error',animateSpeed); return false;}
+		else {tel.removeClass('validation-error',animateSpeed); return true;}
+	}
+
+	function validateMobile(mobile) {
+		if (mobile.val()=='') {mobile.addClass('validation-error',animateSpeed); return false;}
+		else {mobile.removeClass('validation-error',animateSpeed); return true;}
+	}
+
+	function validateCode(ncode) {
+		if (ncode.val()=='') {ncode.addClass('validation-error',animateSpeed); return false;}
+		else {ncode.removeClass('validation-error',animateSpeed); return true;}
+	}
+
+	// function validateOrder(otype) {
+	// 	if (otype.checked()==false) {otype.addClass('validation-error',animateSpeed); return false;}
+	// 	else {otype.removeClass('validation-error',animateSpeed); return true;}
+	// }
 				
 	$('#send').click(function() {
 	
@@ -281,12 +301,24 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 		var email = $('input[name=email]');
 		var subject = $('input[name=subject]');
 		var message = $('textarea[name=message]');
+		var tel = $('input[name=tel]');
+		var mobile = $('input[name=mobile]');
+		var ncode = $('input[name=ncode]');
+
+		//var otype = $('input[name=otype]');
+
 				
 		// Validate
 		if(!validateName(name)) result=false;
 		if(!validateEmail(email,emailReg)) result=false;
 		if(!validateSubject(subject)) result=false;
 		if(!validateMessage(message)) result=false;
+		if(!validateTel(tel)) result=false;
+		if(!validateMobile(mobile)) result=false;
+		if(!validateCode(ncode)) result=false;
+
+		//if(!validateOrder(otype)) result=false;
+
 		
 		if(result==false) return false;
 		
@@ -296,6 +328,12 @@ var emailReg = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/;
 	$('input[name=email]').blur(function(){validateEmail($(this),emailReg); });
 	$('input[name=subject]').blur(function(){validateSubject($(this));});
 	$('textarea[name=message]').blur(function(){validateMessage($(this)); });
+	$('input[name=tel]').blur(function(){validateTel($(this));});
+	$('input[name=mobile]').blur(function(){validateMobile($(this));});
+	$('input[name=ncode]').blur(function(){validateCode($(this));});
+
+	//$('input[name=otype]').blur(function(){validateotype($(this));});
+
 	   
 })();
 

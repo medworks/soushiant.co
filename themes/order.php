@@ -34,55 +34,57 @@ $html=<<<cd
 					<h4>فرم ثبت مشخصات</h4>
 				</div>
 			</div>
-			<div class="mes" id="message">{$msgs}</div>
-			<div class="orderform">
-				<form action="" method="post" name="frmorder" id="frmorder">
-					<div class="field">
-						<label>نام و نام خانوادگی <span>*</span></label>
-						<input type="text" name="name" class="text" style="float:right;">
-					</div>
+			<div class="sixteen columns">
+				<div class="mes" id="message">{$msgs}</div>
+				<div class="orderform">
+					<form action="" method="post" name="frmorder" id="frmorder">
+						<div class="field">
+							<label>نام و نام خانوادگی <span>*</span></label>
+							<input type="text" name="name" class="text" style="float:right;" placeholder="نام و نام خانوادگی">
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>ایمیل <span>*</span></label>
+							<input type="text" name="email" class="text ltr" style="float:right;" placeholder="yourname@domain.com">
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>شماره تلفن <span>*</span></label>
+							<input type="text" name="tel" class="text ltr" style="float:right;" placeholder="511-6093609">
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>شماره موبایل <span>*</span></label>
+							<input type="text" name="mobile" class="text ltr" style="float:right;" placeholder="09154321234">
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>کد ملی <span>*</span></label>
+							<input type="text" name="ncode" class="text ltr" style="float:right;" placeholder="0123456789">
+						</div>
+						<div class="clear"></div>
+						<div class="field" style="float:right;direction:rtl">
+							<label>درخواست <span>*</span></label>
+							<input type="radio" name="otype" value="1" style="width:30px;">ثبت جدید سرویس<br />
+							<input type="radio" name="otype" value="2" style="width:30px;">تمدید سرویس<br />
+							<input type="radio" name="otype" value="3" style="width:30px;">خرید کالا<br />
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<label>توضیحات (لطفا کد پیگیری دریافتی از بانک و چهار رقم آخر کارتتان را در این قسمت وارد نمایید)<span></span></label>
+							<textarea name="body" style="min-width:450px;float:right" class="text textarea"></textarea>
+						</div>
+						<div class="clear"></div>
+						<div class="field">
+							<input type="submit" class="button color" style="width:100px;float:right" id="send" value="ارسال درخواست" />
+							<input type="hidden" name="mark" value="saveorder" />
+						</div>
+					</form>
 					<div class="clear"></div>
-					<div class="field">
-						<label>ایمیل <span>*</span></label>
-						<input type="text" name="email" class="text ltr" style="float:right;">
-					</div>
-					<div class="clear"></div>
-					<div class="field">
-						<label>شماره تلفن <span>*</span></label>
-						<input type="text" name="tel" class="text ltr" style="float:right;">
-					</div>
-					<div class="clear"></div>
-					<div class="field">
-						<label>شماره موبایل <span>*</span></label>
-						<input type="text" name="mobile" class="text ltr" style="float:right;">
-					</div>
-					<div class="clear"></div>
-					<div class="field">
-						<label>کد ملی <span>*</span></label>
-						<input type="text" name="ncode" class="text ltr" style="float:right;">
-					</div>
-					<div class="clear"></div>
-					<div class="field" style="float:right;direction:rtl">
-						<label>درخواست <span>*</span></label>
-						<input type="radio" name="otype" value="1" style="width:30px;">ثبت جدید سرویس<br />
-						<input type="radio" name="otype" value="2" style="width:30px;">تمدید سرویس<br />
-						<input type="radio" name="otype" value="3" style="width:30px;">خرید کالا<br />
-					</div>
-					<div class="clear"></div>
-					<div class="field">
-						<label>توضیحات <span></span></label>
-						<textarea name="body" style="min-width:380px;float:right" class="text textarea"></textarea>
-					</div>
-					<div class="clear"></div>
-					<div class="field">
-						<input type="submit" class="button color" style="width:100px;float:right" id="send" value="ارسال درخواست">
-							 <input type='hidden' name='mark' value='saveorder' />"
-					</div>
-				</form>
-				<div class="clear"></div>
+				</div>
 			</div>
 		</div>	
 cd;
-	echo $html;
+	return $html;
 
 ?>
