@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 04, 2014 at 06:07 
+-- Generation Time: Jan 06, 2014 at 03:23 
 -- Server version: 5.6.12
 -- PHP Version: 5.5.3
 
@@ -187,28 +187,30 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `mobile` varchar(11) NOT NULL,
   `ncode` varchar(10) NOT NULL,
   `body` text NOT NULL,
+  `regdate` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `pid`, `otype`, `name`, `email`, `tel`, `mobile`, `ncode`, `body`) VALUES
-(1, 1, 1, 'ecco2048', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', 'xfxvb'),
-(2, 1, 1, 'حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', 'for test'),
-(3, 1, 2, 'ecco2048', 'sabakaran_mashhad@yahoo.com', '6623685', '09151204395', '0945594658', ''),
-(4, 1, 3, 'ecco2048', 'sabakaran_mashhad@yahoo.com', '6623685', '09151204395', '0945594658', ''),
-(5, 1, 2, 'ecco', 'hatami4510@gmail.com', '6623685', '09151204395', '0945594658', ''),
-(6, 1, 3, 'ecco', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', ''),
-(7, 0, 1, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', 'کد پیگیری  ۴۵۷۹۴۵۶۵۴۶۴۶۵'),
-(8, 0, 2, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', ''),
-(9, 0, 3, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', ''),
-(10, 0, 3, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', ''),
-(11, 4, 3, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', ''),
-(12, 4, 3, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', ''),
-(13, 5, 3, 'ecco2048', 'sabakaran_mashhad@yahoo.com', '6623685', '09151204395', '0945594658', ''),
-(14, 4, 2, 'ecco2048', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', '');
+INSERT INTO `orders` (`id`, `pid`, `otype`, `name`, `email`, `tel`, `mobile`, `ncode`, `body`, `regdate`) VALUES
+(1, 1, 1, 'ecco2048', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', 'xfxvb', '0000-00-00 00:00:00'),
+(2, 1, 1, 'حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', 'for test', '0000-00-00 00:00:00'),
+(3, 1, 2, 'ecco2048', 'sabakaran_mashhad@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(4, 1, 3, 'ecco2048', 'sabakaran_mashhad@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(5, 1, 2, 'ecco', 'hatami4510@gmail.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(6, 1, 3, 'ecco', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(7, 0, 1, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', 'کد پیگیری  ۴۵۷۹۴۵۶۵۴۶۴۶۵', '0000-00-00 00:00:00'),
+(8, 0, 2, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(9, 0, 3, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(10, 0, 3, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(11, 4, 3, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(12, 4, 3, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(13, 5, 3, 'ecco2048', 'sabakaran_mashhad@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(14, 4, 2, 'ecco2048', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00'),
+(15, 4, 1, 'سعید حاتمی', 'hatami4560@yahoo.com', '6623685', '09151204395', '0945594658', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -389,6 +391,34 @@ INSERT INTO `slides` (`id`, `image`, `subject`, `body`, `pos`, `link`) VALUES
 (2, './slidespics/seo.jpg', 'تست سعید حاتمی', 'این تست جهت حل مشکلات ویرایش می باشد', 3, 'www.mediateq.ir'),
 (3, './slidespics/slide1.jpg', 'تست اسم عکس', 'تست توضیحات عکس سعید حاتمی', 1, 'www.yahoo.com'),
 (4, './slidespics/slide2.png', 'تست سابمیت', 'تست دوم', 1, 'www.google.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stuffcat`
+--
+
+CREATE TABLE IF NOT EXISTS `stuffcat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `secid` int(11) NOT NULL,
+  `catname` varchar(50) NOT NULL,
+  `latinname` varchar(50) NOT NULL,
+  `describe` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stuffsec`
+--
+
+CREATE TABLE IF NOT EXISTS `stuffsec` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `secname` varchar(50) NOT NULL,
+  `sedcribe` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
