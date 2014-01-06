@@ -289,7 +289,7 @@ edit;
 $html = $code;
 }
 } else
-if ($_GET['item']=="secmgr")
+if ($_GET['item']=="stuffsecmgr")
 {
 if (!$overall_error && $_POST["mark"]=="savesec")
 	{	    
