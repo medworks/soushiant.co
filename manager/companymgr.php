@@ -199,7 +199,7 @@ if ($_GET['act']=="mgr")
 					$rows[$i]["delete"]=<<< del
 					<a href="javascript:void(0)"
 					onclick="DelMsg('{$rows[$i]['id']}',
-						'از حذف این خبر اطمینان دارید؟',
+						'از حذف این شرکت اطمینان دارید؟',
 					'?item=compmgr&act=del&pageNo={$_GET[pageNo]}&cid=');"
 					 class='del-field' style='text-decoration:none;'></a>
 del;
@@ -402,7 +402,7 @@ if ($_GET['act']=="mgr")
 					{
 							$rowsClass[] = "datagridoddrow";
 					}
-					$rows[$i]["compid"] = GetPlanName($rows[$i]["compid"]);
+					$rows[$i]["compid"] = GetCompanyName($rows[$i]["compid"]);
 					$rows[$i]["edit"] = "<a href='?item=gplanmgr&act=edit&pid={$rows[$i]["id"]}' class='edit-field'" .
 							"style='text-decoration:none;'></a>";								
 					$rows[$i]["delete"]=<<< del
