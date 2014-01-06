@@ -15,13 +15,14 @@
 	$overall_error = false;
     if ($_GET['item']!="ordermgr")	exit();
 
-  if ($_GET['act']=="view")
+  if ($_GET['act']=="view")  
   {
+  	 $row=$db->Select("orders","*","id='{$_GET["oid"]}'",NULL);
   	$html=<<<cd
 		<div class="title">
 		      <ul>
 		        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-			    <li><span>مدیریت اخبار</span></li>
+			    <li><span>مدیریت سفارشات</span></li>
 		      </ul>
 		      <div class="badboy"></div>
 	    </div>
@@ -33,13 +34,13 @@
 					<label>نام و نام خانوادگی</label>
 					<span>*</span>
 				</p>
-					<input type="text" name="name" class="name text" style="float:right;" placeholder="نام و نام خانوادگی">
+					<input type="text" name="name" class="name text" style="float:right;" value="{$row[name]}">
 		 			<div class="badboy"></div>
 				<p>
 					<label>ایمیل</label>
 					<span>*</span>
 				</p>
-					<input type="text" name="email" class="name text ltr" style="float:right;" placeholder="yourname@domain.com">
+					<input type="text" name="email" class="name text ltr" style="float:right;" value="{$row[email]}">
 		 			<div class="badboy"></div>
 				<p>
 					<label>شماره تلفن</label>
