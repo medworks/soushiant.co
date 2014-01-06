@@ -75,6 +75,9 @@
 			case 'stuffcatmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/stuffcatmgr.php";
 			break;
+			case 'stuffsecmgr':
+                if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/stuffcatmgr.php";
+			break;
 			case 'stuffmgr':
                 if ($act=="do" or $act=="new" or $act=="mgr" or $act=="del" or $act=="edit") return "../manager/stuffmgr.php";
 			break;
