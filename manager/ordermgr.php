@@ -18,10 +18,11 @@
   if ($_GET['act']=="view")  
   {
   	 $row=$db->Select("orders","*","id='{$_GET["oid"]}'",NULL);
+  	 $prow=$db->Select("plans","name","id='{$row["pid"]}'",NULL);
   	 switch($row["otype"])
 				{
-				 case 1: $order = "ثبت سرویس جدید "; break;
-				 case 2: $order = "تمدید سرویس"; break;
+				 case 1: $order = "ثبت سرویس جدید "." ".$prow[0]; break;
+				 case 2: $order = "تمدید سرویس"." ".$prow[0]; break;
 				 case 3: $order = "خرید کالا"; break;
 				}   
   	$html=<<<cd
