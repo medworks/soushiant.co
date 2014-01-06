@@ -14,61 +14,74 @@
 	$db = Database::GetDatabase();
 	$overall_error = false;
     if ($_GET['item']!="ordermgr")	exit();
+
   if ($_GET['act']=="view")
   {
   	$html=<<<cd
-		<!-- 960 Container -->
-		<div class="container">
-			<div class="sixteen columns">
-				<div class="headline no-margin">
-					<h4>فرم مشخصات</h4>
-				</div>
-			</div>
-			<div class="sixteen columns">		
-				<div class="orderform">
-					<form action="" method="post" name="frmorder" id="frmorder">
-						<div class="field">
-							<label>نام و نام خانوادگی <span>*</span></label>
-							<input type="text" name="name" class="text" style="float:right;" placeholder="نام و نام خانوادگی">
-						</div>
-						<div class="clear"></div>
-						<div class="field">
-							<label>ایمیل <span>*</span></label>
-							<input type="text" name="email" class="text ltr" style="float:right;" placeholder="yourname@domain.com">
-						</div>
-						<div class="clear"></div>
-						<div class="field">
-							<label>شماره تلفن <span>*</span></label>
-							<input type="text" name="tel" class="text ltr" style="float:right;" placeholder="511-6093609">
-						</div>
-						<div class="clear"></div>
-						<div class="field">
-							<label>شماره موبایل <span>*</span></label>
-							<input type="text" name="mobile" class="text ltr" style="float:right;" placeholder="09154321234">
-						</div>
-						<div class="clear"></div>
-						<div class="field">
-							<label>کد ملی <span>*</span></label>
-							<input type="text" name="ncode" class="text ltr" style="float:right;" placeholder="0123456789">
-						</div>
-						<div class="clear"></div>
-						<div class="field" style="float:right;direction:rtl">
-							<label>درخواست <span>*</span></label>
-							<input type="radio" name="otype" value="1" style="width:30px;">ثبت جدید سرویس<br />
-							<input type="radio" name="otype" value="2" style="width:30px;">تمدید سرویس<br />
-							<input type="radio" name="otype" value="3" style="width:30px;">خرید کالا<br />
-						</div>
-						<div class="clear"></div>
-						<div class="field">
-							<label>توضیحات (لطفا کد پیگیری دریافتی از بانک و چهار رقم آخر کارتتان را در این قسمت وارد نمایید)<span></span></label>
-							<textarea name="body" style="min-width:450px;float:right" class="text textarea"></textarea>
-						</div>
-						<div class="clear"></div>						
-					</form>
-					<div class="clear"></div>
-				</div>
-			</div>
-		</div>	
+		<div class="title">
+		      <ul>
+		        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
+			    <li><span>مدیریت اخبار</span></li>
+		      </ul>
+		      <div class="badboy"></div>
+	    </div>
+		<div class='content'>
+			<form action="" method="post" name="frmorder" id="frmorder">
+     			<p class="note">پر کردن موارد مشخص شده با * الزامی می باشد</p>
+	 			<div class="badboy"></div>
+				<p>
+					<label>نام و نام خانوادگی</label>
+					<span>*</span>
+				</p>
+					<input type="text" name="name" class="name text" style="float:right;" placeholder="نام و نام خانوادگی">
+		 			<div class="badboy"></div>
+				<p>
+					<label>ایمیل</label>
+					<span>*</span>
+				</p>
+					<input type="text" name="email" class="name text ltr" style="float:right;" placeholder="yourname@domain.com">
+		 			<div class="badboy"></div>
+				<p>
+					<label>شماره تلفن</label>
+					<span>*</span>
+				</p>
+					<input type="text" name="tel" class="name text ltr" style="float:right;" placeholder="511-6093609">
+		 			<div class="badboy"></div>
+				<p>
+					<label>شماره موبایل</label>
+					<span>*</span>
+				</p>
+					<input type="text" name="mobile" class="name text ltr" style="float:right;" placeholder="09154321234">
+		 			<div class="badboy"></div>
+				<p>
+					<label>کد ملی</label>
+					<span>*</span>
+				</p>
+					<input type="text" name="ncode" class="name text ltr" style="float:right;" placeholder="0123456789">
+		 			<div class="badboy"></div>
+				<p>
+					<label>درخواست</label>
+					<span>*</span>
+				</p>
+				<p>
+					<input type="radio" name="otype" value="1" style="width:30px;display:inline-block" />ثبت جدید سرویس
+				</p>
+		 			<div class="badboy"></div>
+				<p>
+					<input type="radio" name="otype" value="2" style="width:30px;display:inline-block" />تمدید سرویس
+				</p>
+		 			<div class="badboy"></div>
+				<p>
+					<input type="radio" name="otype" value="3" style="width:30px;display:inline-block" />خرید کالا
+				</p>
+		 			<div class="badboy"></div>
+				<p>
+					<label>توضیحات (لطفا کد پیگیری دریافتی از بانک و چهار رقم آخر کارتتان را در این قسمت وارد نمایید)<span></span></label>
+				</p>
+				<textarea name="body" style="min-width:450px;float:right" class="text textarea"></textarea>
+			</form>
+			<div class="badboy"></div>
+	</div>	
 cd;
   }
   else    
