@@ -18,6 +18,12 @@
   if ($_GET['act']=="view")  
   {
   	 $row=$db->Select("orders","*","id='{$_GET["oid"]}'",NULL);
+  	 switch($row["otype"])
+				{
+				 case 1: $order = "ثبت سرویس جدید "; break;
+				 case 2: $order = "تمدید سرویس"; break;
+				 case 3: $order = "خرید کالا"; break;
+				}   
   	$html=<<<cd
 		<div class="title">
 		      <ul>
@@ -46,40 +52,28 @@
 					<label>شماره تلفن</label>
 					<span>*</span>
 				</p>
-					<input type="text" name="tel" class="name text ltr" style="float:right;" placeholder="511-6093609">
+					<input type="text" name="tel" class="name text ltr" style="float:right;" value="{$row[tel]}">
 		 			<div class="badboy"></div>
 				<p>
 					<label>شماره موبایل</label>
 					<span>*</span>
 				</p>
-					<input type="text" name="mobile" class="name text ltr" style="float:right;" placeholder="09154321234">
+					<input type="text" name="mobile" class="name text ltr" style="float:right;" value="{$row[mobile]}">
 		 			<div class="badboy"></div>
 				<p>
 					<label>کد ملی</label>
 					<span>*</span>
 				</p>
-					<input type="text" name="ncode" class="name text ltr" style="float:right;" placeholder="0123456789">
+					<input type="text" name="ncode" class="name text ltr" style="float:right;" value="{$row[ncode]}">
 		 			<div class="badboy"></div>
 				<p>
 					<label>درخواست</label>
 					<span>*</span>
 				</p>
 				<p>
-					<input type="radio" name="otype" value="1" style="width:30px;display:inline-block" />ثبت جدید سرویس
-				</p>
-		 			<div class="badboy"></div>
-				<p>
-					<input type="radio" name="otype" value="2" style="width:30px;display:inline-block" />تمدید سرویس
-				</p>
-		 			<div class="badboy"></div>
-				<p>
-					<input type="radio" name="otype" value="3" style="width:30px;display:inline-block" />خرید کالا
-				</p>
-		 			<div class="badboy"></div>
-				<p>
-					<label>توضیحات (لطفا کد پیگیری دریافتی از بانک و چهار رقم آخر کارتتان را در این قسمت وارد نمایید)<span></span></label>
-				</p>
-				<textarea name="body" style="min-width:450px;float:right" class="text textarea"></textarea>
+					<b>{$order}</b>
+				</p>	
+				<textarea name="body" style="min-width:450px;float:right" class="text textarea">{$row[body]}</textarea>
 			</form>
 			<div class="badboy"></div>
 	</div>	
