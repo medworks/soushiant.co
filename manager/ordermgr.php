@@ -145,7 +145,7 @@ cd;
 				$rows[$i]["delete"]=<<< del
 				<a href="javascript:void(0)"
 				onclick="DelMsg('{$rows[$i]['id']}',
-					'از حذف این خبر اطمینان دارید؟',
+					'از حذف این سفارش اطمینان دارید؟',
 				'?item=ordermgr&act=del&pageNo={$_GET[pageNo]}&oid=');"
 				 class='del-field' style='text-decoration:none;'></a>
 del;
