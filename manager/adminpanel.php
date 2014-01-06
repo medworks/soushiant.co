@@ -101,6 +101,9 @@ header('Content-Type: text/html; charset=UTF-8');
           </li>
 		      <li>
             <a href="?item=servicesmgr&act=do" id="services" name="services" class="service"><p>مدیریت خدمات</p></a>
+          </li>
+          <li>
+            <a href="?item=stuffcatmgr&act=do" class="stuffcatmgr"><p>دسته بندی کالا</p></a>            
           </li>          
           <li>
             <a href="?item=stuffmgr&act=do" class="stuffmgr"><p>مدیریت کالاها</p></a>            
