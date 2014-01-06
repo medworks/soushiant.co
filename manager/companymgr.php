@@ -408,7 +408,7 @@ if ($_GET['act']=="mgr")
 					$rows[$i]["delete"]=<<< del
 					<a href="javascript:void(0)"
 					onclick="DelMsg('{$rows[$i]['id']}',
-						'از حذف این خبر اطمینان دارید؟',
+						'از حذف این شرکت اطمینان دارید؟',
 					'?item=gplanmgr&act=del&pageNo={$_GET[pageNo]}&pid=');"
 					 class='del-field' style='text-decoration:none;'></a>
 del;
