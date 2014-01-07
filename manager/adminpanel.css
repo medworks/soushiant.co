@@ -768,6 +768,14 @@ header #mini-nav span.newSignup{
   background-image: url('./images/order.png');
 }
 
+#mainnav > ul > li a.stuffmgr{
+  background-image: url('./images/stuff.png');
+}
+
+#mainnav > ul > li a.stuffcatmgr{
+  background-image: url('./images/stuffcatmgr.png');
+}
+
 #mainnav > ul > li a.upload{
   background-image: url('./images/upload-icon.png');
 }
