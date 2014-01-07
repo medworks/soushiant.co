@@ -7,8 +7,16 @@
 	$db = Database::GetDatabase();	
 	$seo = Seo::GetSeo(); 	
 	$company = $db->Select('company',NULL,"id={$_GET[cid]}");
-	$plans = $db->SelectAll('plans',"*","sid={$_GET[cid]}","name ASC");
+	//$plans = $db->SelectAll('plans',"*","sid={$_GET[cid]}","name ASC");
 	//echo $db->cmd;
+	$db->cmd = "SELECT * FROM company GROUP By name HAVING sid={$_GET[cid]}";
+	$res = $db->RunSQL();
+	$plans = array();
+    if ($res)
+    {
+        while($row = mysqli_fetch_array($res)) $plans[] = $row;
+    }
+	
 	$seo->Site_Title ="چاپ قیمت سرویس های شرکت "." ". $company["name"] ;	
 	
 	
