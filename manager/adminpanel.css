@@ -764,6 +764,10 @@ header #mini-nav span.newSignup{
   background-image: url('./images/comp.png');
 }
 
+#mainnav > ul > li a.ordermgr{
+  background-image: url('./images/order.png');
+}
+
 #mainnav > ul > li a.upload{
   background-image: url('./images/upload-icon.png');
 }

@@ -42,7 +42,7 @@ header('Content-Type: text/html; charset=UTF-8');
 	<link rel="stylesheet" type="text/css" href="./calendar-blue.css" />
 	<link rel="stylesheet" type="text/css" href="./adminpanel.css" />
 
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="../favicon.ico">
 
 	<script type="text/javascript" src="../lib/js/jquery.js"></script>  
 	<script type="text/javascript" src="../lib/js/jalali.js"></script>  
@@ -94,10 +94,11 @@ header('Content-Type: text/html; charset=UTF-8');
           </li>
           <li>
             <a href="?item=compmgr&act=do" class="compmgr"><p>مدیریت شرکت</p></a>            
-          </li>
-		 
+            <a href="?item=gplanmgr&act=do" class="trick"></a>
+          </li>		 
           <li>
             <a href="?item=plansmgr&act=do" id="plansmgr" name="plansmgr" class="plansmgr"><p>مدیریت طرح ها</p></a>
+            <a href="?item=traficmgr&act=do" class="trick"></a>
           </li>
 		      <li>
             <a href="?item=servicesmgr&act=do" id="services" name="services" class="service"><p>مدیریت خدمات</p></a>

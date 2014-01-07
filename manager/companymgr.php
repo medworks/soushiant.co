@@ -81,7 +81,7 @@
 	      <div class="badboy"></div>
 	    </div>
 		<div class="sub-menu" id="mainnav">
-			<ul>
+			<ul class="two-column">
 			  <li>		  
 				<a href="?item=compmgr&act=new">درج شرکت جدید
 					<span class="add-comp"></span>
@@ -94,12 +94,12 @@
 			  </li>
 		      <li>		  
 				<a href="?item=gplanmgr&act=new">درج گروه های پلان
-					<span class="add-comp"></span>
+					<span class="add-plan"></span>
 				</a>
 			  </li>
 			  <li>		  
 				<a href="?item=gplanmgr&act=mgr">حذف/ویرایش  گروه پلان
-					<span class="add-comp"></span>
+					<span class="edit-plan"></span>
 				</a>
 			  </li>
 			 </ul>
