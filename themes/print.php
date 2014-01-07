@@ -1,5 +1,16 @@
 <?php
 	header('Content-Type: text/html; charset=UTF-8');
+	include_once("./config.php");
+	include_once("./lib/persiandate.php");
+	include_once("./classes/database.php");	
+	include_once("./classes/seo.php");	
+	$db = Database::GetDatabase();	
+	$seo = Seo::GetSeo(); 	
+	$company = $db->Select('company',NULL,"id={$_GET[cid]}");
+	$seo->Site_Title =$company["name"] ;
+	$seo->Site_Describtion = strip_tags(mb_substr($news["body"],0,150,"UTF-8"));
+	
+	
 ?>
 <html>
 <head>
