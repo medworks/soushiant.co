@@ -59,6 +59,9 @@
 			case 'dashboard':
 				if ($act=="do") return "dashboard.php";
 			break;
+			case 'print':				
+                if ($act=="do") return "themes/print.php";
+			break;
 			case 'news':
 				$seo->Site_Title = "اخبار";
                 if ($act=="do") return "themes/news.php";
