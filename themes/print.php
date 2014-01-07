@@ -63,6 +63,9 @@ $html.=<<<cd
 cd;
 }
 $html.=<<<cd
+<center>
+   <a href="javascript:window.print()">چاپ این صفحه</a>
+ </center>   
 </div>
 </body>
 </html>
