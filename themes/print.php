@@ -7,8 +7,7 @@
 	$db = Database::GetDatabase();	
 	$seo = Seo::GetSeo(); 	
 	$company = $db->Select('company',NULL,"id={$_GET[cid]}");
-	$seo->Site_Title =$company["name"] ;
-	$seo->Site_Describtion = strip_tags(mb_substr($news["body"],0,150,"UTF-8"));
+	$seo->Site_Title ="چاپ قیمت سرویس های شرکت "." ". $company["name"] ;	
 	
 	
 ?>
