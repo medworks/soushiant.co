@@ -9,7 +9,8 @@
 	$company = $db->Select('company',NULL,"id={$_GET[cid]}");
 	//$plans = $db->SelectAll('plans',"*","sid={$_GET[cid]}","name ASC");
 	//echo $db->cmd;
-	$db->cmd = "SELECT * FROM company GROUP By name HAVING sid={$_GET[cid]}";
+	$db->cmd = "SELECT * FROM plans GROUP By name HAVING sid={$_GET[cid]}";
+	//echo $db->cmd;
 	$res = $db->RunSQL();
 	$plans = array();
     if ($res)
@@ -20,11 +21,12 @@
 	$seo->Site_Title ="چاپ قیمت سرویس های شرکت "." ". $company["name"] ;	
 	
 	
+	
 
 $html=<<<cd
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="css/print.css">
+	<link rel="stylesheet" type="text/css" href="./themes/css/print.css">
 </head>
 <body>
 <div class="table-standard">
