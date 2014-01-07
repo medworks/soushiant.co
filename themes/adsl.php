@@ -31,7 +31,7 @@ $html.=<<<cd
 						<i class="ico-wifi-alt" style="margin-left: -12px;"></i>
 						<h3>
 							<a href="adsl-fullpage{$val[id]}.html" class="price-table" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a>
-							<a class="button color" style="margin-right:5px;color:white !important;font-size:15px;padding:0 10px;" title="پرینت قیمتها">پرینت قیمتها</a>
+							<a href="print{$val[id]}.html" class="button color" style="margin-right:5px;color:white !important;font-size:15px;padding:0 10px;" title="پرینت قیمتها">پرینت قیمتها</a>
 						</h3>
 						<p>{$val["body"]}</p>
 					</div>
