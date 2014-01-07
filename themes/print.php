@@ -7,7 +7,8 @@
 	$db = Database::GetDatabase();	
 	$seo = Seo::GetSeo(); 	
 	$company = $db->Select('company',NULL,"id={$_GET[cid]}");
-	$plans = $db->SelectAll('plans',NULL,"sid={$_GET[cid]}","name ASC");
+	$plans = $db->SelectAll('plans',"*","sid={$_GET[cid]}","name ASC");
+	//echo $db->cmd;
 	$seo->Site_Title ="چاپ قیمت سرویس های شرکت "." ". $company["name"] ;	
 	
 	
@@ -20,7 +21,7 @@ $html=<<<cd
 <body>
 <div class="table-standard">
 cd;
-foreach ($plans as $val=>$key)
+foreach ($plans as $key=>$val)
 {
 $html.=<<<cd
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
