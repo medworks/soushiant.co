@@ -9,12 +9,13 @@ header('Content-Type: text/html; charset=UTF-8');
 	
 	if ($_POST["mark"]=="saveorder")
 	{	    
+		$date = date('Y-m-d H:i:s');
 		$fields = array("`pid`","`otype`","`name`","`email`","`tel`","`mobile`",
-		"`ncode`","`body`");
+		"`ncode`","`body`","`regdate`");
 		$_POST["body"] = addslashes($_POST["body"]);		
 		$values = array("'{$_GET[pid]}'","'{$_POST[otype]}'","'{$_POST[name]}'",
 		"'{$_POST[email]}'","'{$_POST[tel]}'","'{$_POST[mobile]}'","'{$_POST[ncode]}'",
-		"'{$_POST[body]}'");
+		"'{$_POST[body]}'","'{$date}'");
 		if (!$db->InsertQuery('orders',$fields,$values)) 
 		{
 			header('location:index.php?item=odr&msg=2');
@@ -22,7 +23,8 @@ header('Content-Type: text/html; charset=UTF-8');
 		} 	
 		else 
 		{  														
-			header('location:index.php?item=odr&msg=1');		    
+			header('location:index.php?item=odr&msg=1');
+			//echo $db->cmd;		    
 		}
 	}	
 $msgs = GetMessage($_GET['msg']);
