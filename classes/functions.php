@@ -505,10 +505,10 @@ code;
             return $ret;
     }
 	
-	function GetCategoryName($catid)
+	function GetCategoryName($catid,$table = "category")
 	{
 	    $db = Database::GetDatabase();
-		$row = $db ->Select("category","catname","ID = '{$catid}'");
+		$row = $db ->Select($table,"catname","ID = '{$catid}'");
 		return ($row["catname"]);
 	}
 	function GetSectionName($secid,$table ="section")
