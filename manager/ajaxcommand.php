@@ -101,6 +101,13 @@ if($_GET["contact"]=="reg"){
 	echo $cbcategory;
 }
 
+if (isset($_GET["stuffsec"]))
+{
+	$category = $db->SelectAll("stuffcat","*","secid={$_GET[stuffsec]}","id ASC");
+	$cbcategory = DbSelectOptionTag("cbcat",$category,"catname",null,null,"select validate[required]");
+	echo $cbcategory;
+}
+
  if (isset($_GET["comp"]))
 {
 	$plans = $db->SelectAll("plangroups","*","compid={$_GET[comp]}","id ASC");
