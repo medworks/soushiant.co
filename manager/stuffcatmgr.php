@@ -220,7 +220,7 @@ if ($_GET['act']=="mgr")
 				{
 						$rowsClass[] = "datagridoddrow";
 				}
-				$rows[$i]["secid"] = GetSectionName($rows[$i]["secid"]);
+				$rows[$i]["secid"] = GetSectionName($rows[$i]["secid"],"stuffsec");
 				$rows[$i]["edit"] = "<a href='?item=stuffcatmgr&act=edit&cid={$rows[$i]["id"]}' class='edit-field' " .
 						"style='text-decoration:none;'></a>";								
 				$rows[$i]["delete"]=<<< del
@@ -299,9 +299,8 @@ if (!$overall_error && $_POST["mark"]=="savesec")
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
 			header('location:?item=stuffsecmgr&act=new&msg=2');
-			//$_GET["item"] = "secmgr";
-			//$_GET["act"] = "new";
-			//$_GET["msg"] = 2;			
+			//echo $db->cmd;
+				
 		} 	
 		else 
 		{  										
