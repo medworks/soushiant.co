@@ -56,10 +56,11 @@
 	if ($_GET['act']=="edit")
 	{	
 		$row = $db->Select("stuff","*","id='{$_GET["sid"]}'",NULL);
+		$secid = $db->Select("stuffcat","secid","id='{$row["cat"]}'",NULL);
 		$sec = $db->SelectAll("stuffsec","*",null,"id ASC");
 		$cat = $db->SelectAll("stuffcat","*",null,"id ASC");
-		$cbsec = DbSelectOptionTag("cbsec",$sec,"name","{$row['sid']}",null,"select validate[required]");
-		$cbcat = DbSelectOptionTag("cbcat",$sec,"name","{$row['sid']}",null,"select validate[required]");
+		$cbsec = DbSelectOptionTag("cbsec",$sec,"secname","{$secid[0]}",null,"select validate[required]");
+		$cbcat = DbSelectOptionTag("cbcat",$cat,"catname","{$row['cat']}",null,"select validate[required]");
 		$editorinsert = "
 		<p>
 			 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
