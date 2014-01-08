@@ -118,9 +118,9 @@ $html=<<<cd
 	<script type='text/javascript'>
 		$(document).ready(function(){	   
 			$("#frmstuffmgr").validationEngine();
-			$("#cbcomp").change(function(){
-				$.get('ajaxcommand.php?comp='+$(this).val(), function(data) {
-						$('#plans').html(data);
+			$("#cbsec").change(function(){
+				$.get('ajaxcommand.php?stuffsec='+$(this).val(), function(data) {
+						$('#cats').html(data);
 				});
 			});
     });
@@ -142,9 +142,9 @@ $html=<<<cd
          <label for="name">گروه</label>
          <span>*</span>
        </p>
-	   {$cbcomp}
-	   <div id="plans">
-		   {$cbplans}
+	   {$cbsec}
+	   <div id="cats">
+		   {$cbcat}
 	   </div>
        <div class="badboy"></div>
        <p>
