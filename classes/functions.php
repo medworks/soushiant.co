@@ -511,10 +511,10 @@ code;
 		$row = $db ->Select("category","catname","ID = '{$catid}'");
 		return ($row["catname"]);
 	}
-	function GetSectionName($secid)
+	function GetSectionName($secid,$table ="section")
 	{
 	    $db = Database::GetDatabase();
-		$row = $db ->Select("section","secname","ID = '{$secid}'");
+		$row = $db ->Select($table,"secname","ID = '{$secid}'");
 		return ($row["secname"]);
 	}
 	function GetPlanName($pid)
