@@ -19,23 +19,16 @@
 	{	    
 		$fields = array("`cat`","`name`","`detail`");
 		$_POST["detail"] = addslashes($_POST["detail"]);		
-		$values = array("'{$_POST[cbcomp]}'","'{$_POST[cbplans]}'","'{$_POST[pos]}'");
+		$values = array("'{$_POST[cbcat]}'","'{$_POST[name]}'","'{$_POST[detail]}'");
 		if (!$db->InsertQuery('stuff',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
-			header('location:?item=stuffmgr&act=new&msg=2');			
-			//$_GET["item"] = "plansmgr";
-			//$_GET["act"] = "new";
-			//$_GET["msg"] = 2;
-			//echo $db->cmd;
+			header('location:?item=stuffmgr&act=new&msg=2');						
 		} 	
 		else 
 		{  										
 			//$msgs = $msg->ShowSuccess("ثبت اطلاعات با مو??قیت انجام شد");			
-			header('location:?item=stuffmgr&act=new&msg=1');		    
-			//$_GET["item"] = "plansmgr";
-			//$_GET["act"] = "new";
-			//$_GET["msg"] = 1;
+			header('location:?item=stuffmgr&act=new&msg=1');
 		}  				 
 	}
     else
@@ -46,7 +39,7 @@
 						"`name`"=>"'{$_POST[name]}'",						
 		                "`detail`"=>"'{$_POST[detail]}'");
 			
-        $db->UpdateQuery("stuff",$values,array("id='{$_GET[cid]}'"));
+        $db->UpdateQuery("stuff",$values,array("id='{$_GET[sid]}'"));
 		header('location:?item=stuffmgr&act=mgr');
 		//$_GET["item"] = "plansmgr";
 		//$_GET["act"] = "act";			
@@ -62,7 +55,7 @@
 	}
 	if ($_GET['act']=="edit")
 	{	
-		$row = $db->Select("stuff","*","id='{$_GET["cid"]}'",NULL);
+		$row = $db->Select("stuff","*","id='{$_GET["sid"]}'",NULL);
 		$sec = $db->SelectAll("stuffsec","*",null,"id ASC");
 		$cat = $db->SelectAll("stuffcat","*",null,"id ASC");
 		$cbsec = DbSelectOptionTag("cbsec",$sec,"name","{$row['sid']}",null,"select validate[required]");
@@ -74,7 +67,7 @@
 	}
 	if ($_GET['act']=="del")
 	{
-		$db->Delete("stuff"," id",$_GET["cid"]);
+		$db->Delete("stuff"," id",$_GET["sid"]);
 		if ($db->CountAll("stuff")%10==0) $_GET["pageNo"]-=1;		
 		header("location:?item=stuffmgr&act=mgr&pageNo={$_GET[pageNo]}");
 	}
@@ -163,7 +156,7 @@ cd;
 } else
 if ($_GET['act']=="mgr")
 {
-	if ($_POST["mark"]=="srhplan")
+	if ($_POST["mark"]=="srhstuff")
 	{	 			    
 		$rows = $db->SelectAll(
 				"stuff",
@@ -190,10 +183,10 @@ if ($_GET['act']=="mgr")
     }
                 $rowsClass = array();
                 $colsClass = array();
-                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhplan")?$db->CountAll("plans"):Count($rows);
+                $rowCount =($_GET["rec"]=="all" or $_POST["mark"]!="srhstuff")?$db->CountAll("stuff"):Count($rows);
                 for($i = 0; $i < Count($rows); $i++)
                 {						
-				    $rows[$i]["cat"] = GetCategoryName(($rows[$i]["cat"],"stuffcat");				    
+				    $rows[$i]["cat"] = GetCategoryName($rows[$i]["cat"],"stuffcat");				    
 					$rows[$i]["detail"] = (mb_strlen($rows[$i]["detail"])>50)?
 					mb_substr(html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8"), 0, 50,"UTF-8") . "..." :
 					html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8");						
@@ -210,7 +203,7 @@ if ($_GET['act']=="mgr")
 					$rows[$i]["delete"]=<<< del
 					<a href="javascript:void(0)"
 					onclick="DelMsg('{$rows[$i]['id']}',
-						'از حذف این خبر اطمینان دارید؟',
+						'از حذف این کالا اطمینان دارید؟',
 					'?item=stuffmgr&act=del&pageNo={$_GET[pageNo]}&sid=');"
 					 class='del-field' style='text-decoration:none;'></a>
 del;
@@ -220,8 +213,8 @@ del;
             if (Count($rows) > 0)
             {                    
                     $gridcode .= DataGrid(array( 
-					        "cat"=>"نام شرکت",
-					        "name"=>"نام طرح",
+					        "cat"=>"گروه",
+					        "name"=>"نام کالا",
 							"detail"=>"توضیحات",							
                             "edit"=>"ویرایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
@@ -257,7 +250,7 @@ $code=<<<edit
 									<a href="?item=stuffmgr&act=mgr" name="srhsubmit" id="srhsubmit" class="button"> جستجو</a>
 									<a href="?item=stuffmgr&act=mgr&rec=all" name="retall" id="retall" class="button"> کلیه اطلاعات</a>
 								</p>
-								<input type="hidden" name="mark" value="srhplan" /> 
+								<input type="hidden" name="mark" value="srhstuff" /> 
 								{$msgs}
 								{$gridcode} 
 							</form>
