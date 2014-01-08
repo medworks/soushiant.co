@@ -100,25 +100,15 @@ if ($_GET['act']=="do")
 		<div class="sub-menu" id="mainnav">
 			<ul class="two-column">
 			  <li>		  
-				<a href="?item=stuffmgr&act=new">درج طرح جدید
+				<a href="?item=stuffmgr&act=new">درج کالای جدید
 					<span class="add-plan"></span>
 				</a>
 			  </li>
 			  <li>
-				<a href="?item=stuffmgr&act=mgr" id="news" name="news">حذف/ویرایش طرحها
+				<a href="?item=stuffmgr&act=mgr" id="news" name="news">حذف/ویرایش کالاها
 					<span class="edit-plan"></span>
 				</a>
-			  </li>
-			  <li>		  
-				<a href="?item=traficmgr&act=new">درج ترافیک
-					<span class="add-vol"></span>
-				</a>
-			  </li>
-			  <li>
-				<a href="?item=traficmgr&act=mgr" >حذف/ویرایش ترافیک
-					<span class="edit-vol"></span>
-				</a>
-			  </li>
+			  </li>			  
 			 </ul>
 			 <div class="badboy"></div>
 		</div>		 
