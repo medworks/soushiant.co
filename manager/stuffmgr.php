@@ -16,19 +16,16 @@
 	$overall_error = false;
 if ($_GET['item']=="plansmgr")
 {
-	if ($_GET['item']!="plansmgr")	exit();
-	if (!$overall_error && $_POST["mark"]=="saveplan")
+	if ($_GET['item']!="stuffmgr")	exit();
+	if (!$overall_error && $_POST["mark"]=="savestuff")
 	{	    
-		$fields = array("`sid`","`pid`","`pos`","`name`","`speeddl`","`speedup`",
-		"`time`","`trafic`","`price`","`detail`");
+		$fields = array("`cat`","`name`","`detail`");
 		$_POST["detail"] = addslashes($_POST["detail"]);		
-		$values = array("'{$_POST[cbcomp]}'","'{$_POST[cbplans]}'","'{$_POST[pos]}'",
-		"'{$_POST[name]}'","'{$_POST[speeddl]}'","'{$_POST[speedup]}'","'{$_POST[time]}'",
-		"'{$_POST[trafic]}'","'{$_POST[price]}'","'{$_POST[detail]}'");
-		if (!$db->InsertQuery('plans',$fields,$values)) 
+		$values = array("'{$_POST[cbcomp]}'","'{$_POST[cbplans]}'","'{$_POST[pos]}'");
+		if (!$db->InsertQuery('stuff',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
-			header('location:?item=plansmgr&act=new&msg=2');			
+			header('location:?item=stuffmgr&act=new&msg=2');			
 			//$_GET["item"] = "plansmgr";
 			//$_GET["act"] = "new";
 			//$_GET["msg"] = 2;
@@ -37,14 +34,14 @@ if ($_GET['item']=="plansmgr")
 		else 
 		{  										
 			//$msgs = $msg->ShowSuccess("ثبت اطلاعات با مو??قیت انجام شد");			
-			header('location:?item=plansmgr&act=new&msg=1');		    
+			header('location:?item=stuffmgr&act=new&msg=1');		    
 			//$_GET["item"] = "plansmgr";
 			//$_GET["act"] = "new";
 			//$_GET["msg"] = 1;
 		}  				 
 	}
     else
-	if (!$overall_error && $_POST["mark"]=="editplan")
+	if (!$overall_error && $_POST["mark"]=="editstuff")
 	{		
 	    $_POST["detail"] = addslashes($_POST["detail"]);	    
 		$values = array("`sid`"=>"'{$_POST[cbcomp]}'",
@@ -59,7 +56,7 @@ if ($_GET['item']=="plansmgr")
 			            "`detail`"=>"'{$_POST[detail]}'");
 			
         $db->UpdateQuery("plans",$values,array("id='{$_GET[cid]}'"));
-		header('location:?item=plansmgr&act=mgr');
+		header('location:?item=stuffmgr&act=mgr');
 		//$_GET["item"] = "plansmgr";
 		//$_GET["act"] = "act";			
 	}
@@ -70,7 +67,7 @@ if ($_GET['item']=="plansmgr")
 		$editorinsert = "
 			<p>
 				<input type='submit' id='submit' value='ذخیره' class='submit' />	 
-				<input type='hidden' name='mark' value='saveplan' />";
+				<input type='hidden' name='mark' value='savestuff' />";
 	}
 	if ($_GET['act']=="edit")
 	{	
@@ -82,13 +79,13 @@ if ($_GET['item']=="plansmgr")
 		$editorinsert = "
 		<p>
 			 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
-			 <input type='hidden' name='mark' value='editplan' />";
+			 <input type='hidden' name='mark' value='editstuff' />";
 	}
 	if ($_GET['act']=="del")
 	{
 		$db->Delete("plans"," id",$_GET["cid"]);
 		if ($db->CountAll("plans")%10==0) $_GET["pageNo"]-=1;		
-		header("location:?item=plansmgr&act=mgr&pageNo={$_GET[pageNo]}");
+		header("location:?item=stuffmgr&act=mgr&pageNo={$_GET[pageNo]}");
 	}
 if ($_GET['act']=="do")
 {
@@ -103,12 +100,12 @@ if ($_GET['act']=="do")
 		<div class="sub-menu" id="mainnav">
 			<ul class="two-column">
 			  <li>		  
-				<a href="?item=plansmgr&act=new">درج طرح جدید
+				<a href="?item=stuffmgr&act=new">درج طرح جدید
 					<span class="add-plan"></span>
 				</a>
 			  </li>
 			  <li>
-				<a href="?item=plansmgr&act=mgr" id="news" name="news">حذف/ویرایش طرحها
+				<a href="?item=stuffmgr&act=mgr" id="news" name="news">حذف/ویرایش طرحها
 					<span class="edit-plan"></span>
 				</a>
 			  </li>
@@ -233,7 +230,7 @@ if ($_GET['act']=="mgr")
 				//$_GET['item'] = "plansmgr";
 				//$_GET['act'] = "mgr";
 				//$_GET['msg'] = 6;				
-				header("Location:?item=plansmgr&act=mgr&msg=6");
+				header("Location:?item=stuffmgr&act=mgr&msg=6");
 			}
 		
 	}
@@ -265,13 +262,13 @@ if ($_GET['act']=="mgr")
 					{
 							$rowsClass[] = "datagridoddrow";
 					}					
-					$rows[$i]["edit"] = "<a href='?item=plansmgr&act=edit&cid={$rows[$i]["id"]}' class='edit-field'" .
+					$rows[$i]["edit"] = "<a href='?item=stuffmgr&act=edit&cid={$rows[$i]["id"]}' class='edit-field'" .
 							"style='text-decoration:none;'></a>";								
 					$rows[$i]["delete"]=<<< del
 					<a href="javascript:void(0)"
 					onclick="DelMsg('{$rows[$i]['id']}',
 						'از حذف این خبر اطمینان دارید؟',
-					'?item=plansmgr&act=del&pageNo={$_GET[pageNo]}&cid=');"
+					'?item=stuffmgr&act=del&pageNo={$_GET[pageNo]}&cid=');"
 					 class='del-field' style='text-decoration:none;'></a>
 del;
                 }
@@ -292,7 +289,7 @@ del;
 							"pos"=>"مکان نمایش",
                             "edit"=>"ویرایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
-                            $_GET["pageNo"], "id", false, true, true, $rowCount,"item=plansmgr&act=mgr");
+                            $_GET["pageNo"], "id", false, true, true, $rowCount,"item=stuffmgr&act=mgr");
                     
             }
 $msgs = GetMessage($_GET['msg']);
@@ -322,12 +319,12 @@ $code=<<<edit
 				  </div>
                     <div class="Top">                       
 						<center>
-							<form action="?item=plansmgr&act=mgr" method="post" id="frmsrh" name="frmsrh">
+							<form action="?item=stuffmgr&act=mgr" method="post" id="frmsrh" name="frmsrh">
 								<p>جستجو بر اساس {$combobox}</p>
 								<p class="search-form">
 									<input type="text" id="txtsrh" name="txtsrh" class="search-form" value="جستجو..." onfocus="if (this.value == 'جستجو...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'جستجو...';}"  />									
-									<a href="?item=plansmgr&act=mgr" name="srhsubmit" id="srhsubmit" class="button"> جستجو</a>
-									<a href="?item=plansmgr&act=mgr&rec=all" name="retall" id="retall" class="button"> کلیه اطلاعات</a>
+									<a href="?item=stuffmgr&act=mgr" name="srhsubmit" id="srhsubmit" class="button"> جستجو</a>
+									<a href="?item=stuffmgr&act=mgr&rec=all" name="retall" id="retall" class="button"> کلیه اطلاعات</a>
 								</p>
 								<input type="hidden" name="mark" value="srhplan" /> 
 								{$msgs}
@@ -413,12 +410,12 @@ if ($_GET['act']=="do")
 		<div class="sub-menu" id="mainnav">
 			<ul>
 			  <li>		  
-				<a href="?item=plansmgr&act=new">درج طرح جدید
+				<a href="?item=stuffmgr&act=new">درج طرح جدید
 					<span class="add-plan"></span>
 				</a>
 			  </li>
 			  <li>
-				<a href="?item=plansmgr&act=mgr" id="news" name="news">حذف/ویرایش طرحها
+				<a href="?item=stuffmgr&act=mgr" id="news" name="news">حذف/ویرایش طرحها
 					<span class="edit-plan"></span>
 				</a>
 			  </li>
@@ -583,7 +580,7 @@ $code=<<<edit
 				  </div>
                     <div class="Top">                       
 						<center>
-							<form action="?item=plansmgr&act=mgr" method="post" id="frmsrh" name="frmsrh">
+							<form action="?item=stuffmgr&act=mgr" method="post" id="frmsrh" name="frmsrh">
 								<p>جستجو بر اساس {$combobox}</p>
 								<p class="search-form">
 									<input type="text" id="txtsrh" name="txtsrh" class="search-form" value="جستجو..." onfocus="if (this.value == 'جستجو...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'جستجو...';}"  />									
