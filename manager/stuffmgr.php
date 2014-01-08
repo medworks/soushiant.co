@@ -60,8 +60,8 @@
 	}
 	if ($_GET['act']=="new")
 	{
-	    $rows = $db->SelectAll("company","*",null,"id ASC");
-        $cbcomp = DbSelectOptionTag("cbcomp",$rows,"name",null,null,"select validate[required]");        
+	    $rows = $db->SelectAll("stuffsec","*",null,"id ASC");
+        $cbsec = DbSelectOptionTag("cbsec",$rows,"secname",null,null,"select validate[required]");        
 		$editorinsert = "
 			<p>
 				<input type='submit' id='submit' value='ذخیره' class='submit' />	 
@@ -69,11 +69,10 @@
 	}
 	if ($_GET['act']=="edit")
 	{	
-		$row = $db->Select("plans","*","id='{$_GET["cid"]}'",NULL);
-		$comps = $db->SelectAll("company","*",null,"id ASC");
-		$plans = $db->SelectAll("plangroups","*",null,"id ASC");
-		$cbcomp = DbSelectOptionTag("cbcomp",$comps,"name","{$row['sid']}",null,"select validate[required]");
-		$cbplans = DbSelectOptionTag("cbplans",$plans,"subject","{$row['pid']}",null,"select validate[required]");
+		$row = $db->Select("stuff","*","id='{$_GET["cid"]}'",NULL);
+		$sec = $db->SelectAll("stuffsec","*",null,"id ASC");
+		$cat = $db->SelectAll("stuffcat","*",null,"id ASC");
+		$cbsec = DbSelectOptionTag("cbsec",$sec,"name","{$row['sid']}",null,"select validate[required]");		
 		$editorinsert = "
 		<p>
 			 <input type='submit' id='submit' value='ویرایش' class='submit' />	 
@@ -81,8 +80,8 @@
 	}
 	if ($_GET['act']=="del")
 	{
-		$db->Delete("plans"," id",$_GET["cid"]);
-		if ($db->CountAll("plans")%10==0) $_GET["pageNo"]-=1;		
+		$db->Delete("stuff"," id",$_GET["cid"]);
+		if ($db->CountAll("stuff")%10==0) $_GET["pageNo"]-=1;		
 		header("location:?item=stuffmgr&act=mgr&pageNo={$_GET[pageNo]}");
 	}
 if ($_GET['act']=="do")
@@ -91,7 +90,7 @@ if ($_GET['act']=="do")
 		<div class="title">
 	      <ul>
 	        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-	        <li><span>مدیریت طرح ها</span></li>
+	        <li><span>مدیریت کالا ها</span></li>
 	      </ul>
 	      <div class="badboy"></div>
 	    </div>
