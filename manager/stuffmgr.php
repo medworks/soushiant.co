@@ -260,7 +260,5 @@ $code=<<<edit
 edit;
 $html = $code;
 }
-
-	
 return $html;
 ?>
