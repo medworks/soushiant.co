@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 06, 2014 at 03:23 
+-- Generation Time: Jan 08, 2014 at 05:16 
 -- Server version: 5.6.12
 -- PHP Version: 5.5.3
 
@@ -267,8 +267,8 @@ INSERT INTO `plans` (`id`, `sid`, `pid`, `pos`, `name`, `speeddl`, `speedup`, `t
 (1, 1, 0, 1, 'ECO 128/128 kbps', 128, 128, '1', 3, 14700, 0, '<p>ندارد</p>'),
 (2, 2, 0, 1, 'سعید', 128, 128, '3', 3, 14700, 0, ''),
 (3, 1, 5, 0, 'ART 256/256kbps', 256, 256, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(4, 1, 4, 0, 'ECO 512/512 kbps', 512, 512, '1', 3, 14700, 0, '<p>ندارد</p>'),
-(5, 1, 4, 0, 'ECO 1024/1024 kbps', 1024, 1024, '1', 3, 14700, 0, '<p>ندارد</p>'),
+(4, 1, 4, 0, 'ECO 128/128 kbps', 512, 512, '3', 3, 14700, 0, '<p>ندارد</p>'),
+(5, 1, 4, 0, 'ECO 128/128 kbps', 1024, 1024, '6', 3, 14700, 0, '<p>ندارد</p>'),
 (6, 1, 5, 2, 'ART 2048/2048 kbps', 2048, 2048, '1', 3, 14700, 0, '<p>ندارد</p>'),
 (7, 1, 4, 0, 'ecco2048', 2048, 1024, '3', 50, 400000, 0, '');
 
@@ -395,6 +395,28 @@ INSERT INTO `slides` (`id`, `image`, `subject`, `body`, `pos`, `link`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `stuff`
+--
+
+CREATE TABLE IF NOT EXISTS `stuff` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `detail` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `stuff`
+--
+
+INSERT INTO `stuff` (`id`, `cat`, `name`, `detail`) VALUES
+(2, 1, 'tplink tp 100', '<p>zdf</p>'),
+(3, 3, 'hp1020', '<p>yt7t7</p>');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `stuffcat`
 --
 
@@ -405,7 +427,16 @@ CREATE TABLE IF NOT EXISTS `stuffcat` (
   `latinname` varchar(50) NOT NULL,
   `describe` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `stuffcat`
+--
+
+INSERT INTO `stuffcat` (`id`, `secid`, `catname`, `latinname`, `describe`) VALUES
+(1, 1, 'tplink', '', 0),
+(2, 1, 'dlink', '', 0),
+(3, 2, 'hp', '', 0);
 
 -- --------------------------------------------------------
 
@@ -416,9 +447,18 @@ CREATE TABLE IF NOT EXISTS `stuffcat` (
 CREATE TABLE IF NOT EXISTS `stuffsec` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `secname` varchar(50) NOT NULL,
-  `sedcribe` varchar(500) NOT NULL,
+  `latinname` varchar(50) NOT NULL,
+  `describe` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `stuffsec`
+--
+
+INSERT INTO `stuffsec` (`id`, `secname`, `latinname`, `describe`) VALUES
+(1, 'مودم', 'modem', ''),
+(2, 'پرینتر', '', '');
 
 -- --------------------------------------------------------
 
