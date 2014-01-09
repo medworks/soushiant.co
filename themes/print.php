@@ -24,11 +24,7 @@
 	
 
 $html=<<<cd
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="./themes/css/print.css">
-</head>
-<body>
+
 <div class="table-standard">
 cd;
 foreach ($plans as $key=>$val)
@@ -38,7 +34,7 @@ $html.=<<<cd
 		<tbody>
 			<tr>
 				<td class="tdtitle" style="border-left:0 none;" valign="baseline">نام سرویس: {$val["name"]}</td>
-				<td colspan="4" class="tdtitle" valign="baseline">سرعت تا:&nbsp; {$val["speeddl"]}/<strong>{$val["speedup"]}</strong>کیلو بیت بر ثانیه</td>
+				<td colspan="4" class="tdtitle" valign="baseline">سرعت: {$val["speeddl"]}/{$val["speedup"]} کیلو بیت بر ثانیه</td>
 			</tr>
 			<tr>
 				<td class="tdbox" style="border-bottom:0 none;" valign="baseline" width="*">مدت سرویس</td>
@@ -73,12 +69,11 @@ $html.=<<<cd
 cd;
 }
 $html.=<<<cd
-<center>
-   <a href="javascript:window.print()">چاپ این صفحه</a>
+<center class="cyan">
+   <a href="javascript:window.print()" class="button color" style="color:#fff !important">چاپ این صفحه</a>
  </center>   
 </div>
-</body>
-</html>
+
 cd;
 return  $html;
 ?>
