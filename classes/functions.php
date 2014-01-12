@@ -510,7 +510,7 @@ code;
 	    $db = Database::GetDatabase();
 		$row = $db ->Select($table,"catname","ID = '{$catid}'");
 		return ($row["catname"]);
-	}
+	}	
 	function GetSectionName($secid,$table ="section")
 	{
 	    $db = Database::GetDatabase();
@@ -535,7 +535,13 @@ code;
 		$row = $db ->Select("company","name","ID = '{$cid}'");
 		return ($row["name"]);
 	}
-
+	
+	function GetstuffName($catid,$table = "stuffcat")
+	{
+	    $db = Database::GetDatabase();
+		$row = $db ->Select($table,"catname","ID = '{$catid}'");
+		return ($row["catname"]);
+	}
 	// *****************CheckEmail Function***********************
 	function checkEmail($email) {
 	  if (isset($_POST['email'])) {  
