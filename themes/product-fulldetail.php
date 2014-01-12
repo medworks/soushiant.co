@@ -5,13 +5,13 @@
 	include_once("./classes/seo.php");
 	$db = Database::GetDatabase();
 	$seo = Seo::GetSeo();
-	$stuffs = $db->SelectAll("stuff","*","cat = {$_GET[stuffid]}");
+	$stuff = $db->Select("stuff","*","id = {$_GET[pid]}");
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
 				<!-- Page Title -->
 				<div id="page-title">
-					<h2>خرید کالا <span>/ tplink</span></h2>
+					<h2>{$stuff["name"]} <span></span></h2>
 					<div id="bolded-line"></div>
 				</div>
 				<!-- Page Title / End -->
@@ -19,13 +19,10 @@ $html=<<<cd
 		</div>
 		<div class="container">
 			<!-- Slider -->
-			<div class="four columns">
-				<ul>
-					<li><img src="themes/images/logo.png" alt=""></li>						
-				 </ul>
+			<div class="four columns">				
 			</div>
 			<div class="four columns">
-					<p>نسبلنمتلت ث هث خهث هثه خث ععهف</p>
+					<p>{$stuff["detail"]}</p>
 								
 			</div>
 		</div>
