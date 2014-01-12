@@ -536,11 +536,11 @@ code;
 		return ($row["name"]);
 	}
 	
-	function GetstuffName($catid,$table = "stuffcat")
+	function GetstuffName($catid,$table = "stuff")
 	{
 	    $db = Database::GetDatabase();
-		$row = $db ->Select($table,"catname","ID = '{$catid}'");
-		return ($row["catname"]);
+		$row = $db ->Select($table,"name","ID = '{$catid}'");
+		return ($row["name"]);
 	}
 	// *****************CheckEmail Function***********************
 	function checkEmail($email) {
