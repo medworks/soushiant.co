@@ -122,13 +122,15 @@ cd;
                 {								        
                 $rows[$i]["body"] =(mb_strlen($rows[$i]["body"])>30)?
                 mb_substr(html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8"), 0, 30,"UTF-8") . "..." :
-                html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8");
-                $rows[$i]["pid"] =GetADSLName($rows[$i]["pid"]);
+                html_entity_decode(strip_tags($rows[$i]["body"]), ENT_QUOTES, "UTF-8");                
                 switch($rows[$i]["otype"])
 				{
-				 case 1: $rows[$i]["otype"] = "ثبت سرویس "; break;
-				 case 2: $rows[$i]["otype"] = "تمدید سرویس"; break;
-				 case 3: $rows[$i]["otype"] = "خرید کالا"; break;
+				 case 1: {$rows[$i]["pid"] =GetADSLName($rows[$i]["pid"]);
+				          $rows[$i]["otype"] = "ثبت سرویس "; break;}
+				 case 2: {$rows[$i]["otype"] = "تمدید سرویس"; 
+				          $rows[$i]["pid"] =GetADSLName($rows[$i]["pid"]); break;}
+				 case 3: {$rows[$i]["otype"] = "خرید کالا"; 
+				          $rows[$i]["pid"] =GetstuffName($rows[$i]["pid"]); break; }
 				}           
                 $rows[$i]["regdate"] =ToJalali($rows[$i]["regdate"]," l d F  Y ");
 				$rows[$i]["image"] ="<img src='{$rows[$i][image]}' alt='{$rows[$i][subject]}' width='40px' height='40px' />";                                            
