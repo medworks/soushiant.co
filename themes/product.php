@@ -2,7 +2,7 @@
   include_once("./classes/database.php");
   include_once("./lib/persiandate.php");
   $db = Database::GetDatabase();   
-  $company = $db->SelectAll("company","*");   
+  $stuffsec = $db->SelectAll("stuffsec","*");   
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
@@ -17,11 +17,11 @@ $html=<<<cd
 		<div class="container cyan">			
 cd;
 $i = 0;
-foreach($company as $key => $val)
+foreach($stuffsec as $key => $val)
 {
    ++$i;
-   $val["body"]=  strip_tags($val["body"]);
-   $val["body"] = (mb_strlen($val["body"])>200) ? mb_substr($val["body"],0,200,"UTF-8")."..." : $val["body"];
+   $val["describe"]=  strip_tags($val["describe"]);
+   $val["describe"] = (mb_strlen($val["describe"])>200) ? mb_substr($val["describe"],0,200,"UTF-8")."..." : $val["describe"];
    if ($i % 2 != 0)	
 	$html.="<!-- Icon Box Container --> <div class='icon-boxes-container'> ";
 $html.=<<<cd
@@ -29,13 +29,13 @@ $html.=<<<cd
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-shopping-cart" style="margin-left: -12px;"></i>
-						<h3><a href="product-fullpage{$val[id]}.html" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a></h3>
-						<p>{$val["body"]}</p>
+						<h3><a href="product-fullpage{$val[id]}.html" name="{$val[secname]}" id="{$val[id]}">{$val["secname"]}</a></h3>
+						<p>{$val["describe"]}</p>
 					</div>
 				</div>
 				<!-- Icon Box End -->
 cd;
-if (($i % 2 == 0) or (count($company)==$i))	  
+if (($i % 2 == 0) or (count($stuffsec)==$i))	  
 		$html.="</div>   <!-- Icon Box Container / End -->";
    
 }
