@@ -19,11 +19,12 @@
   {
   	 $row=$db->Select("orders","*","id='{$_GET["oid"]}'",NULL);
   	 $prow=$db->Select("plans","name","id='{$row["pid"]}'",NULL);
+  	 $srow=$db->Select("stuffcat","catname","id='{$row["pid"]}'",NULL);
   	 switch($row["otype"])
 				{
 				 case 1: $order = "ثبت سرویس جدید "." ".$prow[0]; break;
 				 case 2: $order = "تمدید سرویس"." ".$prow[0]; break;
-				 case 3: $order = "خرید کالا"; break;
+				 case 3: $order = "خرید کالا"." ".$srow[0]; break;
 				}   
   	$html=<<<cd
 		<div class="title">
