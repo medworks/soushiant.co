@@ -25,7 +25,7 @@ deny from all
 	RewriteRule ^service-fullpage([0-9]+).html soushiant.co/index.php?item=fullservice&act=do&wid=$1 [L]
 	RewriteRule ^product.html soushiant.co/index.php?item=product&act=do [L]
 	RewriteRule ^product-fullpage([0-9]+).html soushiant.co/index.php?item=fullproduct&act=do&pid=$1 [L]
-	RewriteRule ^product-fulldetail([0-9]+).html soushiant.co/index.php?item=product-fulldetail&act=do [L]
+	RewriteRule ^product-fulldetail([0-9]+).html soushiant.co/index.php?item=product-fulldetail&act=do&pid=$1 [L]
 	RewriteRule ^work-fullpage([0-9]+).html soushiant.co/index.php?item=fullworks&act=do&wid=$1 [L]
 	RewriteRule ^article-fullpage([0-9]+).html soushiant.co/index.php?item=fullarticles&act=do&wid=$1 [L]	
     RewriteRule ^news-page([0-9]+).html soushiant.co/index.php?item=news&act=do&pid=$1 [L]	
