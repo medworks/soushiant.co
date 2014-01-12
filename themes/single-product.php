@@ -2,13 +2,14 @@
   include_once("./classes/database.php");
   include_once("./lib/persiandate.php");
   $db = Database::GetDatabase();   
-  $company = $db->SelectAll("company","*");   
+  $stuffsecs = $db->SelectAll("stuffsec","*");   
+  $stuffsec = $db->Select("stuffsec","secname","ID = {$_GET[pid]}");
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
 				<!-- Page Title -->
 				<div id="page-title">
-					<h2>خرید کالا / مودم</h2>
+					<h2>خرید کالا / {$stuffsec[0]}</h2>
 					<div id="bolded-line"></div>
 				</div>
 				<!-- Page Title / End -->
@@ -17,7 +18,7 @@ $html=<<<cd
 		<div class="container cyan">			
 cd;
 $i = 0;
-foreach($company as $key => $val)
+foreach($stuffsecs as $key => $val)
 {
    ++$i;
    $val["body"]=  strip_tags($val["body"]);
