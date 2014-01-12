@@ -48,7 +48,7 @@ $html.=<<<cd
 						var id = $(this).attr("id");
 						$.ajax({
 							type: 'POST',
-				    		url: "themes/product-fulldetail.php?stuff="+name+"&stuffid="+id,
+				    		url: "themes/product-detail.php?stuff="+name+"&stufid="+id,
 				   			// data: $(".price-table").serialize(),
 					    		success: function(msg)
 								{
