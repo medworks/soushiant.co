@@ -28,7 +28,7 @@ $html=<<<cd
 		</div>		
 		<div class="container" style="margin-top:30px;">
 			<div class="four columns">			
-				<a href="index.php?item=odr&pid={$stuff[id]}" class="button color order" style="text-align:right;float:right;" title="سفارش">سفارش خرید</a>
+				<a href="index.php?item=odr&type=product&pid={$stuff[id]}" class="button color order" style="text-align:right;float:right;" title="سفارش">سفارش خرید</a>
 			</div>
 			<div class="clear"></div>
 		</div>
