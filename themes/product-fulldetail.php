@@ -2,9 +2,10 @@
     include_once("./config.php");
 	include_once("./lib/persiandate.php");
 	include_once("./classes/database.php");	
-	include_once("./classes/seo.php");	
+	include_once("./classes/seo.php");
 	$db = Database::GetDatabase();
 	$seo = Seo::GetSeo();
+	$stuffs = $db->SelectAll("stuff","*","cat = {$_GET[stuffid]}");
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
