@@ -3,16 +3,16 @@ header('Content-Type: text/html; charset=UTF-8');
 
   include_once("../config.php");
   include_once("../classes/database.php");  
-  $db = Database::GetDatabase();
-  $works = $db->SelectAll("works","*",null,"fdate DESC");
+  $db = Database::GetDatabase();  
+  $stuffs = $db->SelectAll("stuff","*","cat = {$_GET[stuffid]}");
 
- 	foreach($works as $key=>$val){
+ 	foreach($stuffs as $key=>$val){
 $html=<<<cd
 		<!-- 960 Container -->
 		<div class="container">
 			<div class="sixteen columns">
 				<div class="headline no-margin">
-					<h4>شاتل</h4>
+					<h4>{$_GET["name"]}</h4>
 				</div>
 			</div>
 		<div>
