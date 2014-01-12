@@ -36,7 +36,7 @@ $html=<<<cd
 cd;
 foreach ($uniq as $key=>$val)
 {
-	$plan = $db->SelectAll('plans',"*","sid={$_GET[cid]} AND speeddl={$val}","pid ASC,time ASC");
+	$plan = $db->SelectAll('plans',"*","sid={$_GET[cid]} AND speeddl={$val}","pid ASC,".'"time"'." ASC");
 	//echo $db->cmd;
 	//foreach ($plan as $pkey=>$pval)
 	//{
@@ -63,17 +63,17 @@ $html.=<<<cd
 			</tr>
 			<tr>
 				<td class="tdbox" style="border-bottom:0 none;" valign="baseline">هزینه اشتراک / تومان</td>
-				<td class="tdbox align-c" style="border-bottom:0 none;" valign="baseline">{$plan["price"]}</td>
-				<td class="tdbox align-c" style="border-bottom:0 none;" valign="baseline">{$plan["price"]}</td>
-				<td class="tdbox align-c" style="border-bottom:0 none;" valign="baseline">{$plan["price"]}</td>
-				<td class="tdbox lcol align-c" style="border-bottom:0 none;" valign="baseline">{$plan["price"]}</td>
+				<td class="tdbox align-c" style="border-bottom:0 none;" valign="baseline">{$plan[0]["price"]}</td>
+				<td class="tdbox align-c" style="border-bottom:0 none;" valign="baseline">{$plan[1]["price"]}</td>
+				<td class="tdbox align-c" style="border-bottom:0 none;" valign="baseline">{$plan[2]["price"]}</td>
+				<td class="tdbox lcol align-c" style="border-bottom:0 none;" valign="baseline">{$plan[3]["price"]}</td>
 			</tr>
 			<tr>
 				<td class="tdbox even" valign="baseline">متوسط هزینه برای هر ماه / تومان</td>
-				<td class="tdbox even align-c" valign="baseline">{$plan["average"]}</td>
-				<td class="tdbox even align-c" valign="baseline">{$plan["average"]}</td>
-				<td class="tdbox even align-c" valign="baseline">{$plan["average"]}</td>
-				<td class="tdbox lcol even align-c" valign="baseline">{$plan["average"]}</td>
+				<td class="tdbox even align-c" valign="baseline">{$plan[0]["average"]}</td>
+				<td class="tdbox even align-c" valign="baseline">{$plan[1]["average"]}</td>
+				<td class="tdbox even align-c" valign="baseline">{$plan[2]["average"]}</td>
+				<td class="tdbox lcol even align-c" valign="baseline">{$plan[3]["average"]}</td>
 			</tr>
 		</tbody>
 	</table>
