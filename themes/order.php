@@ -7,6 +7,7 @@ header('Content-Type: text/html; charset=UTF-8');
 	include_once("./classes/functions.php");	
 	$db = Database::GetDatabase();
 	
+	if ($_GET["type"]=="product") $_POST[otype]=3; // buy stuff
 	if ($_POST["mark"]=="saveorder")
 	{	    
 		$date = date('Y-m-d H:i:s');
