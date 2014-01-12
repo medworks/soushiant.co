@@ -2,8 +2,8 @@
   include_once("./classes/database.php");
   include_once("./lib/persiandate.php");
   $db = Database::GetDatabase();   
-  $stuffsecs = $db->SelectAll("stuffsec","*");   
   $stuffsec = $db->Select("stuffsec","secname","ID = {$_GET[pid]}");
+  $stuffcats = $db->SelectAll("stuffcat","*","secid = {$_GET[pid]}");
 $html=<<<cd
 		<div class="container">
 			<div class="sixteen columns">
@@ -18,11 +18,11 @@ $html=<<<cd
 		<div class="container cyan">			
 cd;
 $i = 0;
-foreach($stuffsecs as $key => $val)
+foreach($stuffcats as $key => $val)
 {
    ++$i;
-   $val["body"]=  strip_tags($val["body"]);
-   $val["body"] = (mb_strlen($val["body"])>200) ? mb_substr($val["body"],0,200,"UTF-8")."..." : $val["body"];
+   $val["describe"] =  strip_tags($val["describe"]);
+   $val["describe"] = (mb_strlen($val["describe"])>200) ? mb_substr($val["describe"],0,200,"UTF-8")."..." : $val["describe"];
    if ($i % 2 != 0)	
 	$html.="<!-- Icon Box Container --> <div class='icon-boxes-container'> ";
 $html.=<<<cd
@@ -30,8 +30,8 @@ $html.=<<<cd
 				<div class="eight columns">
 					<div class="icon-box">
 						<i class="ico-shopping-cart" style="margin-left: -12px;"></i>
-						<h3><a class="product" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a></h3>
-						<p>{$val["body"]}</p>
+						<h3><a class="product" name="{$val[catname]}" id="{$val[id]}">{$val["catname"]}</a></h3>
+						<p>{$val["describe"]}</p>
 					</div>
 				</div>
 				<!-- Icon Box End -->
