@@ -199,13 +199,15 @@ $html=<<<cd
        </p>    
        <input type="text" name="price" class="validate[required] subject" id="price" value='{$row[price]}'/> 	   
 	   <div class="badboy"></div>
-  	   <p>
+  	   <!-- <p>
          <label for="detail">توضیحات</label>
          <span>*</span>
        </p>
        <textarea cols="50" rows="10" name="detail" class="detail" id="detail" > {$row[detail]}</textarea>
+       -->
        <p>
-         <label for="pos">ترتیب نمایش</label>         
+         <label for="pos">ترتیب نمایش</label>
+         <span>*</span>         
        </p>
 	   <input type="text" name="pos" class="validate[required] subject" id="name" value='{$row[pos]}'/>	   
 	   {$editorinsert}

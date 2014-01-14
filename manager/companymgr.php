@@ -329,7 +329,7 @@ $html=<<<cd
   <div class="title">
       <ul>
         <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-	    <li><span>مدیریت گروهبندی پلان</span></li>
+	    <li><span>مدیریت گروه بندی پلان</span></li>
       </ul>
       <div class="badboy"></div>
   </div>
@@ -440,7 +440,7 @@ $code=<<<edit
 					<div class="title">
 				      <ul>
 				        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-					    <li><span>مدیریت گروهبندی طرح ها</span></li>
+					    <li><span>مدیریت گروهب ندی طرح ها</span></li>
 				      </ul>
 				      <div class="badboy"></div>
 				  </div>
