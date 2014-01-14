@@ -7,7 +7,9 @@ header('Content-Type: text/html; charset=UTF-8');
   $planid = $_GET["compid"];
   $companyname = $_GET["comp"];
   $plans = $db->SelectAll("plans","*","pid = {$planid}","pos ASC");
-  $trafic = $db->SelectAll("trafic","*","pid = {$companyid}","id ASC");
+  $compid = $db->Select("plangroups","compid","id = {$planid}");
+  $trafic = $db->SelectAll("trafic","*","pid = {$compid[0]}","id ASC");
+  //echo $db->cmd;
 $html=<<<cd
 		<!-- Four Tables ================================================== -->
 		<!-- 960 Container -->
@@ -24,7 +26,7 @@ foreach($plans as $key => $val)
 {
    ++$i;
    ++$j; 
-   $totalprice = $val["price"]*$val["time"];   
+   //$totalprice = $val["price"]*$val["time"];   
    
 if ($i % 2 != 0)	
 	$html.="<div class='pricing-table'> <div class='color-1'>";
@@ -33,13 +35,13 @@ else
 						
 $html.=<<<cd
 							<h3>{$val["name"]}</h3>
-							<h4><span class="price">{$totalprice} ریال</span> 
+							<h4><span class="price">{$val["price"]} ریال</span> 
 							<span class="time">{$val["time"]}  ماهه </span></h4>
 							<ul>
 								<li>سرعت دریافت {$val["speeddl"]} KB/S</li>
 								<li>سرعت ارسال {$val["speedup"]} KB/S</li>
 								<li>ترافیک {$val["trafic"]} GB</li>
-								<li>هزینه در ماه {$val["price"]} ریال</li>			
+								<!-- <li>هزینه در ماه {$val["price"]} ریال</li> -->			
 							</ul>
 							<a href="index.php?item=odr&pid={$val[id]}" class="sign-up"><span>پرداخت هزینه</span></a>
 						</div>
