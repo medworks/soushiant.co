@@ -245,7 +245,7 @@ if ($_GET['act']=="mgr")
 				"plans",
 				"*",
 				null,
-				null,
+				"id DESC",
 				$_GET["pageNo"]*10,
 				10);
     }
