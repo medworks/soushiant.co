@@ -272,7 +272,7 @@ if ($_GET['act']=="mgr")
 					$rows[$i]["delete"]=<<< del
 					<a href="javascript:void(0)"
 					onclick="DelMsg('{$rows[$i]['id']}',
-						'از حذف این خبر اطمینان دارید؟',
+						'از حذف این طرح اطمینان دارید؟',
 					'?item=plansmgr&act=del&pageNo={$_GET[pageNo]}&cid=');"
 					 class='del-field' style='text-decoration:none;'></a>
 del;
@@ -398,7 +398,7 @@ if ($_GET['item']=="traficmgr")
 	}
 	if ($_GET['act']=="del")
 	{
-		$db->Delete("trafic"," id",$_GET["cid"]);
+		$db->Delete("trafic"," id",$_GET["tid"]);
 		if ($db->CountAll("plans")%10==0) $_GET["pageNo"]-=1;		
 		header("location:?item=traficmgr&act=mgr&pageNo={$_GET[pageNo]}");
 	}
@@ -543,7 +543,7 @@ if ($_GET['act']=="mgr")
 					$rows[$i]["delete"]=<<< del
 					<a href="javascript:void(0)"
 					onclick="DelMsg('{$rows[$i]['id']}',
-						'از حذف این خبر اطمینان دارید؟',
+						'از حذف این رکورد اطمینان دارید؟',
 					'?item=traficmgr&act=del&pageNo={$_GET[pageNo]}&tid=');"
 					 class='del-field' style='text-decoration:none;'></a>
 del;
