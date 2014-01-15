@@ -83,7 +83,7 @@ if ($_GET['act']=="do")
 	      <div class="badboy"></div>
 	    </div>
 		<div class="sub-menu" id="mainnav">
-			<ul class="two-column">
+			<ul>
 			  <li>		  
 				<a href="?item=stuffmgr&act=new">درج کالای جدید
 					<span class="add-plan"></span>
