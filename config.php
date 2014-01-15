@@ -26,7 +26,7 @@
 */
   
   define ('SITE_ROOT', '/soushiant');
-  define ('OS_ROOT', $_SERVER['DOCUMENT_ROOT']."/soushiant");
+  define ('OS_ROOT', $_SERVER['DOCUMENT_ROOT']."/soushiant.co");
   
   
 ?>
