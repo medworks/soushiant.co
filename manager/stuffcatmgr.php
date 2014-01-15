@@ -78,6 +78,7 @@ if ($_GET['act']=="edit")
 if ($_GET['act']=="del")
 {
 	$db->Delete("stuffcat"," id",$_GET["cid"]);
+	//echo  $db->cmd;
 	if ($db->CountAll("stuffcat")%10==0) $_GET["pageNo"]-=1;		
 	header("location:?item=stuffcatmgr&act=mgr&pageNo={$_GET[pageNo]}");
 }
@@ -349,7 +350,7 @@ if ($_GET['act']=="edit")
 }
 if ($_GET['act']=="del")
 {
-	$db->Delete("stuffsec"," id",$_GET["cid"]);
+	$db->Delete("stuffsec"," id",$_GET["sid"]);
 	if ($db->CountAll("stuffsec")%10==0) $_GET["pageNo"]-=1;		
 	header("location:?item=stuffsecmgr&act=mgr&pageNo={$_GET[pageNo]}");
 }
