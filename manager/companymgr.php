@@ -13,8 +13,29 @@
 	}
 	$db = Database::GetDatabase();
 	$overall_error = false;
-	if ($_GET['item']=="compmgr")
+	if ($_GET['item']=="compmgr")	
 	{
+		
+	if((!empty($_FILES["pic"])) && ($_FILES['pic']['error'] == 0))
+   {
+		 $filename =strtolower(basename($_FILES['pic']['name']));
+		 $ext = substr($filename, strrpos($filename, '.') + 1);	   		 		
+		 $newfilename = $_FILES['pic']['name'];
+		 $newname = OS_ROOT."/planprice/".$_FILES['pic']['name'];
+		 if (!(move_uploaded_file($_FILES['pic']['tmp_name'],$newname)))
+		 {       
+			   
+		 }		 		 
+	}	 
+   else	 
+   { 
+		//$msgs = $msg->ShowError("لط??ا ??ایل عکس را انتخاب کنید");
+		header('location:?item=compmgr&act=new&msg=4');		
+		$overall_error = true;
+	}
+		
+		
+		
 	if (!$overall_error && $_POST["mark"]=="savecomp")
 	{	    
 		$fields = array("`name`","`body`");
