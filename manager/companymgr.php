@@ -15,7 +15,10 @@
 	$overall_error = false;
 	if ($_GET['item']=="compmgr")	
 	{
-		
+				
+	if (!$overall_error && $_POST["mark"]=="savecomp")
+	{	 
+
 	if((!empty($_FILES["pic"])) && ($_FILES['pic']['error'] == 0))
    {
 		 $filename =strtolower(basename($_FILES['pic']['name']));
@@ -25,7 +28,8 @@
 		 if (!(move_uploaded_file($_FILES['pic']['tmp_name'],$newname)))
 		 {       
 			   
-		 }		 		 
+		 }
+		 echo  "file is ok !!!";		 		 
 	}	 
    else	 
    { 
@@ -34,13 +38,9 @@
 		$overall_error = true;
 	}
 		
-		
-		
-	if (!$overall_error && $_POST["mark"]=="savecomp")
-	{	    
-		$fields = array("`name`","`body`");
+		$fields = array("`name`","`body`","`pfile`");
 		$_POST["body"] = addslashes($_POST["body"]);		
-		$values = array("'{$_POST[name]}'","'{$_POST[body]}'");
+		$values = array("'{$_POST[name]}'","'{$_POST[body]}'","'{$newname}'");
 		if (!$db->InsertQuery('company',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
@@ -52,7 +52,7 @@
 		else 
 		{  										
 			//$msgs = $msg->ShowSuccess("ثبت اطلاعات با مو??قیت انجام شد");			
-			header('location:?item=compmgr&act=new&msg=1');		    
+			//header('location:?item=compmgr&act=new&msg=1');		    
 			//$_GET["item"] = "compmgr";
 			//$_GET["act"] = "new";
 			//$_GET["msg"] = 1;
@@ -146,7 +146,8 @@ $html=<<<cd
   </div>
   <div class="mes" id="message">{$msgs}</div>
   <div class='content'>
-	<form name="frmcompanymgr" id="frmcompanymgr" class="" action="" method="post" >
+	<form name="frmcompanymgr" id="frmcompanymgr" class="" action="" method="post"
+	enctype="multipart/form-data" >
      <p class="note">پر کردن موارد مشخص شده با * الزامی می باشد</p>	 
        <div class="badboy"></div>
        <p>
@@ -163,12 +164,9 @@ $html=<<<cd
        <p>
 		<label for='pic'>فایل قیمت ها </label>
 		<span>*</span>
-	</p>
-	<div class='upload-file'>
-				<input type='file' name='pic' class='validate[required] pic ltr' id='pic' onChange='showPreview(this);' />  
-				<span class='filename'>لطفا فایل قیمت ها را مشخص کنید</span>
-				<span class='action'>انتخاب فایل</span>
-			</div>  	   
+	   </p>
+		<input type='file' name='pic' id='pic' onChange='' />
+		  	   
 	   {$editorinsert}
       	 <input type="reset" value="پاک کردن" class='reset' />
        </p>  
