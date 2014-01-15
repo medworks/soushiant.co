@@ -256,9 +256,9 @@ if ($_GET['act']=="mgr")
                 {						
 				    $rows[$i]["sid"] = GetCompanyName($rows[$i]["sid"]);					
 				    $rows[$i]["pid"] = GetPlanName($rows[$i]["pid"]);
-					$rows[$i]["detail"] = (mb_strlen($rows[$i]["detail"])>50)?
-					mb_substr(html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8"), 0, 50,"UTF-8") . "..." :
-					html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8");						
+					//$rows[$i]["detail"] = (mb_strlen($rows[$i]["detail"])>50)?
+					//mb_substr(html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8"), 0, 50,"UTF-8") . "..." :
+					//html_entity_decode(strip_tags($rows[$i]["detail"]), ENT_QUOTES, "UTF-8");						
 					if ($i % 2==0)
 					 {
 							$rowsClass[] = "datagridevenrow";
@@ -290,7 +290,7 @@ del;
 							"time"=>"مدت دوره",
 							"trafic"=>"ترافیک(GB)",
 							"price"=>"هزینه(تومان)",
-							"detail"=>"توضیحات",
+							//"detail"=>"توضیحات",
 							"pos"=>"مکان نمایش",
                             "edit"=>"ویرایش",
 							"delete"=>"حذف",), $rows, $colsClass, $rowsClass, 10,
