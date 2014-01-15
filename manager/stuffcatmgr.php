@@ -87,30 +87,30 @@ if ($_GET['act']=="do")
 		<div class="title">
 	      <ul>
 	        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-	        <li><span>مدیریت گروه ها</span></li>
+	        <li><span>دسته بندی کالاها</span></li>
 	      </ul>
 	      <div class="badboy"></div>
 	    </div>
 		<div class="sub-menu" id="mainnav">
 			<ul class="two-column">
 			<li>		  
-				<a href="?item=stuffsecmgr&act=new">سرگروه جدید
+				<a href="?item=stuffsecmgr&act=new">کالای جدید
 					<span class="add-headline"></span>
 				</a>
 			  </li>
 			  <li>
-				<a href="?item=stuffsecmgr&act=mgr">حذف/ویرایش سرگروه
+				<a href="?item=stuffsecmgr&act=mgr">حذف/ویرایش کالاها
 					<span class="edit-headline"></span>
 				</a>
 			  </li>
 			  <li>		  
-				<a href="?item=stuffcatmgr&act=new">گروه جدید
+				<a href="?item=stuffcatmgr&act=new">برند جدید
 					<span class="add-cat"></span>
 				</a>
 			  </li>
 			  
 			  <li>
-				<a href="?item=stuffcatmgr&act=mgr">حذف/ویرایش گروه ها
+				<a href="?item=stuffcatmgr&act=mgr">حذف/ویرایش برندها
 					<span class="edit-cat"></span>
 				</a>
 			  </li>
@@ -136,7 +136,7 @@ $html=<<<cd
   <div class="title">
       <ul>
         <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-	    <li><span>مدیریت گروه ها</span></li>
+	    <li><span>مدیریت برندها</span></li>
       </ul>
       <div class="badboy"></div>
   </div>
@@ -145,7 +145,7 @@ $html=<<<cd
 	<form name="frmcatmgr" id="frmcatmgr" class="" action="" method="post" >  
        <p class="note">پر کردن موارد مشخص شده با * الزامی می باشد</p>
        <p>
-         <label for="catname">نام گروه </label>
+         <label for="catname">نام برند </label>
          <span>*</span>
        </p>    
        <input type="text" name="catname" class="validate[required] catname family" id="catname" value='{$row[catname]}'/>
@@ -158,7 +158,7 @@ $html=<<<cd
        </p>    
        <input type="text" name="describe" class="describe subject" id="describe" value='{$row[describe]}'/>
        <p>
-         <label for="detail">انتخاب گروه مادر </label>
+         <label for="detail">انتخاب کالا </label>
          <span>*</span>
        </p>
        {$cbsection}
@@ -236,8 +236,8 @@ del;
             if (Count($rows) > 0)
             {                    
                     $gridcode .= DataGrid(array(
-					        "secid"=>"سر گروه",
-							"catname"=>"نام گروه",
+					        "secid"=>"نام کالا",
+							"catname"=>"نام برند",
 							"latinname"=>"نام لاتین",
 							"describe"=>"توضیحات",							
                             "edit"=>"ویرایش",
@@ -246,7 +246,7 @@ del;
                     
             }
 $msgs = GetMessage($_GET['msg']);
-$list = array("catname"=>"نام گروه",
+$list = array("catname"=>"نام برند",
 			  "latinname"=>"نام لاتین",
 			  "describe"=>"توضیحات" );
 $combobox = SelectOptionTag("cbsearch",$list,"subject");
@@ -262,7 +262,7 @@ $code=<<<edit
 					<div class="title">
 				      <ul>
 				        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-					    <li><span>مدیریت گروه ها</span></li>
+					    <li><span>مدیریت برندها</span></li>
 				      </ul>
 				      <div class="badboy"></div>
 				  </div>
@@ -365,7 +365,7 @@ $html=<<<cd
   <div class="title">
       <ul>
         <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-	    <li><span>مدیریت سرگروه ها</span></li>
+	    <li><span>مدیریت کالاها</span></li>
       </ul>
       <div class="badboy"></div>
   </div>
@@ -374,7 +374,7 @@ $html=<<<cd
 	<form name="frmsecmgr" id="frmsecmgr" class="" action="" method="post" >  
        <p class="note">پر کردن موارد مشخص شده با * الزامی می باشد</p>
        <p>
-         <label for="catname">نام سرگروه </label>
+         <label for="catname">نام کالا </label>
          <span>*</span>
        </p>    
        <input type="text" name="secname" class="validate[required] catname family" id="secname" value='{$row[secname]}'/>
@@ -459,7 +459,7 @@ del;
             if (Count($rows) > 0)
             {                    
                     $gridcode .= DataGrid(array(					        
-							"secname"=>"نام سرگروه",
+							"secname"=>"نام کالا",
 							"latinname"=>"نام لاتین",
 							"describe"=>"توضیحات",							
                             "edit"=>"ویرایش",
@@ -468,7 +468,7 @@ del;
                     
             }
 $msgs = GetMessage($_GET['msg']);
-$list = array("secname"=>"نام سر گروه",
+$list = array("secname"=>"نام کالا",
 			  "latinname"=>"نام لاتین",
 			  "describe"=>"توضیحات" );
 $combobox = SelectOptionTag("cbsearch",$list,"subject");
@@ -484,7 +484,7 @@ $code=<<<edit
 					<div class="title">
 				      <ul>
 				        <li><a href="adminpanel.php?item=dashboard&act=do">پیشخوان</a></li>
-					    <li><span>مدیریت گروه ها</span></li>
+					    <li><span>مدیریت کالاها</span></li>
 				      </ul>
 				      <div class="badboy"></div>
 				  </div>
