@@ -29,7 +29,7 @@
 		 {       
 			   
 		 }
-		 echo  "file is ok !!!";		 		 
+		 //echo  "file is ok !!!";		 		 
 	}	 
    else	 
    { 
@@ -52,11 +52,12 @@
 		else 
 		{  										
 			//$msgs = $msg->ShowSuccess("ثبت اطلاعات با مو??قیت انجام شد");			
-			//header('location:?item=compmgr&act=new&msg=1');		    
+			header('location:?item=compmgr&act=new&msg=1');		    
 			//$_GET["item"] = "compmgr";
 			//$_GET["act"] = "new";
 			//$_GET["msg"] = 1;
 		}  				 
+		//echo $db->cmd;
 	}
     else
 	if (!$overall_error && $_POST["mark"]=="editcomp")
