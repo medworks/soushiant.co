@@ -138,7 +138,16 @@ $html=<<<cd
          <label for="body">توضیحات</label>
          <span>*</span>
        </p>
-       <textarea cols="50" rows="10" name="body" class="body" id="body" > {$row[body]}</textarea>  	   
+       <textarea cols="50" rows="10" name="body" class="body" id="body" > {$row[body]}</textarea>
+       <p>
+		<label for='pic'>فایل قیمت ها </label>
+		<span>*</span>
+	</p>
+	<div class='upload-file'>
+				<input type='file' name='pic' class='validate[required] pic ltr' id='pic' onChange='showPreview(this);' />  
+				<span class='filename'>لطفا فایل قیمت ها را مشخص کنید</span>
+				<span class='action'>انتخاب فایل</span>
+			</div>  	   
 	   {$editorinsert}
       	 <input type="reset" value="پاک کردن" class='reset' />
        </p>  
