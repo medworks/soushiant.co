@@ -61,11 +61,31 @@
 	}
     else
 	if (!$overall_error && $_POST["mark"]=="editcomp")
-	{		
-	    $_POST["body"] = addslashes($_POST["body"]);	    
+	{	
+        if((!empty($_FILES["pic"])) && ($_FILES['pic']['error'] == 0))
+   {
+		 $filename =strtolower(basename($_FILES['pic']['name']));
+		 $ext = substr($filename, strrpos($filename, '.') + 1);	   		 		
+		 $newfilename = $_FILES['pic']['name'];
+		 $newname = OS_ROOT."/planprice/".$_FILES['pic']['name'];
+		 if (!(move_uploaded_file($_FILES['pic']['tmp_name'],$newname)))
+		 {       
+			   
+		 }
+		 //echo  "file is ok !!!";		 		 
+	}	 
+   else	 
+   { 
+		//$msgs = $msg->ShowError("لط??ا ??ایل عکس را انتخاب کنید");
+		header('location:?item=compmgr&act=new&msg=4');		
+		$overall_error = true;
+	}	
+	    $_POST["body"] = addslashes($_POST["body"]);
+		$pfile=$db->Select("company","pfile","id='{$_GET["cid"]}'",NULL);
+		if (empty($_FILES['pic']['name'])) $newname = $pfile[0];
 		$values = array("`name`"=>"'{$_POST[name]}'",
-			            "`body`"=>"'{$_POST[body]}'");
-			
+			            "`body`"=>"'{$_POST[body]}'",
+						"`pfile`"=>"'{$newname}'");				    
         $db->UpdateQuery("company",$values,array("id='{$_GET[cid]}'"));
 		header('location:?item=compmgr&act=mgr');
 		//$_GET["item"] = "compmgr";
