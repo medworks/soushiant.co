@@ -394,7 +394,7 @@ $html=<<<cd
 		{$cbcomp}
 		<div class="badboy"></div>
        <p>
-         <label for="name">عنوان گروه</label>         
+         <label for="name">عنوان پلان</label>         
          <span>*</span>
        </p>    
        <input type="text" name="subject" class="validate[required] subject" id="subject" value='{$row[subject]}'/>   	  

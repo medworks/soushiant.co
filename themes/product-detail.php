@@ -15,27 +15,29 @@ $html=<<<cd
 				</div>
 			</div>
 		<div>
+		<div class="container">
 cd;
 foreach($stuffs as $key=>$val){
 $html.=<<<cd
-					<div class="container">
 			<!-- Portfolio Content -->
 			<div id="portfolio-wrapper">
 				<div class="four columns portfolio-item">
-					<div class="picture">
-					  <a href="product-fulldetail153.html">						 
+					<!-- <div class="picture">
+					  <a href="product-fulldetail{$val[id]}.html">						 
 						 <div class="image-overlay-link"></div>
 					  </a>
-					</div>
+					</div> -->
 					<div class="item-description">
 						<h5><a href="product-fulldetail{$val[id]}.html">{$val["name"]}</a></h5>
 					</div>
 				</div>
 			</div>
 			<!-- End Portfolio Content -->
-		</div>
 cd;
 	}
+$html.=<<<cd
+		</div>
+cd;
 
 	echo $html;
 

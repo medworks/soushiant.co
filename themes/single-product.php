@@ -31,7 +31,6 @@ $html.=<<<cd
 					<div class="icon-box">
 						<i class="ico-shopping-cart" style="margin-left: -12px;"></i>
 						<h3><a class="product" name="{$val[catname]}" id="{$val[id]}">{$val["catname"]}</a></h3>
-						<p>{$val["describe"]}</p>
 					</div>
 				</div>
 				<!-- Icon Box End -->
