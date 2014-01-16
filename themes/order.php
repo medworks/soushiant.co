@@ -71,6 +71,7 @@ $html=<<<cd
 							<input type="radio" name="otype" value="1" style="width:30px;">ثبت جدید سرویس<br />
 							<input type="radio" name="otype" value="2" style="width:30px;">تمدید سرویس<br />
 							<input type="radio" name="otype" value="3" style="width:30px;">خرید کالا<br />
+							<input type="radio" name="otype" value="4" style="width:30px;">ترافیک اضافه<br />
 						</div>
 						<div class="clear"></div>
 						<div class="field">
