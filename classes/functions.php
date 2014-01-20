@@ -542,6 +542,12 @@ code;
 		$row = $db ->Select($table,"name","ID = '{$catid}'");
 		return ($row["name"]);
 	}
+	function GetTraficName($id)
+	{
+	    $db = Database::GetDatabase();
+		$row = $db ->Select("trafic","subject","id = '{$id}'");
+		return ($row["subject"]);
+	}
 	// *****************CheckEmail Function***********************
 	function checkEmail($email) {
 	  if (isset($_POST['email'])) {  
