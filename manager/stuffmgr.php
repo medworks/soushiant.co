@@ -39,8 +39,9 @@
 						"`name`"=>"'{$_POST[name]}'",						
 		                "`detail`"=>"'{$_POST[detail]}'");
 			
-        $db->UpdateQuery("stuff",$values,array("id='{$_GET[sid]}'"));
-		header('location:?item=stuffmgr&act=mgr');
+        $db->UpdateQuery("stuff",$values,array("id='{$_GET["sid"]}'"));
+        echo $db->cmd;
+	//	header('location:?item=stuffmgr&act=mgr');
 		//$_GET["item"] = "plansmgr";
 		//$_GET["act"] = "act";			
 	}
