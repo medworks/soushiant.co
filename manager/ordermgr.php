@@ -25,6 +25,7 @@
 				 case 1: $order = "ثبت سرویس جدید "." ".$prow[0]; break;
 				 case 2: $order = "تمدید سرویس"." ".$prow[0]; break;
 				 case 3: $order = "خرید کالا"." ".$srow[0]; break;
+				 case 4: $order = "ترافیک اضافه"." ".$srow[0]; break;
 				}   
   	$html=<<<cd
 		<div class="title">
@@ -132,6 +133,8 @@ cd;
 				          $rows[$i]["pid"] =GetADSLName($rows[$i]["pid"]); break;}
 				 case 3: {$rows[$i]["otype"] = "خرید کالا"; 
 				          $rows[$i]["pid"] =GetstuffName($rows[$i]["pid"]); break; }
+				 case 4: {$rows[$i]["otype"] = "خرید ترافیک "; 
+				          $rows[$i]["pid"] =GetTraficName($rows[$i]["pid"]); break; }
 				}           
                 $rows[$i]["regdate"] =ToJalali($rows[$i]["regdate"]," l d F  Y ");
 				$rows[$i]["image"] ="<img src='{$rows[$i][image]}' alt='{$rows[$i][subject]}' width='40px' height='40px' />";                                            
