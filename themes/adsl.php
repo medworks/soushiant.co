@@ -32,7 +32,7 @@ $html.=<<<cd
 						<h3>
 							<a href="adsl-fullpage{$val[id]}.html" class="price-table" name="{$val[name]}" id="{$val[id]}">{$val["name"]}</a>
 							<!-- <a href="print{$val[id]}.html" class="button color" style="margin-right:5px;color:white !important;font-size:15px;padding:0 10px;" title="پرینت قیمتها">پرینت قیمتها</a> -->
-							<a href="{$val[pfile]}" class="button color" style="margin-right:5px;color:white !important;font-size:15px;padding:0 10px;" title="پرینت قیمتها" target="_blank">پرینت قیمتها</a> 
+							<a href="/{$val[pfile]}" class="button color" style="margin-right:5px;color:white !important;font-size:15px;padding:0 10px;" title="پرینت قیمتها" target="_blank">پرینت قیمتها</a> 
 						</h3>
 						<p>{$val["body"]}</p>
 					</div>
