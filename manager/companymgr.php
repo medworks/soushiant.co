@@ -25,7 +25,7 @@
 		 $ext = substr($filename, strrpos($filename, '.') + 1);	   		 		
 		 $newfilename = $_FILES['pic']['name'];
 		 $newname = OS_ROOT."/planprice/".$_FILES['pic']['name'];
-		 //$newname = "./planprice/".$_FILES['pic']['name'];
+		 $address = "./planprice/".$_FILES['pic']['name'];
 		 if (!(move_uploaded_file($_FILES['pic']['tmp_name'],$newname)))
 		 {       
 			   
@@ -41,7 +41,7 @@
 		
 		$fields = array("`name`","`body`","`pfile`");
 		$_POST["body"] = addslashes($_POST["body"]);		
-		$values = array("'{$_POST[name]}'","'{$_POST[body]}'","'{$newname}'");
+		$values = array("'{$_POST[name]}'","'{$_POST[body]}'","'{$address}'");
 		if (!$db->InsertQuery('company',$fields,$values)) 
 		{
 			//$msgs = $msg->ShowError("ثبت اطلاعات با مشکل مواجه شد");
@@ -68,7 +68,8 @@
 		 $filename =strtolower(basename($_FILES['pic']['name']));
 		 $ext = substr($filename, strrpos($filename, '.') + 1);	   		 		
 		 $newfilename = $_FILES['pic']['name'];
-		 $newname = "./planprice/".$_FILES['pic']['name'];
+		 $newname = OS_ROOT."/planprice/".$_FILES['pic']['name'];
+		 $address = "./planprice/".$_FILES['pic']['name'];
 		 if (!(move_uploaded_file($_FILES['pic']['tmp_name'],$newname)))
 		 {       
 			   
@@ -83,10 +84,10 @@
 	}	
 	    $_POST["body"] = addslashes($_POST["body"]);
 		$pfile=$db->Select("company","pfile","id='{$_GET["cid"]}'",NULL);
-		if (empty($_FILES['pic']['name'])) $newname = $pfile[0];
+		if (empty($_FILES['pic']['name'])) $address = $pfile[0];
 		$values = array("`name`"=>"'{$_POST[name]}'",
 			            "`body`"=>"'{$_POST[body]}'",
-						"`pfile`"=>"'{$newname}'");				    
+						"`pfile`"=>"'{$address}'");				    
         $db->UpdateQuery("company",$values,array("id='{$_GET[cid]}'"));
 		header('location:?item=compmgr&act=mgr');
 		//$_GET["item"] = "compmgr";
