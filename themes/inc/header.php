@@ -32,7 +32,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <meta charset="utf-8">
 <meta http-equiv="Content-Language"  content="Fa">
 <title><?php echo $seo->Site_Title;?></title>
-<meta name="google-site-verification" content="hGvARX_fJJChNR5D7a98iY4SvfcTlcU4yxiU7reORjg" />
+<meta name="google-site-verification" content="xSLO321Gv9I20zvju1204_ZRb_jX9qBj0LdTFuchM58" />
 <meta name="description" content="<?php echo $seo->Site_Describtion;?>"/>
 <meta name="keywords" content="<?php echo $seo->Site_KeyWords;?>"/>
 <meta name="robots" content="INDEX,FOLLOW">
