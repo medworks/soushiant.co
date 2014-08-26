@@ -9,7 +9,7 @@
 .button.light:hover, 
 .button.color, 
 input[type="button"] {
-	background: #495d7f;
+	background: #e22020;
 }
 
 .flex-direction-nav .flex-prev:hover, 
@@ -18,7 +18,7 @@ input[type="button"] {
 .ls-fullwidth .ls-nav-next:hover,
 #scroll-top-top a, 
 .post-icon {
-	background-color:#495d7f;
+	background-color:#bf1616;
 }
 
 .mr-rotato-prev:hover, 
@@ -37,13 +37,14 @@ li.current,
 }
 
 #current {
-	background: #495d7f !important;
+	background: #e22020 !important;
+	color: #ccc !important;
 }
 
 .cyan a{
-	color: #009cb5 !important;
+	color: #bf1616 !important;
 }
 
 .cyan a:hover{
-	color: #495d7f !important;
+	color: #e22020 !important;
 }
