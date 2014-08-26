@@ -11,7 +11,7 @@ header('Content-Type: text/html; charset=UTF-8');
 	$facebook = GetSettingValue('FaceBook_Add',0);
 	$twitter = GetSettingValue('Twitter_Add',0);
 	$rss = GetSettingValue('Rss_Add',0);
-
+	$email = GetSettingValue('Contact_Email',0);
 	$tel = GetSettingValue('Tell_Number',0);
 
 ?>
@@ -108,13 +108,7 @@ header('Content-Type: text/html; charset=UTF-8');
 			<!-- Contact Details -->
 			<div id="contact-details">
 				<ul>
-					<li class="latin-font ltr"><i class="mini-ico-envelope"></i><script type="text/javascript">
-
-                                        emailE='soushiant.co'
-                                        emailE=('info' + '@' + emailE)
-                                        document.write('<a href="mailto:' + emailE + '" target="_blank">' + emailE + '</a>')
-
-                                    </script></li>
+					<li class="latin-font ltr"><i class="mini-ico-envelope"></i><?php echo $email ?></li>
 					<li class="latin-font ltr"><i class="mini-ico-user"></i><?php echo $tel; ?></li>
 				</ul>
 			</div>
