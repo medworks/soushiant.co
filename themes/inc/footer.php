@@ -21,16 +21,22 @@
 	<!-- 960 Container -->
 	<div class="container">
 		<!-- About -->
-		<div class="four columns">
-			<div class="footer-headline"><h4>درباره ما</h4></div>
-			<p><a href="about-us.html"><?php echo $About_System ?></a></p>
+		<div class="one-third column">
+			<div class="footer-headline"><h4>همکاران</h4></div>
+			<ul class="links-list rtl">
+				<li><a href="http://10.70.246.75:88/Pages/Login.aspx?ReturnUrl=%2fMemberPages%2f" target="_blank" title="اینترنت مخابرات">شرکت مخابرات خراسان رضوی</a></li>
+				<li><a href="" target="_blank" title="شرکت شاتل">شرکت شاتل</a></li>
+				<li><a href="http://qt.asiatech.ir/" target="_blank" title="شرکت آسیاتک">شرکت آسیاتک</a></li>
+				<li><a href="" target="_blank" title="شرکت مبین نت">شرکت مبین نت</a></li>
+				<li><a href="" target="_blank" title="پنل ارسال اس ام اس">پنل ارسال اس ام اس</a></li>
+			</ul>
 		</div>	
 		<!-- Useful Links -->
-		<div class="four columns">
+		<div class="one-third column">
 			<div class="footer-headline"><h4>تازه ها</h4></div>
 			<ul class="links-list rtl">
 				<?php									  					
-					for($i=0 ; $i<7 ; $i++){
+					for($i=0 ; $i<5 ; $i++){
 						if($news[$i]['subject']!=null){
 	  						$ndate = ToJalali($news[$i]["ndate"]," l d F ");
 							echo "<li>
@@ -41,22 +47,16 @@
 			</ul>
 		</div>	
 		<!-- Photo Stream -->
-		<div class="four columns">
-			<div class="footer-headline"><h4>کارهای ما</h4></div>
+		<div class="one-third column">
+			<div class="footer-headline"><h4>سایت های مفید</h4></div>
 			<ul class="links-list rtl">
-				<?Php
-                        for($i=0 ; $i<7 ; $i++){
-        					if($works[$i]['subject']!=null){						
-        						$fdate = ToJalali($works[$i]["fdate"]," l d F  Y"); 
-        						echo "<li>
-        								<a href='work-fullpage{$works[$i][id]}.html' title='{$works[$i]["subject"]}'>{$works[$i]["subject"]}</a>
-        							</li>";
-        				    }
-        				}
-    				?>
+				<li><a href="https://ib.agri-bank.com/pid2.lmx" target="_blank" title="بانک کشاورزی">بانک کشاورزی</a></li>
+				<li><a href="https://ebanking.bankmellat.ir/ebanking/" target="_blank" title="بانک ملت">بانک ملت</a></li>
+				<li><a href="https://www.rb24.ir/login.html" target="_blank" title="بانک رفاه">بانک رفاه</a></li>
+				<li><a href="https://ebank.bmi.ir/mbsweb/bankmelli/login.aspx" target="_blank" title="بانک ملی">بانک ملی</a></li>
 			</ul>
 		</div>		
-		<!-- Latest Tweets -->
+		<!-- Latest Tweets 
 		<div class="four columns">
 			<div class="footer-headline"><h4>ارتباط با ما</h4></div>
 			<ul class="links-list rtl contact">
@@ -65,7 +65,7 @@
 				<li class="latin-font"><i class="mini-ico-user"></i><p class="latin-font ltr" style="text-align:left;"><?php echo $tel; ?></p></li>
 				<li class="latin-font"><i class="mini-ico-print"></i><p class="latin-font ltr" style="text-align:left;"><?php echo $fax; ?></p></li>
 			</ul>
-		</div>
+		</div> -->
 		<!-- <div class="four columns">
 			<div class="footer-headline"><h4>اشتراک خبرنامه</h4></div>
 			<form id="subscribfrm" method="post" action="">
