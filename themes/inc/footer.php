@@ -27,7 +27,7 @@
 		</div>	
 		<!-- Useful Links -->
 		<div class="four columns">
-			<div class="footer-headline"><h4>اخبار</h4></div>
+			<div class="footer-headline"><h4>تازه ها</h4></div>
 			<ul class="links-list rtl">
 				<?php									  					
 					for($i=0 ; $i<7 ; $i++){

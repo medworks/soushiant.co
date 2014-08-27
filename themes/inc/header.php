@@ -120,26 +120,8 @@ header('Content-Type: text/html; charset=UTF-8');
 		<div id="navigation">
 			<ul id="nav">
 				<li><a href="./">صفحه اصلی</a></li>
-				<li><a href="about-us.html">درباره ما</a>
-					<!-- <ul>
-						<li><a href="full_width.html">درباره ما</a></li>
-						<li><a href="about-us.html">About Us</a></li>
-						<li><a href="services.html">Services</a></li>
-						<li><a href="pricing_tables.html">Pricing Tables</a></li>
-						<li><a href="flexslider.html">FlexSlider</a></li>
-
-						<li><a href="#">Page Templates</a>
-							<ul>
-								<li><a href="sidebar_right.html">درباره ما</a></li>
-								<li><a href="sidebar_left.html">Sidebar Left</a></li>
-								<li><a href="blog_post.html">Single Post</a></li>
-								<li><a href="single_project.html">Single Project</a></li>
-							</ul>
-						</li>
-					</ul> -->
-				</li>
 				<li><a href="services.html">خدمات</a></li>
-				<li><a href="adsl.html">ADSL</a>
+				<li><a href="adsl.html">اینترنت پرسرعت</a>
 					<!-- <ul>
 						<li><a href="portfolio_2.html">2 Columns</a></li>
 						<li><a href="portfolio_3.html">3 Columns</a></li>
@@ -149,7 +131,8 @@ header('Content-Type: text/html; charset=UTF-8');
 				</li>
 				<li><a href="product.html">خرید کالا</a></li>
 				<li><a href="works.html">پروژه ها</a></li>
-				<li><a href="news.html">اخبار</a></li>
+				<li><a href="news.html">تازه ها</a></li>
+				<li><a href="about-us.html">درباره ما</a></li>
 				<li><a href="contact.html">تماس با ما</a></li>
 			</ul>
 			<!-- Search Form -->
