@@ -25,7 +25,7 @@
 			<div class="footer-headline"><h4>همکاران</h4></div>
 			<ul class="links-list rtl">
 				<li><a href="http://10.70.246.75:88/Pages/Login.aspx?ReturnUrl=%2fMemberPages%2f" target="_blank" title="اینترنت مخابرات">شرکت مخابرات خراسان رضوی</a></li>
-				<li><a href="" target="_blank" title="شرکت شاتل">شرکت شاتل</a></li>
+				<li><a href="http://80.191.241.124/login.aspx" target="_blank" title="شرکت شاتل">شرکت شاتل</a></li>
 				<li><a href="http://qt.asiatech.ir/" target="_blank" title="شرکت آسیاتک">شرکت آسیاتک</a></li>
 				<li><a href="" target="_blank" title="شرکت مبین نت">شرکت مبین نت</a></li>
 				<li><a href="" target="_blank" title="پنل ارسال اس ام اس">پنل ارسال اس ام اس</a></li>
